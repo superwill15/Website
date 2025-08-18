@@ -65,6 +65,15 @@
     .btn-secondary{ background:var(--white); color:var(--primary-navy); }
     .btn-secondary:hover{ transform:translateY(-3px); box-shadow:0 15px 30px rgba(255,255,255,.3); }
 
+    /* “Coming Soon” badge wrapper */
+    .cs-wrap{ position:relative; display:inline-block; }
+    .cs-badge{
+      position:absolute; top:-10px; right:-10px;
+      background:var(--accent-orange); color:#fff; font-size:12px; font-weight:700;
+      padding:4px 8px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.2);
+    }
+    .btn-disabled{ opacity:.7; cursor:not-allowed; }
+
     /* Sections */
     .section{ padding:80px 20px; }
     .section-gray{ background:var(--bg-light); }
@@ -281,7 +290,13 @@
             <li>Export-ready files for all major CMMS platforms</li>
           </ul>
           <div style="margin-top:30px;">
-            <button class="btn-primary" onclick="openModal()">Start Free Trial</button>
+            <!-- Start Free Trial (Coming Soon) -->
+            <span class="cs-wrap" title="Coming soon">
+              <button class="btn-primary btn-disabled" aria-disabled="true" disabled>
+                Start Free Trial
+              </button>
+              <span class="cs-badge">Coming&nbsp;Soon</span>
+            </span>
           </div>
         </div>
 
@@ -439,7 +454,13 @@
       <p>Join forward-thinking maintenance teams who've stopped accepting bad data as inevitable.</p>
       <div class="hero-buttons">
         <button class="btn-secondary" onclick="openModal()">Schedule Demo</button>
-        <button class="btn-primary" onclick="openModal()" style="background:#fff;color:var(--primary-navy);">Start Free Trial</button>
+        <!-- Start Free Trial (Coming Soon) in CTA -->
+        <span class="cs-wrap" title="Coming soon">
+          <button class="btn-primary btn-disabled" aria-disabled="true" disabled style="background:#fff;color:var(--primary-navy);">
+            Start Free Trial
+          </button>
+          <span class="cs-badge">Coming&nbsp;Soon</span>
+        </span>
       </div>
     </div>
   </section>
@@ -508,9 +529,15 @@
 
         <!-- Web3Forms -->
         <form id="demoForm" class="demo-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <!-- Your access key -->
           <input type="hidden" name="access_key" value="c300faca-a3f7-4781-b00c-83651d9db015" />
           <!-- Optional: honeypot -->
-          <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" style="display:none;"/>
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;"/>
+
+          <!-- Optional metadata for nicer emails -->
+          <input type="hidden" name="subject" value="Astrelo Demo Request" />
+          <input type="hidden" name="from_name" value="Astrelo Website" />
+          <input type="hidden" name="reply_to" value="{{email}}" />
 
           <div class="form-row">
             <div class="form-group">
@@ -572,7 +599,6 @@
           <!-- Tracking -->
           <input type="hidden" name="form_type" value="demo_request"/>
           <input type="hidden" name="page" value="homepage"/>
-          <!-- Redirect (optional; Web3Forms will redirect if success:true) -->
           <input type="hidden" name="redirect" value="https://astrelo.io/thank-you"/>
 
           <div class="form-actions">
@@ -592,7 +618,6 @@
     function openModal() {
       modal.classList.add('show');
       document.body.style.overflow = 'hidden';
-      // focus first field
       setTimeout(() => document.getElementById('name')?.focus(), 50);
     }
 
@@ -624,13 +649,12 @@
         const formData = new FormData(form);
         const res = await fetch(form.action, { method: 'POST', body: formData });
 
-        // Web3Forms returns JSON; handle both 200 + JSON and 302 redirect behaviors
         let ok = false;
         try {
           const data = await res.clone().json();
           ok = data?.success === true;
         } catch {
-          ok = res.ok; // fallback
+          ok = res.ok;
         }
 
         if (ok) {
@@ -638,4 +662,18 @@
           form.reset();
           setTimeout(closeModal, 3000);
         } else {
-          alert('There was an error submitting the form. P
+          alert('There was an error submitting the form. Please try again or email us at william@astrelo.io');
+        }
+      } catch (err) {
+        alert('There was an error submitting the form. Please try again or email us at william@astrelo.io');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request Demo';
+      }
+    });
+
+    // Auto-open if #demo anchor present
+    if (window.location.hash === '#demo') openModal();
+  </script>
+</body>
+</html>
