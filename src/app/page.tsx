@@ -90,12 +90,9 @@ export default function HomePage() {
               </ul>
               
               <div style={{marginTop: '30px'}}>
-                <span className="cs-wrap" title="Coming soon">
-                  <button className="btn-primary btn-disabled" aria-disabled="true" disabled>
-                    Start Free Trial
-                  </button>
-                  <span className="cs-badge">Coming&nbsp;Soon</span>
-                </span>
+                <a href="https://app.assetstage.io" className="btn-primary" target="_blank" rel="noopener noreferrer">
+                  Start Free Trial
+                </a>
               </div>
             </div>
             
@@ -289,12 +286,9 @@ export default function HomePage() {
           <p>Join forward-thinking maintenance teams who&apos;ve stopped accepting bad data as inevitable.</p>
           <div className="hero-buttons">
             <button className="btn-secondary" onClick={openModal}>Schedule Demo</button>
-            <span className="cs-wrap" title="Coming soon">
-              <button className="btn-primary btn-disabled" aria-disabled="true" disabled style={{background:'#fff',color:'var(--primary-navy)'}}>
-                Start Free Trial
-              </button>
-              <span className="cs-badge">Coming&nbsp;Soon</span>
-            </span>
+            <a href="https://app.assetstage.io" className="btn-primary" target="_blank" rel="noopener noreferrer" style={{background:'#fff',color:'var(--primary-navy)'}}>
+              Start Free Trial
+            </a>
           </div>
         </div>
       </section>
