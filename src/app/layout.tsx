@@ -1,15 +1,14 @@
 import "./globals.css";
 import Script from "next/script";
-import Link from "next/link";
 
 export const metadata = {
-  title: "AssetStage.io — Data Staging & Quality Platform",
+  title: "AssetStage - Industrial Data Excellence",
   description:
-    "Stage, optimize, and prepare asset data for CMMS integration with hierarchies, dynamic attributes, and analytics.",
+    "AssetStage delivers cutting-edge data staging and quality solutions that make your CMMS actually work. Stop fighting bad data. Start driving results.",
   openGraph: {
-    title: "AssetStage.io — Data Staging & Quality Platform",
+    title: "AssetStage - Industrial Data Excellence",
     description:
-      "Stage, optimize, and prepare asset data for CMMS integration with hierarchies, dynamic attributes, and analytics.",
+      "AssetStage delivers cutting-edge data staging and quality solutions that make your CMMS actually work. Stop fighting bad data. Start driving results.",
     url: "https://assetstage.io",
     type: "website",
   },
@@ -38,40 +37,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
-        {/* Header with reverse logo */}
-        <header className="site-header">
-          <div className="container nav">
-            <Link href="/" className="brand">
-              <img
-                src="/logo-reverse.png"
-                alt="AssetStage logo"
-                height={40}
-              />
-            </Link>
-            <nav className="menu">
-              <Link href="/features">Features</Link>
-              <Link href="/pricing">Pricing</Link>
-              <Link href="/blog">Blog</Link>
-              <Link href="/contact">Contact</Link>
-            </nav>
-          </div>
-        </header>
-
-        {/* Main content */}
-        <main className="container">{children}</main>
-
-        {/* Footer with primary logo */}
-        <footer className="site-footer">
-          <div className="container" style={{ textAlign: "center" }}>
-            <img
-              src="/logo-primary.png"
-              alt="AssetStage logo"
-              height={40}
-              style={{ marginBottom: "12px" }}
-            />
-            <div>© {new Date().getFullYear()} AssetStage.io. All rights reserved.</div>
-          </div>
-        </footer>
+        {children}
       </body>
     </html>
   );
