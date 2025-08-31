@@ -1,5 +1,6 @@
 import "./globals.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "AssetStage - Industrial Data Excellence",
@@ -38,6 +39,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <Analytics />
       </body>
     </html>
   );
