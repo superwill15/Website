@@ -7,19 +7,29 @@ export default async function BlogIndex() {
   const posts = await getAllPosts();
 
   return (
-    <section>
-      <h1>Blog</h1>
-      <div className="post-list">
+    <div className="blog-page">
+      <div className="blog-header">
+        <h1 className="blog-title">AssetStage Blog</h1>
+        <p className="blog-subtitle">Insights on CMMS, data quality, and engineering standards</p>
+      </div>
+      <div className="blog-list">
         {posts.map((p) => (
-          <Link key={p.slug} href={`/blog/${p.slug}`}>
-            <div>
-              <h3>{p.title}</h3>
-              <div style={{ color: "#6b7280", fontSize: 14 }}>{p.date}</div>
-              {p.description && <p>{p.description}</p>}
-            </div>
+          <Link key={p.slug} href={`/blog/${p.slug}`} className="blog-list-item">
+            <article className="blog-card-list">
+              <div className="blog-card-header">
+                <h3 className="blog-card-title">{p.title}</h3>
+                <div className="blog-card-meta">
+                  <span className="blog-card-date">{p.date}</span>
+                </div>
+              </div>
+              {p.description && (
+                <p className="blog-card-description">{p.description}</p>
+              )}
+              <span className="blog-read-more">Read article →</span>
+            </article>
           </Link>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
