@@ -1,6 +1,6 @@
 ---
 title: "Maritime CMMS: How Digital Maintenance Systems Are Revolutionizing the $30 Billion Shipping & Ship Repair Industry"
-date: "2024-09-03"
+date: "2025-09-03"
 description: "With over 109,000 vessels sailing the world's oceans and maintenance eating up 30% of shipping operating costs, the maritime industry is ripe for digital transformation. Here's how maritime CMMS platforms are turning reactive maintenance headaches into predictive maintenance success stories."
 ---
 

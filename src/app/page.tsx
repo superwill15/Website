@@ -53,7 +53,7 @@ export default function HomePage() {
             <li><a href="#home">Home</a></li>
             <li><a href="#assetstage">AssetStage</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -283,10 +283,23 @@ export default function HomePage() {
             </article>
             
             <article className="blog-card">
+              <div className="blog-image">Maritime Industry</div>
+              <div className="blog-content">
+                <div className="blog-meta">
+                  <span>September 3, 2025</span>
+                  <span>Maritime CMMS</span>
+                </div>
+                <h3>Maritime CMMS: How Digital Maintenance Systems Are Revolutionizing the $30 Billion Shipping Industry</h3>
+                <p>With over 109,000 vessels sailing the world's oceans and maintenance eating up 30% of shipping operating costs, discover how maritime CMMS platforms are turning reactive maintenance into predictive success stories.</p>
+                <a href="/blog/maritime-cmms-guide" className="read-more">Read More →</a>
+              </div>
+            </article>
+            
+            <article className="blog-card">
               <div className="blog-image">Standards Guide</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>September 3, 2024</span>
+                  <span>August 27, 2024</span>
                   <span>Engineering Standards</span>
                 </div>
                 <h3>RDS-PP to RDS-PS: Understanding the Evolution and Modern Improvements</h3>
@@ -294,6 +307,10 @@ export default function HomePage() {
                 <a href="/blog/rds-pp-vs-rds-ps-improvements" className="read-more">Read More →</a>
               </div>
             </article>
+          </div>
+          
+          <div style={{textAlign: 'center', marginTop: '40px'}}>
+            <a href="/blog" className="btn-primary">View All Blog Posts</a>
           </div>
         </div>
       </section>
