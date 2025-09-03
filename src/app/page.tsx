@@ -27,6 +27,7 @@ export default function HomePage() {
             <li><a href="#services">Services</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
           <button className="nav-cta" onClick={openModal}>Get Demo</button>
         </div>
@@ -205,12 +206,12 @@ export default function HomePage() {
               <div className="blog-image">Featured Article</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>August 15, 2025</span>
+                  <span>August 15, 2024</span>
                   <span>Data Quality</span>
                 </div>
                 <h3>Why 70% of CMMS Implementations Fail (And How to Be in the 30%)</h3>
                 <p>The shocking truth about CMMS failures isn&apos;t technology - it&apos;s data. Learn the five critical data quality mistakes that doom implementations and our proven framework for avoiding them.</p>
-                <a href="#" className="read-more">Read More →</a>
+                <a href="/blog/why-cmms-implementations-fail" className="read-more">Read More →</a>
               </div>
             </article>
             
@@ -218,12 +219,12 @@ export default function HomePage() {
               <div className="blog-image">Industry Guide</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>August 5, 2025</span>
+                  <span>August 5, 2024</span>
                   <span>Best Practices</span>
                 </div>
                 <h3>The Complete Guide to CMMS Data Migration</h3>
                 <p>Everything you need to know about migrating from legacy systems to modern CMMS platforms. Includes templates, checklists, and common pitfalls to avoid.</p>
-                <a href="#" className="read-more">Read More →</a>
+                <a href="/blog/complete-guide-cmms-data-migration" className="read-more">Read More →</a>
               </div>
             </article>
             
@@ -231,12 +232,12 @@ export default function HomePage() {
               <div className="blog-image">Technical Deep Dive</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>July 28, 2025</span>
+                  <span>July 28, 2024</span>
                   <span>Technical</span>
                 </div>
                 <h3>Maximo vs SAP PM: Data Structure Comparison</h3>
                 <p>A technical comparison of how Maximo and SAP PM handle asset hierarchies, work orders, and preventive maintenance. Essential reading for migration projects.</p>
-                <a href="#" className="read-more">Read More →</a>
+                <a href="/blog/maximo-vs-sap-pm-comparison" className="read-more">Read More →</a>
               </div>
             </article>
             
@@ -244,12 +245,12 @@ export default function HomePage() {
               <div className="blog-image">Industry Trends</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>July 20, 2025</span>
+                  <span>July 20, 2024</span>
                   <span>Market Analysis</span>
                 </div>
                 <h3>Why AI Won&apos;t Save Your CMMS (But Good Data Will)</h3>
                 <p>Everyone&apos;s talking about AI in maintenance, but the real ROI comes from something much simpler: clean, standardized data. Here&apos;s why data quality beats algorithms every time.</p>
-                <a href="#" className="read-more">Read More →</a>
+                <a href="/blog/why-ai-wont-save-your-cmms" className="read-more">Read More →</a>
               </div>
             </article>
             
@@ -257,12 +258,12 @@ export default function HomePage() {
               <div className="blog-image">How-To Guide</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>July 15, 2025</span>
+                  <span>July 15, 2024</span>
                   <span>Tutorial</span>
                 </div>
                 <h3>Building Your Asset Hierarchy: A Step-by-Step Guide</h3>
                 <p>Learn how to structure your asset hierarchy for maximum efficiency. Includes real-world examples from manufacturing, utilities, and facilities management.</p>
-                <a href="#" className="read-more">Read More →</a>
+                <a href="/blog/building-asset-hierarchy-guide" className="read-more">Read More →</a>
               </div>
             </article>
           </div>
@@ -287,6 +288,37 @@ export default function HomePage() {
             <p style={{fontSize: '18px', lineHeight: '1.8', color: 'var(--text-light)'}}>
               Today, we help maintenance teams across manufacturing, utilities, and facilities management achieve what was once impossible: clean, standardized CMMS data in weeks, not months, at a fraction of traditional costs.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="section section-gray" id="contact">
+        <div className="container">
+          <div className="section-header">
+            <h2>Get In Touch</h2>
+            <p>Ready to transform your maintenance data?</p>
+          </div>
+          
+          <div style={{maxWidth: '600px', margin: '0 auto', textAlign: 'center'}}>
+            <div className="service-card" style={{padding: '40px'}}>
+              <div className="service-icon" style={{fontSize: '48px', marginBottom: '20px'}}>✉️</div>
+              <h3 style={{marginBottom: '20px'}}>Contact Our Sales Team</h3>
+              <p style={{fontSize: '18px', marginBottom: '30px', color: 'var(--text-light)'}}>
+                Have questions about AssetStage? Want to discuss your specific requirements? 
+                Our team is ready to help you achieve CMMS data excellence.
+              </p>
+              <a 
+                href="mailto:sales@assetstage.io" 
+                className="btn-primary" 
+                style={{display: 'inline-block', fontSize: '18px', padding: '15px 40px'}}
+              >
+                Email sales@assetstage.io
+              </a>
+              <p style={{marginTop: '20px', fontSize: '16px', color: 'var(--text-light)'}}>
+                We typically respond within 24 hours
+              </p>
+            </div>
           </div>
         </div>
       </section>
