@@ -145,7 +145,7 @@ export default function HomePage() {
             <div className="service-card">
               <div className="service-icon">💰</div>
               <h3>90% Cost Savings</h3>
-              <p>Get enterprise-quality results at a fraction of traditional consulting costs. Your $15K investment replaces $150K+ consulting projects.</p>
+              <p>Get enterprise-quality results at a fraction of traditional consulting costs. For organizations that prefer hands-on support, our skilled consultants are available to deliver full implementations combining platform efficiency with expert guidance.</p>
             </div>
             <div className="service-card">
               <div className="service-icon">⚡</div>
@@ -328,7 +328,7 @@ export default function HomePage() {
               AssetStage was founded by maintenance and reliability engineers who experienced firsthand the pain of CMMS implementations destroyed by bad data. We watched companies spend millions on software that never delivered value because the data was wrong.
             </p>
             <p style={{fontSize: '18px', lineHeight: '1.8', color: 'var(--text-light)', marginBottom: '30px'}}>
-              We built AssetStage to solve this problem once and for all. Our platform makes enterprise-quality data staging accessible to every organization, not just those with $400K consulting budgets.
+              We built AssetStage to solve this problem once and for all. Our platform makes enterprise-quality data staging accessible to every organization, with skilled consultants available for those who prefer expert-delivered implementations.
             </p>
             <p style={{fontSize: '18px', lineHeight: '1.8', color: 'var(--text-light)'}}>
               Today, we help maintenance teams across manufacturing, utilities, and facilities management achieve what was once impossible: clean, standardized CMMS data in weeks, not months, at a fraction of traditional costs.
