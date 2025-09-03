@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 
-export const metadata = { title: "Blog — AssetStage" };
+export const metadata = { 
+  title: "CMMS & Engineering Standards Blog - AssetStage", 
+  description: "Expert insights on CMMS implementation, data quality, RDS-PS, RDS-PP, ISO 14224, KKS, SFI standards, and industrial asset management best practices."
+};
 
 export default async function BlogIndex() {
   const posts = await getAllPosts();

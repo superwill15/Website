@@ -5,6 +5,30 @@ import { useState } from 'react';
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AssetStage",
+    "url": "https://assetstage.io",
+    "logo": "https://assetstage.io/logo.png",
+    "description": "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards.",
+    "founder": {
+      "@type": "Organization",
+      "name": "AssetStage"
+    },
+    "foundingDate": "2024",
+    "industry": "Industrial Software",
+    "serviceArea": "Global",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "sales@assetstage.io"
+    },
+    "sameAs": [
+      "https://assetstage.io"
+    ]
+  };
+
   const openModal = () => {
     setModalOpen(true);
     document.body.style.overflow = 'hidden';
@@ -17,6 +41,10 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       {/* Navigation */}
       <nav>
         <div className="nav-container">

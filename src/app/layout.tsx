@@ -3,15 +3,32 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
-  title: "AssetStage - Industrial Data Excellence",
+  title: "AssetStage - CMMS Data Quality & Engineering Standards Platform",
   description:
-    "AssetStage delivers cutting-edge data staging and quality solutions that make your CMMS actually work. Stop fighting bad data. Start driving results.",
+    "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards. 90% cost reduction vs consultants.",
+  keywords: "CMMS data quality, asset management, RDS-PS, RDS-PP, ISO 14224, KKS, SFI, engineering standards, maintenance data migration, CMMS implementation, industrial data staging",
+  authors: [{ name: "AssetStage" }],
+  creator: "AssetStage",
+  publisher: "AssetStage",
+  robots: "index, follow",
   openGraph: {
-    title: "AssetStage - Industrial Data Excellence",
+    title: "AssetStage - CMMS Data Quality & Engineering Standards Platform",
     description:
-      "AssetStage delivers cutting-edge data staging and quality solutions that make your CMMS actually work. Stop fighting bad data. Start driving results.",
+      "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards. 90% cost reduction vs consultants.",
     url: "https://assetstage.io",
+    siteName: "AssetStage",
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AssetStage - CMMS Data Quality & Engineering Standards Platform",
+    description:
+      "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards.",
+    creator: "@AssetStage",
+  },
+  alternates: {
+    canonical: "https://assetstage.io",
   },
 };
 
