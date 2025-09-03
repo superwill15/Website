@@ -255,15 +255,15 @@ export default function HomePage() {
             </article>
             
             <article className="blog-card">
-              <div className="blog-image">How-To Guide</div>
+              <div className="blog-image">Standards Guide</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>July 15, 2024</span>
-                  <span>Tutorial</span>
+                  <span>September 3, 2024</span>
+                  <span>Engineering Standards</span>
                 </div>
-                <h3>Building Your Asset Hierarchy: A Step-by-Step Guide</h3>
-                <p>Learn how to structure your asset hierarchy for maximum efficiency. Includes real-world examples from manufacturing, utilities, and facilities management.</p>
-                <a href="/blog/building-asset-hierarchy-guide" className="read-more">Read More →</a>
+                <h3>RDS-PP to RDS-PS: Understanding the Evolution and Modern Improvements</h3>
+                <p>A detailed comparison exploring how RDS-PS improves upon RDS-PP with modern standardization, enhanced flexibility, and superior digital integration capabilities.</p>
+                <a href="/blog/rds-pp-vs-rds-ps-improvements" className="read-more">Read More →</a>
               </div>
             </article>
           </div>
