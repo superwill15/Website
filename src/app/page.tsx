@@ -306,7 +306,15 @@ export default function HomePage() {
               <h3 style={{marginBottom: '20px'}}>Contact Our Sales Team</h3>
               <p style={{fontSize: '18px', marginBottom: '30px', color: 'var(--text-light)'}}>
                 Have questions about AssetStage? Want to discuss your specific requirements? 
+                Need expert help with engineering standards implementation (RDS-PP, RDS-PS, ISO 14224, KKS, SFI)?
                 Our team is ready to help you achieve CMMS data excellence.
+              </p>
+              <p style={{fontSize: '16px', marginBottom: '25px', color: 'var(--text-light)'}}>
+                <strong>Ask us about our Professional Services:</strong><br/>
+                • Engineering Standards Consultancy & Training<br/>
+                • CMMS Data Migration & Implementation<br/>
+                • Standards Mapping & Integration<br/>
+                • Custom Solutions for Your Industry
               </p>
               <a 
                 href="mailto:sales@assetstage.io" 
