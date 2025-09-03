@@ -137,10 +137,22 @@ export default function HomePage() {
         <div className="container">
           <div className="section-header">
             <h2>AssetStage Professional Services</h2>
-            <p>Beyond software, we provide expert guidance to ensure your success</p>
+            <p>Expert guidance in engineering standards, data management, and CMMS implementation</p>
           </div>
           
           <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">🏗️</div>
+              <h3>Engineering Standards Consultancy</h3>
+              <p>Expert implementation of international engineering standards including PDS-PP (Norwegian petroleum data), RDS-PS (power systems), ISO 14224 (reliability data), KKS (power plant classification), and SFI (marine classification). We ensure your assets are classified and structured according to industry best practices.</p>
+            </div>
+            
+            <div className="service-card">
+              <div className="service-icon">🎓</div>
+              <h3>Standards Training & Certification</h3>
+              <p>Comprehensive training programs on engineering classification systems. Learn how to implement PDS-PP for oil & gas, RDS-PS for power generation, ISO 14224 for reliability, KKS for industrial plants, and SFI for marine systems. Build internal expertise in global standards.</p>
+            </div>
+            
             <div className="service-card">
               <div className="service-icon">📋</div>
               <h3>CMMS Selection Advisory</h3>
@@ -154,27 +166,27 @@ export default function HomePage() {
             </div>
             
             <div className="service-card">
-              <div className="service-icon">🎓</div>
-              <h3>Implementation Training</h3>
-              <p>Comprehensive training programs that empower your team to maintain data quality long after implementation. Build internal expertise that lasts.</p>
-            </div>
-            
-            <div className="service-card">
               <div className="service-icon">🏭</div>
-              <h3>Industry Templates</h3>
-              <p>Pre-built configurations for manufacturing, utilities, and facilities. Start with proven standards instead of reinventing the wheel.</p>
+              <h3>Industry Templates & Standards</h3>
+              <p>Pre-built configurations aligned with international standards. Templates for PDS-PP (petroleum), RDS-PS (power), ISO 14224 (reliability), KKS (plant classification), and SFI (marine). Start with proven industry frameworks.</p>
             </div>
             
             <div className="service-card">
               <div className="service-icon">📊</div>
               <h3>Master Data Governance</h3>
-              <p>Ongoing data quality management services. Keep your CMMS data clean with automated workflows and regular health checks.</p>
+              <p>Ongoing data quality management services aligned with engineering standards. Keep your CMMS data clean with automated workflows and regular health checks.</p>
             </div>
             
             <div className="service-card">
               <div className="service-icon">🚀</div>
-              <h3>Success Acceleration</h3>
-              <p>For teams that need extra support, our success managers provide hands-on guidance through your entire implementation journey.</p>
+              <h3>Standards Implementation</h3>
+              <p>End-to-end support for implementing engineering classification systems. From gap analysis to full deployment of PDS-PP, RDS-PS, ISO 14224, KKS, or SFI standards in your organization.</p>
+            </div>
+            
+            <div className="service-card">
+              <div className="service-icon">🌍</div>
+              <h3>Cross-Industry Standards Mapping</h3>
+              <p>Bridge different classification systems during mergers, acquisitions, or multi-site operations. Map between PDS-PP, RDS-PS, ISO 14224, KKS, SFI and other standards for seamless integration.</p>
             </div>
           </div>
         </div>
