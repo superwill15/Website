@@ -9,6 +9,7 @@ export default function HomePage() {
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -45,6 +46,10 @@ export default function HomePage() {
     setFormSuccess(false);
     setFormError('');
     setFormSubmitting(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -93,7 +98,7 @@ export default function HomePage() {
       {/* Navigation */}
       <nav>
         <div className="nav-container">
-          <a href="/" className="logo-link" aria-label="AssetStage Home" style={{ transform: 'translate(65px, -1px)' }}>
+          <a href="/" className="logo-link" aria-label="AssetStage Home">
             <Logo variant="primary" width={200} height={50} />
           </a>
           <ul className="nav-links">
@@ -106,6 +111,27 @@ export default function HomePage() {
             <li><a href="#contact">Contact</a></li>
           </ul>
           <button className="nav-cta" onClick={openModal}>Get Demo</button>
+          
+          {/* Mobile Menu Button */}
+          <button className={`mobile-menu-btn ${mobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu} aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
+          <ul className="mobile-nav-links">
+            <li><a href="#home" onClick={toggleMobileMenu}>Home</a></li>
+            <li><a href="#assetstage" onClick={toggleMobileMenu}>AssetStage</a></li>
+            <li><a href="#services" onClick={toggleMobileMenu}>Services</a></li>
+            <li><a href="/blog" onClick={toggleMobileMenu}>Blog</a></li>
+            <li><a href="#resources" onClick={toggleMobileMenu}>Resources</a></li>
+            <li><a href="#about" onClick={toggleMobileMenu}>About</a></li>
+            <li><a href="#contact" onClick={toggleMobileMenu}>Contact</a></li>
+            <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Get Demo</button></li>
+          </ul>
         </div>
       </nav>
 
