@@ -145,7 +145,7 @@ export default function ResourcesSection() {
       setDownloadedResources(newDownloaded);
       
       // Save to localStorage
-      localStorage.setItem('assetstage-downloaded-resources', JSON.stringify([...newDownloaded]));
+      localStorage.setItem('assetstage-downloaded-resources', JSON.stringify(Array.from(newDownloaded)));
 
       // Trigger file download
       const link = document.createElement('a');
