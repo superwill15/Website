@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 60" width="300" height="60">
+  <defs>
+    <linearGradient id="compactGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3498db" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#5dade2" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <g transform="scale(0.8)">
+    <rect x="15" y="35" width="40" height="6" rx="1" fill="#2c3e50"/>
+    <rect x="18" y="26" width="8" height="8" rx="1" fill="#3498db"/>
+    <rect x="28" y="26" width="8" height="8" rx="1" fill="#27ae60"/>
+    <rect x="38" y="26" width="8" height="8" rx="1" fill="#f39c12"/>
+    <g transform="translate(35,20)">
+      <circle cx="0" cy="0" r="5" fill="#27ae60"/>
+      <path d="M -2.5 0 L -0.5 2 L 2.5 -1.5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <text x="55" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#2c3e50">
+    ASSET<tspan fill="url(#compactGrad)">STAGE</tspan>
+  </text>
+</svg>

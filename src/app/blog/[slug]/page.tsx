@@ -1,4 +1,5 @@
 import { getAllPosts, getPost } from "@/lib/posts";
+import BlogCTA from "@/components/BlogCTA";
 
 type Params = { slug: string };
 
@@ -60,9 +61,19 @@ export default async function BlogPostPage({ params }: { params: Params }) {
             )}
           </div>
           <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+          
+          {/* Inline CTA after article content */}
+          <BlogCTA variant="inline" />
         </article>
-        <div className="blog-post-footer">
+        
+        {/* Navigation and additional CTAs */}
+        <div className="blog-post-footer" style={{ marginTop: '40px' }}>
           <a href="/blog" className="back-to-blog">← Back to Blog</a>
+          
+          {/* Prominent CTA section at the bottom */}
+          <div style={{ marginTop: '60px' }}>
+            <BlogCTA />
+          </div>
         </div>
       </div>
     </>

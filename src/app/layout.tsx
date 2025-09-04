@@ -11,6 +11,10 @@ export const metadata = {
   creator: "AssetStage",
   publisher: "AssetStage",
   robots: "index, follow",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "AssetStage - CMMS Data Quality & Engineering Standards Platform",
     description:
@@ -19,6 +23,14 @@ export const metadata = {
     siteName: "AssetStage",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "https://assetstage.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AssetStage - CMMS Data Staging & Quality Platform",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -26,6 +38,7 @@ export const metadata = {
     description:
       "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards.",
     creator: "@AssetStage",
+    images: ["https://assetstage.io/og-image.png"],
   },
   alternates: {
     canonical: "https://assetstage.io",

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssetStage Brand Guidelines - Complete System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Primary Colors */
+            --primary-navy-start: #1e3c72;
+            --primary-navy-end: #2a5298;
+            --stage-blue: #3498db;
+            --stage-blue-light: #5dade2;
+            --quality-green: #27ae60;
+            --quality-green-light: #52c41a;
+            --process-orange: #f39c12;
+            --process-orange-light: #faad14;
+            
+            /* Neutral Colors */
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --text-muted: #adb5bd;
+            --border-light: #dee2e6;
+            --bg-light: #f8f9fa;
+            --bg-gray: #e9ecef;
+            --white: #ffffff;
+            
+            /* Semantic Colors */
+            --success: #27ae60;
+            --warning: #f39c12;
+            --error: #e74c3c;
+            --info: #3498db;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-navy-start) 0%, var(--primary-navy-end) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: var(--text-primary);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bg-gray);
+        }
+        
+        h3 {
+            color: var(--text-primary);
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .logo-item {
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .logo-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo-display {
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+        }
+        
+        .logo-display.dark {
+            background: linear-gradient(135deg, var(--primary-navy-start) 0%, var(--primary-navy-end) 100%);
+        }
+        
+        .logo-display.light {
+            background: white;
+        }
+        
+        .logo-display.gray {
+            background: var(--bg-gray);
+        }
+        
+        .logo-info {
+            padding: 20px;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .logo-info h4 {
+            font-size: 16px;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .logo-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .logo-info .usage-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        .color-system {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .color-group {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .color-group h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        
+        .color-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+        
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+        
+        .color-details {
+            padding: 10px 15px;
+            flex-grow: 1;
+        }
+        
+        .color-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .color-code {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+        
+        .typography-sample {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+        
+        .typography-sample .label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .implementation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .implementation-card {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .implementation-card h4 {
+            color: var(--stage-blue);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .code-block .comment {
+            color: #6a9955;
+        }
+        
+        .code-block .property {
+            color: #9cdcfe;
+        }
+        
+        .code-block .value {
+            color: #ce9178;
+        }
+        
+        .usage-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .usage-list li {
+            padding: 15px;
+            background: var(--bg-light);
+            border-left: 4px solid var(--stage-blue);
+            margin-bottom: 12px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .usage-list strong {
+            color: var(--text-primary);
+            display: inline-block;
+            min-width: 150px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .badge.new {
+            background: var(--quality-green);
+            color: white;
+        }
+        
+        .badge.important {
+            background: var(--process-orange);
+            color: white;
+        }
+        
+        .download-section {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--stage-blue);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        
+        .download-btn:hover {
+            background: var(--stage-blue-light);
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .icon-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .icon-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .icon-preview {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 10px;
+        }
+        
+        .icon-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AssetStage Brand Guidelines</h1>
+        <p class="subtitle">Complete brand system for web and application implementation</p>
+    </div>
+
+    <div class="container">
+        <!-- Logo System -->
+        <div class="section">
+            <h2>Logo System</h2>
+            
+            <div class="logo-grid">
+                <!-- Primary Logo -->
+                <div class="logo-item">
+                    <div class="logo-display light">
+                        <svg viewBox="0 0 400 100" style="width: 100%; max-width: 350px;">
+                            <defs>
+                                <linearGradient id="primaryGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e3c72;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#2a5298;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="primaryGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#5dade2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <g id="icon">
+                                <rect x="20" y="55" width="60" height="8" rx="1" fill="url(#primaryGrad1)" />
+                                <rect x="25" y="42" width="12" height="12" rx="1" fill="#3498db" opacity="0.9" />
+                                <rect x="39" y="42" width="12" height="12" rx="1" fill="#27ae60" opacity="0.9" />
+                                <rect x="53" y="42" width="12" height="12" rx="1" fill="#f39c12" opacity="0.9" />
+                                <g transform="translate(50, 35)">
+                                    <circle cx="0" cy="0" r="8" fill="#27ae60" fill-opacity="0.95" />
+                                    <path d="M -4 0 L -1 3 L 4 -2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </g>
+                            <text x="100" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="700" fill="#2c3e50">
+                                ASSET<tspan fill="url(#primaryGrad2)">STAGE</tspan>
+                            </text>
+                            <text x="100" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="400" fill="#7f8c8d" letter-spacing="0.5">
+                                DATA STAGING &amp; QUALITY PLATFORM
+                            </text>
+                        </svg>
+                    </div>
+                    <div class="logo-info">
+                        <h4>Primary Logo</h4>
+                        <p>Main brand identity for website headers and marketing</p>
+                        <p class="usage-note">Use on light backgrounds, minimum width: 280px</p>
+                    </div>
+                </div>
+
+                <!-- Dark Background Logo -->
+                <div class="logo-item">
+                    <div class="logo-display dark">
+                        <svg viewBox="0 0 400 100" style="width: 100%; max-width: 350px;">
+                            <g id="icon">
+                                <rect x="20" y="55" width="60" height="8" rx="1" fill="white" opacity="0.9" />
+                                <rect x="25" y="42" width="12" height="12" rx="1" fill="#5dade2" />
+                                <rect x="39" y="42" width="12" height="12" rx="1" fill="#52c41a" />
+                                <rect x="53" y="42" width="12" height="12" rx="1" fill="#faad14" />
+                                <g transform="translate(50, 35)">
+                                    <circle cx="0" cy="0" r="8" fill="#52c41a" />
+                                    <path d="M -4 0 L -1 3 L 4 -2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </g>
+                            <text x="100" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="700" fill="white">
+                                ASSET<tspan fill="#5dade2">STAGE</tspan>
+                            </text>
+                            <text x="100" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="400" fill="#adb5bd" letter-spacing="0.5">
+                                DATA STAGING &amp; QUALITY PLATFORM
+                            </text>
+                        </svg>
+                    </div>
+                    <div class="logo-info">
+                        <h4>Reverse Logo</h4>
+                        <p>For dark themes and navy backgrounds</p>
+                        <p class="usage-note">Maintains visibility on dark surfaces</p>
+                    </div>
+                </div>
+
+                <!-- App Icon -->
+                <div class="logo-item">
+                    <div class="logo-display light">
+                        <svg viewBox="0 0 100 100" style="width: 120px; height: 120px;">
+                            <defs>
+                                <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e3c72;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#2a5298;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="100" height="100" rx="20" fill="white" />
+                            <rect x="20" y="65" width="60" height="10" rx="2" fill="url(#iconGrad)" />
+                            <rect x="26" y="48" width="14" height="14" rx="2" fill="#3498db" />
+                            <rect x="43" y="48" width="14" height="14" rx="2" fill="#27ae60" />
+                            <rect x="60" y="48" width="14" height="14" rx="2" fill="#f39c12" />
+                            <g transform="translate(50, 40)">
+                                <circle cx="0" cy="0" r="10" fill="#27ae60" />
+                                <path d="M -5 0 L -1.5 3.5 L 5 -3" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="logo-info">
+                        <h4>App Icon</h4>
+                        <p>Square format for application and favicon</p>
+                        <p class="usage-note">Available in 16px to 512px sizes</p>
+                    </div>
+                </div>
+
+                <!-- Compact Logo -->
+                <div class="logo-item">
+                    <div class="logo-display gray">
+                        <svg viewBox="0 0 300 60" style="width: 100%; max-width: 280px;">
+                            <defs>
+                                <linearGradient id="compactGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#5dade2;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <g transform="scale(0.8)">
+                                <rect x="15" y="35" width="40" height="6" rx="1" fill="#2c3e50" />
+                                <rect x="18" y="26" width="8" height="8" rx="1" fill="#3498db" />
+                                <rect x="28" y="26" width="8" height="8" rx="1" fill="#27ae60" />
+                                <rect x="38" y="26" width="8" height="8" rx="1" fill="#f39c12" />
+                                <g transform="translate(35, 20)">
+                                    <circle cx="0" cy="0" r="5" fill="#27ae60" />
+                                    <path d="M -2.5 0 L -0.5 2 L 2.5 -1.5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                            </g>
+                            <text x="55" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#2c3e50">
+                                ASSET<tspan fill="url(#compactGrad)">STAGE</tspan>
+                            </text>
+                        </svg>
+                    </div>
+                    <div class="logo-info">
+                        <h4>Compact Horizontal</h4>
+                        <p>For application headers and navigation bars</p>
+                        <p class="usage-note">Optimized for 60px height constraints</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color System -->
+        <div class="section">
+            <h2>Color System</h2>
+            
+            <div class="color-system">
+                <div class="color-group">
+                    <h4>Primary Colors</h4>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);"></div>
+                        <div class="color-details">
+                            <div class="color-name">Primary Navy</div>
+                            <div class="color-code">#1e3c72 → #2a5298</div>
+                        </div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #3498db;"></div>
+                        <div class="color-details">
+                            <div class="color-name">Stage Blue</div>
+                            <div class="color-code">#3498db</div>
+                        </div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #5dade2;"></div>
+                        <div class="color-details">
+                            <div class="color-name">Stage Blue Light</div>
+                            <div class="color-code">#5dade2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-group">
+                    <h4>Accent Colors</h4>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #27ae60;"></div>
+                        <div class="color-details">
+                            <div class="color-name">Quality Green</div>
+                            <div class="color-code">#27ae60</div>
+                        </div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #f39c12;"></div>
+                        <div class="color-details">
+                            <div class="color-name">Process Orange</div>
+                            <div class="color-code">#f39c12</div>
+                        </div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #e74c3c;"></div>
+                        <div class="color-details">
+                            <div class="color-name">Error Red</div>
+                            <div class="color-code">#e74c3c</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-group">
+                    <h4>Neutral Colors</h4>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #2c3e50;"></div>
+                        <div class="color-details">
+                            <div class="color-name">Text Primary</div>
+                            <div class="color-code">#2c3e50</div>
+                        </div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #7f8c8d;"></div>
+                        <div class="color-details">
+                            <div class="color-name">Text Secondary</div>
+                            <div class="color-code">#7f8c8d</div>
+                        </div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background: #e9ecef;"></div>
+                        <div class="color-details">
+                            <div class="color-name">Background Gray</div>
+                            <div class="color-code">#e9ecef</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typography -->
+        <div class="section">
+            <h2>Typography</h2>
+            
+            <div class="typography-sample">
+                <div class="label">Display Heading</div>
+                <div style="font-size: 48px; font-weight: 700; line-height: 1.2;">AssetStage Platform</div>
+            </div>
+            
+            <div class="typography-sample">
+                <div class="label">Page Title</div>
+                <div style="font-size: 32px; font-weight: 600;">Asset Management Dashboard</div>
+            </div>
+            
+            <div class="typography-sample">
+                <div class="label">Section Heading</div>
+                <div style="font-size: 24px; font-weight: 600;">CMMS Data Quality Metrics</div>
+            </div>
+            
+            <div class="typography-sample">
+                <div class="label">Body Text</div>
+                <div style="font-size: 16px; line-height: 1.6;">AssetStage provides a comprehensive data staging platform for industrial asset management, enabling teams to clean, validate, and maintain high-quality CMMS data.</div>
+            </div>
+            
+            <div class="typography-sample">
+                <div class="label">Font Stack</div>
+                <div class="code-block">
+                    <span class="comment">/* System font stack for optimal performance */</span><br>
+                    <span class="property">font-family</span>: <span class="value">-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif</span>;
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Guidelines -->
+        <div class="section">
+            <h2>Implementation Guidelines</h2>
+            
+            <div class="implementation-grid">
+                <div class="implementation-card">
+                    <h4>Website Header</h4>
+                    <p>Use the compact horizontal logo with 60px max height. Ensure 20px padding on all sides.</p>
+                    <div class="code-block">
+                        <span class="property">height</span>: <span class="value">60px</span>;<br>
+                        <span class="property">padding</span>: <span class="value">20px</span>;<br>
+                        <span class="property">background</span>: <span class="value">#ffffff</span>;
+                    </div>
+                </div>
+
+                <div class="implementation-card">
+                    <h4>Application Sidebar</h4>
+                    <p>Icon-only version at 40x40px with expandable text on hover.</p>
+                    <div class="code-block">
+                        <span class="property">width</span>: <span class="value">40px</span>;<br>
+                        <span class="property">transition</span>: <span class="value">width 0.3s</span>;<br>
+                        <span class="property">background</span>: <span class="value">var(--primary-navy)</span>;
+                    </div>
+                </div>
+
+                <div class="implementation-card">
+                    <h4>Loading States</h4>
+                    <p>Animated icon with rotating checkmark for loading indicators.</p>
+                    <div class="code-block">
+                        <span class="property">animation</span>: <span class="value">rotate 2s linear infinite</span>;<br>
+                        <span class="property">transform-origin</span>: <span class="value">center</span>;
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand Constants for Code -->
+        <div class="section">
+            <h2>Brand Constants for Development</h2>
+            
+            <h3>React/TypeScript Constants File</h3>
+            <div class="code-block">
+<span class="comment">// src/constants/brand.ts</span>
+
+export const brandColors = {
+  <span class="comment">// Primary</span>
+  <span class="property">primaryNavy</span>: <span class="value">'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)'</span>,
+  <span class="property">primaryNavyStart</span>: <span class="value">'#1e3c72'</span>,
+  <span class="property">primaryNavyEnd</span>: <span class="value">'#2a5298'</span>,
+  <span class="property">stageBlue</span>: <span class="value">'#3498db'</span>,
+  <span class="property">stageBlueLigh</span>t: <span class="value">'#5dade2'</span>,
+  
+  <span class="comment">// Accent</span>
+  <span class="property">qualityGreen</span>: <span class="value">'#27ae60'</span>,
+  <span class="property">qualityGreenLight</span>: <span class="value">'#52c41a'</span>,
+  <span class="property">processOrange</span>: <span class="value">'#f39c12'</span>,
+  <span class="property">processOrangeLight</span>: <span class="value">'#faad14'</span>,
+  
+  <span class="comment">// Semantic</span>
+  <span class="property">success</span>: <span class="value">'#27ae60'</span>,
+  <span class="property">warning</span>: <span class="value">'#f39c12'</span>,
+  <span class="property">error</span>: <span class="value">'#e74c3c'</span>,
+  <span class="property">info</span>: <span class="value">'#3498db'</span>,
+  
+  <span class="comment">// Neutral</span>
+  <span class="property">textPrimary</span>: <span class="value">'#2c3e50'</span>,
+  <span class="property">textSecondary</span>: <span class="value">'#7f8c8d'</span>,
+  <span class="property">textMuted</span>: <span class="value">'#adb5bd'</span>,
+  <span class="property">borderLight</span>: <span class="value">'#dee2e6'</span>,
+  <span class="property">bgLight</span>: <span class="value">'#f8f9fa'</span>,
+  <span class="property">bgGray</span>: <span class="value">'#e9ecef'</span>,
+};
+
+export const brandFonts = {
+  <span class="property">primary</span>: <span class="value">'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'</span>,
+  <span class="property">mono</span>: <span class="value">'"Monaco", "Courier New", monospace'</span>,
+};
+            </div>
+
+            <h3>Tailwind Configuration</h3>
+            <div class="code-block">
+<span class="comment">// tailwind.config.js</span>
+
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        <span class="property">'stage-blue'</span>: <span class="value">'#3498db'</span>,
+        <span class="property">'stage-blue-light'</span>: <span class="value">'#5dade2'</span>,
+        <span class="property">'quality-green'</span>: <span class="value">'#27ae60'</span>,
+        <span class="property">'process-orange'</span>: <span class="value">'#f39c12'</span>,
+        <span class="property">'navy-start'</span>: <span class="value">'#1e3c72'</span>,
+        <span class="property">'navy-end'</span>: <span class="value">'#2a5298'</span>,
+      },
+      backgroundImage: {
+        <span class="property">'navy-gradient'</span>: <span class="value">'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)'</span>,
+      }
+    }
+  }
+};
+            </div>
+        </div>
+
+        <!-- Usage Guidelines -->
+        <div class="section">
+            <h2>Usage Guidelines</h2>
+            
+            <ul class="usage-list">
+                <li>
+                    <strong>Logo Clear Space:</strong> 
+                    Maintain minimum 1/2 logo height on all sides
+                    <span class="badge important">Important</span>
+                </li>
+                <li>
+                    <strong>Minimum Sizes:</strong> 
+                    Digital: 120px width | Print: 1 inch | App icon: 16px
+                </li>
+                <li>
+                    <strong>Color Usage:</strong> 
+                    Primary navy for headers, stage blue for CTAs, green for success states
+                </li>
+                <li>
+                    <strong>Typography Hierarchy:</strong> 
+                    Use consistent heading sizes: 48px → 32px → 24px → 16px
+                </li>
+                <li>
+                    <strong>Dark Mode:</strong> 
+                    Switch to reverse logo, adjust text colors for contrast
+                    <span class="badge new">New</span>
+                </li>
+                <li>
+                    <strong>Loading States:</strong> 
+                    Use rotating checkmark animation from logo icon
+                </li>
+                <li>
+                    <strong>Error States:</strong> 
+                    Replace green checkmark with red X, maintain icon structure
+                </li>
+                <li>
+                    <strong>Mobile Responsive:</strong> 
+                    Switch to icon-only below 768px viewport width
+                </li>
+            </ul>
+        </div>
+
+        <!-- Icon System -->
+        <div class="section">
+            <h2>Icon System</h2>
+            
+            <p style="margin-bottom: 20px;">AssetStage uses a consistent icon system derived from the logo elements. These can be used throughout the application for various states and actions.</p>
+            
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 48 48" style="width: 100%; height: 100%;">
+                            <circle cx="24" cy="24" r="20" fill="#27ae60" />
+                            <path d="M 14 24 L 20 30 L 34 16" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="icon-label">Success</div>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 48 48" style="width: 100%; height: 100%;">
+                            <circle cx="24" cy="24" r="20" fill="#f39c12" />
+                            <text x="24" y="32" text-anchor="middle" font-size="24" font-weight="bold" fill="white">!</text>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Warning</div>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 48 48" style="width: 100%; height: 100%;">
+                            <circle cx="24" cy="24" r="20" fill="#e74c3c" />
+                            <path d="M 16 16 L 32 32 M 32 16 L 16 32" stroke="white" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="icon-label">Error</div>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 48 48" style="width: 100%; height: 100%;">
+                            <circle cx="24" cy="24" r="20" fill="#3498db" />
+                            <circle cx="24" cy="18" r="2" fill="white" />
+                            <rect x="22" y="24" width="4" height="12" rx="2" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="icon-label">Info</div>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 48 48" style="width: 100%; height: 100%;">
+                            <rect x="8" y="28" width="32" height="6" rx="1" fill="#2c3e50" />
+                            <rect x="10" y="18" width="8" height="8" rx="1" fill="#3498db" />
+                            <rect x="20" y="18" width="8" height="8" rx="1" fill="#27ae60" />
+                            <rect x="30" y="18" width="8" height="8" rx="1" fill="#f39c12" />
+                        </svg>
+                    </div>
+                    <div class="icon-label">Staging</div>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="icon-preview">
+                        <svg viewBox="0 0 48 48" style="width: 100%; height: 100%;">
+                            <circle cx="24" cy="24" r="20" stroke="#3498db" stroke-width="3" fill="none" />
+                            <path d="M 24 12 L 24 24 L 32 32" stroke="#3498db" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="icon-label">Processing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="section">
+            <h2>Asset Downloads</h2>
+            
+            <p style="margin-bottom: 20px;">Download brand assets for use in your implementations:</p>
+            
+            <div class="download-section">
+                <a href="#" class="download-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    Logo Package (SVG)
+                </a>
+                <a href="#" class="download-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    Icon Set
+                </a>
+                <a href="#" class="download-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    Color Swatches
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px 20px; color: var(--text-secondary); font-size: 14px;">
+            <p>AssetStage Brand Guidelines v2.0 | Updated August 2025</p>
+            <p style="margin-top: 10px;">© 2025 AssetStage by Astrelo. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,9 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
+import Logo from '@/components/Logo';
+import ResourcesSection from '@/components/ResourcesSection';
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [formSubmitting, setFormSubmitting] = useState(false);
+  const [formSuccess, setFormSuccess] = useState(false);
+  const [formError, setFormError] = useState('');
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -37,6 +42,46 @@ export default function HomePage() {
   const closeModal = () => {
     setModalOpen(false);
     document.body.style.overflow = 'auto';
+    setFormSuccess(false);
+    setFormError('');
+    setFormSubmitting(false);
+  };
+
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (formSubmitting) return;
+    
+    setFormSubmitting(true);
+    setFormError('');
+    setFormSuccess(false);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        setFormSuccess(true);
+        form.reset();
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
+      } else {
+        throw new Error(data.message || 'Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setFormError('Failed to submit form. Please try again or email us directly at sales@assetstage.io');
+    } finally {
+      setFormSubmitting(false);
+    }
   };
 
   return (
@@ -48,12 +93,15 @@ export default function HomePage() {
       {/* Navigation */}
       <nav>
         <div className="nav-container">
-          <div className="logo">ASSETSTAGE</div>
+          <a href="/" className="logo-link" aria-label="AssetStage Home" style={{ transform: 'translate(65px, -1px)' }}>
+            <Logo variant="primary" width={200} height={50} />
+          </a>
           <ul className="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#assetstage">AssetStage</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="/blog">Blog</a></li>
+            <li><a href="#resources">Resources</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -90,8 +138,8 @@ export default function HomePage() {
               <div className="stat-label">Cost Reduction vs Consultants</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">$400+</div>
-              <div className="stat-label">Saved Per PM Standardization</div>
+              <div className="stat-number">$150k+</div>
+              <div className="stat-label">saved per project</div>
             </div>
           </div>
         </div>
@@ -337,6 +385,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Resources Section */}
+      <ResourcesSection />
+
       {/* Contact Section */}
       <section className="section section-gray" id="contact">
         <div className="container">
@@ -392,15 +443,19 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer>
+        <div className="footer-logo-section">
+          <Logo variant="reverse" width={280} height={70} />
+          <p style={{ marginTop: '20px', color: '#7f8c8d', fontSize: '14px' }}>
+            Transform your CMMS data with enterprise-quality staging and validation. 
+            Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards.
+          </p>
+        </div>
         <div className="footer-content">
           <div className="footer-section">
             <h4>Product</h4>
             <ul>
               <li><a href="#assetstage">AssetStage Platform</a></li>
               <li><a href="#assetstage">Features</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Integrations</a></li>
-              <li><a href="#">Security</a></li>
             </ul>
           </div>
           
@@ -418,11 +473,10 @@ export default function HomePage() {
           <div className="footer-section">
             <h4>Resources</h4>
             <ul>
+              <li><a href="#resources">Free Downloads</a></li>
               <li><a href="#blog">Blog</a></li>
               <li><a href="#blog">Case Studies</a></li>
               <li><a href="#blog">White Papers</a></li>
-              <li><a href="#blog">Webinars</a></li>
-              <li><a href="#">Documentation</a></li>
             </ul>
           </div>
           
@@ -431,15 +485,13 @@ export default function HomePage() {
             <ul>
               <li><a href="#about">About Us</a></li>
               <li><a href="#demo" onClick={openModal}>Contact</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Partners</a></li>
-              <li><a href="#">Press</a></li>
+              <li><a href="mailto:team@assetstage.io?subject=Speculative%20CV%20submission">Careers</a></li>
             </ul>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2025 AssetStage. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p>&copy; 2025 AssetStage. All rights reserved.</p>
         </div>
       </footer>
 
@@ -453,12 +505,20 @@ export default function HomePage() {
               <p>See how AssetStage can transform your CMMS data in just 6 weeks</p>
             </div>
             <div className="modal-body">
-              <div id="successMessage" className="success-message">
-                ✓ Thank you! We&apos;ll contact you within 24 hours to schedule your demo.
-              </div>
+              {formSuccess && (
+                <div className="success-message" style={{display: 'block', padding: '15px', background: '#4CAF50', color: 'white', borderRadius: '4px', marginBottom: '20px'}}>
+                  ✓ Thank you! We&apos;ll contact you within 24 hours to schedule your demo.
+                </div>
+              )}
               
-              <form id="demoForm" className="demo-form" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="c300faca-a3f7-4781-b00c-83651d9db015" />
+              {formError && (
+                <div className="error-message" style={{display: 'block', padding: '15px', background: '#f44336', color: 'white', borderRadius: '4px', marginBottom: '20px'}}>
+                  {formError}
+                </div>
+              )}
+              
+              <form id="demoForm" className="demo-form" onSubmit={handleFormSubmit}>
+                <input type="hidden" name="access_key" value="5737364f-4088-402b-87b3-80dafb3d48cd" />
                 <input type="checkbox" name="botcheck" tabIndex={-1} style={{display:'none'}}/>
                 <input type="hidden" name="subject" value="AssetStage Demo Request" />
                 <input type="hidden" name="from_name" value="AssetStage Website" />
@@ -526,8 +586,10 @@ export default function HomePage() {
                 <input type="hidden" name="redirect" value="https://assetstage.io/thank-you"/>
 
                 <div className="form-actions">
-                  <button type="button" className="btn btn-cancel" onClick={closeModal}>Cancel</button>
-                  <button type="submit" className="btn btn-submit">Request Demo</button>
+                  <button type="button" className="btn btn-cancel" onClick={closeModal} disabled={formSubmitting}>Cancel</button>
+                  <button type="submit" className="btn btn-submit" disabled={formSubmitting}>
+                    {formSubmitting ? 'Submitting...' : 'Request Demo'}
+                  </button>
                 </div>
               </form>
             </div>

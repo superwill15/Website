@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <g id="icon">
+    <rect x="20" y="55" width="60" height="8" rx="1" fill="#ffffff" opacity="0.9"/>
+    <rect x="25" y="42" width="12" height="12" rx="1" fill="#5dade2"/>
+    <rect x="39" y="42" width="12" height="12" rx="1" fill="#52c41a"/>
+    <rect x="53" y="42" width="12" height="12" rx="1" fill="#faad14"/>
+    <g transform="translate(50,35)">
+      <circle cx="0" cy="0" r="8" fill="#52c41a"/>
+      <path d="M -4 0 L -1 3 L 4 -2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  <text x="100" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="700" fill="#ffffff">
+    ASSET<tspan fill="#5dade2">STAGE</tspan>
+  </text>
+  <text x="100" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="400" fill="#adb5bd" letter-spacing="0.5">
+    DATA STAGING &amp; QUALITY PLATFORM
+  </text>
+</svg>
