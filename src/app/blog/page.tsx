@@ -14,45 +14,83 @@ export default async function BlogIndex() {
   return (
     <div className="blog-page">
       <div className="blog-header">
+        <Link href="/" className="blog-home-link">← Back to Home</Link>
         <h1 className="blog-title">AssetStage Blog</h1>
         <p className="blog-subtitle">CMMS implementation, data quality, and engineering standards</p>
       </div>
       
       {/* Featured article */}
       {featured && (
-        <div style={{ maxWidth: '1000px', margin: '0 auto 40px', padding: '0 20px' }}>
+        <div className="featured-post-container">
+          <div className="featured-label">
+            <span className="featured-icon">⭐</span>
+            Featured Article
+          </div>
           <Link href={`/blog/${featured.slug}`} className="blog-list-item">
-            <article className="blog-card-list" style={{ padding: 36 }}>
-              <div className="blog-card-header">
-                <h3 className="blog-card-title" style={{ fontSize: 28 }}>{featured.title}</h3>
-                <div className="blog-card-meta">
-                  <span className="blog-card-date">{featured.date}</span>
-                  {featured.readingTime && <span className="blog-card-date">{featured.readingTime}</span>}
+            <article className="featured-card">
+              <div className="featured-content">
+                <div className="featured-meta">
+                  <span className="featured-category">
+                    {featured.title.includes('CMMS') ? '📊 CMMS' : 
+                     featured.title.includes('Maritime') || featured.title.includes('Ship') || featured.title.includes('SFI') ? '⚓ Maritime' : 
+                     featured.title.includes('Data') ? '🔧 Data Quality' : 
+                     featured.title.includes('Maximo') || featured.title.includes('SAP') ? '⚙️ Software' :
+                     '📋 Standards'}
+                  </span>
+                  <div className="featured-date-reading">
+                    <span className="featured-date">{new Date(featured.date).toLocaleDateString('en-US', { 
+                      month: 'long', 
+                      day: 'numeric', 
+                      year: 'numeric' 
+                    })}</span>
+                    {featured.readingTime && <span className="featured-reading-time">• {featured.readingTime}</span>}
+                  </div>
+                </div>
+                <h2 className="featured-title">{featured.title}</h2>
+                {featured.description && (
+                  <p className="featured-description">{featured.description}</p>
+                )}
+                <div className="featured-cta">
+                  <span className="featured-read-more">Read full article →</span>
                 </div>
               </div>
-              {featured.description && (
-                <p className="blog-card-description">{featured.description}</p>
-              )}
-              <span className="blog-read-more">Read article →</span>
+              <div className="featured-visual">
+                <div className="featured-badge">01</div>
+              </div>
             </article>
           </Link>
         </div>
       )}
 
-      <div className="container" style={{ marginTop: 10 }}>
+      <div className="container">
         <div className="blog-grid">
-          {rest.map((p) => (
+          {rest.map((p, index) => (
             <Link key={p.slug} href={`/blog/${p.slug}`} className="blog-list-item">
               <article className="blog-card">
-                <div className="blog-image">Article</div>
+                <div className="blog-image">
+                  <div className="blog-category">
+                    {p.title.includes('CMMS') ? '📊 CMMS' : 
+                     p.title.includes('Maritime') || p.title.includes('Ship') || p.title.includes('SFI') ? '⚓ Maritime' : 
+                     p.title.includes('Data') ? '🔧 Data Quality' : 
+                     p.title.includes('Maximo') || p.title.includes('SAP') ? '⚙️ Software' :
+                     '📋 Standards'}
+                  </div>
+                  <div className="blog-number">{String(index + 2).padStart(2, '0')}</div>
+                </div>
                 <div className="blog-content">
                   <div className="blog-meta">
-                    <span>{p.date}</span>
-                    {p.readingTime && <span>{p.readingTime}</span>}
+                    <span className="blog-date">{new Date(p.date).toLocaleDateString('en-US', { 
+                      month: 'short', 
+                      day: 'numeric', 
+                      year: 'numeric' 
+                    })}</span>
+                    {p.readingTime && <span className="blog-reading-time">• {p.readingTime}</span>}
                   </div>
-                  <h3>{p.title}</h3>
-                  {p.description && <p>{p.description}</p>}
-                  <span className="read-more">Read article →</span>
+                  <h3 className="blog-card-title">{p.title}</h3>
+                  {p.description && <p className="blog-excerpt">{p.description}</p>}
+                  <div className="blog-footer">
+                    <span className="read-more">Read full article →</span>
+                  </div>
                 </div>
               </article>
             </Link>
