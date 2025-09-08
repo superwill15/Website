@@ -1,10 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import Logo from '@/components/Logo';
 
 export default function SfiIso14224Landing() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
 
   const orgLd = {
     "@context": "https://schema.org",
@@ -26,19 +29,43 @@ export default function SfiIso14224Landing() {
     e.preventDefault();
     setError(null);
     setSubmitting(true);
+    
     try {
       const form = e.currentTarget;
       const data = new FormData(form);
-      const res = await fetch(form.action, { method: 'POST', body: data });
+      
+      console.log('Submitting to:', form.action);
+      
+      const res = await fetch('https://api.web3forms.com/submit', { 
+        method: 'POST', 
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      console.log('Response status:', res.status);
+      
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      
       const json = await res.json();
+      console.log('Response:', json);
+      
       if (json.success) {
-        const redirect = (form.querySelector('input[name="redirect"]') as HTMLInputElement)?.value;
-        window.location.href = redirect || '/thank-you';
+        setSuccess(true);
+        form.reset();
+        // Short delay to show success message, then redirect
+        setTimeout(() => {
+          window.location.href = '/thank-you';
+        }, 1000);
       } else {
         throw new Error(json.message || 'Submission failed');
       }
     } catch (err: any) {
-      setError(err?.message || 'Could not submit the form.');
+      console.error('Form submission error:', err);
+      setError(`Submission failed: ${err?.message}. Please email team@assetstage.io or try again.`);
     } finally {
       setSubmitting(false);
     }
@@ -48,226 +75,300 @@ export default function SfiIso14224Landing() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageLd) }} />
+      
+      {/* Navigation */}
+      <nav>
+        <div className="nav-container">
+          <Link href="/" className="logo-link">
+            <Logo />
+          </Link>
+          <ul className="nav-links">
+            <li><Link href="/#product">Product</Link></li>
+            <li><Link href="/#services">Services</Link></li>
+            <li><Link href="/resources">Resources</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/#demo" className="nav-cta">Book Demo</Link></li>
+          </ul>
+        </div>
+      </nav>
 
-      <main className="wrap">
-        {/* HERO */}
-        <section className="hero">
-          <div className="container">
-            <h1>Stop Losing Millions to Bad Maintenance Data</h1>
-            <p className="sub">
-              The fastest path to reliable maritime CMMS data is <strong>SFI coding</strong> (what &amp; where)
-              + <strong>ISO 14224</strong> (how &amp; why). Get the implementation checklist.
-            </p>
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="hero-content">
+          <h1>Stop Losing Millions to Bad Maintenance Data</h1>
+          <p>The fastest path to reliable maritime CMMS data is <strong>SFI coding</strong> (what & where) 
+          + <strong>ISO 14224</strong> (how & why). Get the implementation checklist.</p>
+        </div>
+      </section>
 
-            <div className="split">
-              {/* LEFT: Value props */}
-              <div className="card">
-                <div className="badge">Executive Summary</div>
-                <ul className="checks">
-                  <li><span>✅</span> 70% faster spare parts search</li>
-                  <li><span>✅</span> 25% higher first-time fix rate</li>
-                  <li><span>✅</span> 15–20% lower inventory costs</li>
-                  <li><span>✅</span> 40% better predictive accuracy</li>
-                </ul>
-
-                <div className="mini-case">
-                  <div className="mini-title">North Sea operator (dual implementation)</div>
-                  <div className="mini-grid">
-                    <div><strong>30%</strong><br/>less unplanned downtime</div>
-                    <div><strong>2.3M</strong><br/>annual savings</div>
-                    <div><strong>45%</strong><br/>better parts availability</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* RIGHT: Form */}
-              <div className="card form">
-                <h2> Get the SFI + ISO 14224 Checklist</h2>
-                <p className="muted">Step-by-step phases • Pre-mapped codes • Ready-to-use CMMS tasks</p>
-
-                {error && (
-                  <div role="alert" className="alert">
-                    {error} — or email <a href="mailto:team@assetstage.io">team@assetstage.io</a>
-                  </div>
-                )}
-
-                <form
-                  action="https://api.web3forms.com/submit"
-                  method="POST"
-                  onSubmit={handleSubmit}
-                  noValidate
-                >
-                  {/* Web3Forms */}
-                  <input type="hidden" name="access_key" value="c300faca-a3f7-4781-b00c-83651d9db015" />
-                  <input type="hidden" name="subject" value="SFI + ISO 14224 Checklist Request" />
-                  <input type="hidden" name="from_name" value="AssetStage Website" />
-                  <input type="hidden" name="form_type" value="checklist_request" />
-                  <input type="hidden" name="page" value="/sfi-iso14224" />
-                  <input type="hidden" name="redirect" value="https://assetstage.io/thank-you" />
-                  {/* honeypot */}
-                  <input type="checkbox" name="botcheck" tabIndex={-1} style={{ display: 'none' }} />
-
-                  <div className="grid">
-                    <label>
-                      <span>Full name *</span>
-                      <input name="name" type="text" required autoComplete="name" />
-                    </label>
-                    <label>
-                      <span>Work email *</span>
-                      <input name="email" type="email" required autoComplete="email" />
-                    </label>
-                  </div>
-
-                  <div className="grid">
-                    <label>
-                      <span>Company *</span>
-                      <input name="company" type="text" required autoComplete="organization" />
-                    </label>
-                    <label>
-                      <span>Fleet size</span>
-                      <select name="fleet_size" defaultValue="">
-                        <option value="">Select</option>
-                        <option value="1-5">1–5 vessels</option>
-                        <option value="6-10">6–10 vessels</option>
-                        <option value="11-25">11–25 vessels</option>
-                        <option value="26-50">26–50 vessels</option>
-                        <option value="50+">50+ vessels</option>
-                      </select>
-                    </label>
-                  </div>
-
-                  <label className="block">
-                    <span>What are your data challenges? (optional)</span>
-                    <textarea name="notes" placeholder="e.g., duplicate PMs, inconsistent SFI, missing failure codes" />
-                  </label>
-
-                  <button type="submit" className="btn" disabled={submitting}>
-                    {submitting ? 'Sending…' : 'Email me the checklist'}
-                  </button>
-
-                  <p className="tiny">
-                    By submitting, you agree to our <a href="/privacy">Privacy Policy</a>.
-                  </p>
-                </form>
-
-                <div className="or">
-                  <span>or</span>
-                </div>
-
-                <a href="#demo" className="btn-outlined"> Book a 15-min call</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Explainer row (SFI vs ISO) */}
-        <section className="explain">
-          <div className="container">
-            <div className="ex-grid">
-              <div className="ex-card">
-                <h3>SFI = What &amp; Where</h3>
-                <p>Universal equipment identification for vessels. Structure parts and systems so crews can find the right item in seconds.</p>
-                <ul className="dots">
-                  <li>Main group → group → sub-group → detail code</li>
-                  <li>Works across shipyards, suppliers, and CMMS</li>
-                  <li>Example: <code>735.007</code> = Stern tube seal</li>
-                </ul>
-              </div>
-              <div className="ex-card">
-                <h3>ISO 14224 = How &amp; Why</h3>
-                <p>Standardized reliability & maintenance data: equipment classes, failure modes, and maintenance actions that enable analytics.</p>
-                <ul className="dots">
-                  <li>Benchmark failures across sister vessels</li>
-                  <li>Predictive maintenance & root-cause analysis</li>
-                  <li>Feeds work planning with real failure patterns</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA strip */}
-        <section className="strip" id="demo">
-          <div className="container strip-inner">
+      {/* Main Content */}
+      <section className="section">
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '40px', alignItems: 'start' }}>
+            
+            {/* Left: Value Proposition */}
             <div>
-              <h3>See AssetStage implement SFI + ISO 14224 in weeks</h3>
-              <p className="muted">Clean, standardized data ready for AMOS, Maximo, SAP — without six-figure consulting.</p>
+              <div style={{ 
+                background: 'white', 
+                padding: '32px', 
+                borderRadius: '12px', 
+                boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+                border: '1px solid var(--border-light)' 
+              }}>
+                <span style={{ 
+                  display: 'inline-block',
+                  padding: '8px 16px',
+                  background: 'var(--accent-blue)',
+                  color: 'white',
+                  borderRadius: '20px',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  marginBottom: '20px'
+                }}>Executive Summary</span>
+                
+                <div style={{ marginBottom: '32px' }}>
+                  <h3 style={{ fontSize: '20px', marginBottom: '16px' }}>Proven ROI Metrics</h3>
+                  <ul style={{ listStyle: 'none', padding: 0 }}>
+                    <li style={{ padding: '12px 0', display: 'flex', alignItems: 'center' }}>
+                      <span style={{ fontSize: '20px', marginRight: '12px' }}>✅</span>
+                      <span>70% faster spare parts search</span>
+                    </li>
+                    <li style={{ padding: '12px 0', display: 'flex', alignItems: 'center' }}>
+                      <span style={{ fontSize: '20px', marginRight: '12px' }}>✅</span>
+                      <span>25% higher first-time fix rate</span>
+                    </li>
+                    <li style={{ padding: '12px 0', display: 'flex', alignItems: 'center' }}>
+                      <span style={{ fontSize: '20px', marginRight: '12px' }}>✅</span>
+                      <span>15–20% lower inventory costs</span>
+                    </li>
+                    <li style={{ padding: '12px 0', display: 'flex', alignItems: 'center' }}>
+                      <span style={{ fontSize: '20px', marginRight: '12px' }}>✅</span>
+                      <span>40% better predictive accuracy</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div style={{ 
+                  borderTop: '2px solid var(--border-light)', 
+                  paddingTop: '24px',
+                  marginTop: '24px'
+                }}>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px' }}>
+                    Why Industry Leaders Choose Both Standards
+                  </h4>
+                  <div style={{ background: 'var(--bg-light)', padding: '20px', borderRadius: '8px' }}>
+                    <p style={{ fontSize: '14px', color: 'var(--text-dark)', lineHeight: '1.6', margin: '0 0 16px' }}>
+                      <strong>Major shipping companies</strong> report that implementing both SFI and ISO 14224 together delivers compound benefits:
+                    </p>
+                    <ul style={{ fontSize: '14px', color: 'var(--text-light)', lineHeight: '1.8', margin: 0, paddingLeft: '20px' }}>
+                      <li>Unified equipment coding across entire fleets</li>
+                      <li>Standardized failure reporting for benchmarking</li>
+                      <li>Compatible with AMOS, Maximo, and SAP PM</li>
+                      <li>Meets ISM Code and class society requirements</li>
+                    </ul>
+                    <p style={{ fontSize: '13px', color: 'var(--text-light)', fontStyle: 'italic', marginTop: '16px', marginBottom: 0 }}>
+                      Based on industry studies and implementation data from maritime CMMS deployments.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="strip-actions">
-              <a href="/#demo" className="btn white">Schedule a demo</a>
-              <a href="https://app.assetstage.io" target="_blank" rel="noopener noreferrer" className="btn ghost">Start free trial</a>
+
+            {/* Right: Form */}
+            <div style={{ 
+              background: 'white', 
+              padding: '32px', 
+              borderRadius: '12px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+              border: '2px solid var(--accent-orange)'
+            }}>
+              <h2 style={{ fontSize: '24px', marginBottom: '8px' }}>📥 Get the SFI + ISO 14224 Checklist</h2>
+              <p style={{ color: 'var(--text-light)', fontSize: '14px', marginBottom: '24px' }}>
+                Step-by-step phases • Pre-mapped codes • Ready-to-use CMMS tasks
+              </p>
+
+              {success && (
+                <div style={{ 
+                  background: '#d4edda', 
+                  border: '1px solid #c3e6cb', 
+                  color: '#155724', 
+                  padding: '12px', 
+                  borderRadius: '8px', 
+                  marginBottom: '16px',
+                  fontSize: '14px',
+                  textAlign: 'center'
+                }}>
+                  ✅ Success! Redirecting to download page...
+                </div>
+              )}
+
+              {error && (
+                <div style={{ 
+                  background: '#fff4e6', 
+                  border: '1px solid #ffd5a8', 
+                  color: '#7b4b00', 
+                  padding: '12px', 
+                  borderRadius: '8px', 
+                  marginBottom: '16px',
+                  fontSize: '14px'
+                }}>
+                  {error}
+                </div>
+              )}
+
+              <form
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                className="demo-form"
+              >
+                <input type="hidden" name="access_key" value="5737364f-4088-402b-87b3-80dafb3d48cd" />
+                <input type="hidden" name="subject" value="SFI + ISO 14224 Checklist Request" />
+                <input type="hidden" name="from_name" value="AssetStage Website" />
+                <input type="hidden" name="to" value="team@assetstage.io" />
+                <input type="hidden" name="form_type" value="checklist_request" />
+                <input type="hidden" name="page" value="/sfi-iso14224" />
+                <input type="hidden" name="main_article" value="https://assetstage.io/blog/SFI-ISO14224" />
+                <input type="hidden" name="redirect" value="/thank-you" />
+                <input type="checkbox" name="botcheck" tabIndex={-1} style={{ display: 'none' }} />
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Full name *</label>
+                    <input name="name" type="text" required autoComplete="name" />
+                  </div>
+                  <div className="form-group">
+                    <label>Work email *</label>
+                    <input name="email" type="email" required autoComplete="email" />
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Company *</label>
+                    <input name="company" type="text" required autoComplete="organization" />
+                  </div>
+                  <div className="form-group">
+                    <label>Fleet size</label>
+                    <select name="fleet_size" defaultValue="">
+                      <option value="">Select</option>
+                      <option value="1-5">1–5 vessels</option>
+                      <option value="6-10">6–10 vessels</option>
+                      <option value="11-25">11–25 vessels</option>
+                      <option value="26-50">26–50 vessels</option>
+                      <option value="50+">50+ vessels</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-group full-width">
+                  <label>What are your data challenges? (optional)</label>
+                  <textarea 
+                    name="notes" 
+                    placeholder="e.g., duplicate PMs, inconsistent SFI, missing failure codes"
+                    style={{ minHeight: '80px' }}
+                  />
+                </div>
+
+                <button type="submit" className="btn-submit" style={{ width: '100%' }}>
+                  Email me the checklist
+                </button>
+
+                <p style={{ fontSize: '12px', color: 'var(--text-light)', marginTop: '12px', textAlign: 'center' }}>
+                  By submitting, you agree to our <Link href="/privacy">Privacy Policy</Link>.
+                </p>
+              </form>
+
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                margin: '20px 0',
+                color: 'var(--text-light)',
+                fontSize: '14px'
+              }}>
+                <div style={{ flex: 1, height: '1px', background: 'var(--border-light)' }}></div>
+                <span style={{ padding: '0 16px' }}>or</span>
+                <div style={{ flex: 1, height: '1px', background: 'var(--border-light)' }}></div>
+              </div>
+
+              <Link 
+                href="/#demo" 
+                className="btn-secondary"
+                style={{ width: '100%', textAlign: 'center' }}
+              >
+                🚀 Book a 15-min call
+              </Link>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <style jsx global>{`
-        :root{
-          --primary:#1e3c72; --primary2:#2a5298;
-          --text:#0b1220; --muted:#5b6b86;
-          --bg:#f7f9fc; --card:#ffffff; --line:#e7edf6; --good:#27ae60;
-        }
-        *{box-sizing:border-box}
-        body{margin:0; font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; color:var(--text); background:var(--bg)}
-        .wrap{min-height:100vh}
+      {/* Explainer Section */}
+      <section className="section section-gray">
+        <div className="container">
+          <div className="section-header">
+            <h2>Understanding SFI & ISO 14224</h2>
+            <p>Two standards that work together to transform maritime maintenance</p>
+          </div>
+          
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">⚓</div>
+              <h3>SFI = What & Where</h3>
+              <p>Universal equipment identification for vessels. Structure parts and systems so crews can find the right item in seconds.</p>
+              <ul style={{ marginTop: '16px', paddingLeft: '20px', color: 'var(--text-light)' }}>
+                <li>Main group → group → sub-group → detail code</li>
+                <li>Works across shipyards, suppliers, and CMMS</li>
+                <li>Example: <code style={{ background: 'var(--bg-light)', padding: '2px 6px', borderRadius: '4px' }}>735.007</code> = Stern tube seal</li>
+              </ul>
+            </div>
+            
+            <div className="service-card">
+              <div className="service-icon">📊</div>
+              <h3>ISO 14224 = How & Why</h3>
+              <p>Standardized reliability & maintenance data: equipment classes, failure modes, and maintenance actions that enable analytics.</p>
+              <ul style={{ marginTop: '16px', paddingLeft: '20px', color: 'var(--text-light)' }}>
+                <li>Benchmark failures across sister vessels</li>
+                <li>Predictive maintenance & root-cause analysis</li>
+                <li>Feeds work planning with real failure patterns</li>
+              </ul>
+            </div>
+            
+            <div className="service-card">
+              <div className="service-icon">🚀</div>
+              <h3>Combined Power</h3>
+              <p>When SFI and ISO 14224 work together, you get complete visibility into your fleet\'s maintenance operations.</p>
+              <ul style={{ marginTop: '16px', paddingLeft: '20px', color: 'var(--text-light)' }}>
+                <li>Instant equipment location with SFI codes</li>
+                <li>Failure patterns tracked via ISO 14224</li>
+                <li>Data-driven maintenance decisions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        .container{max-width:1120px; margin:0 auto; padding:0 20px}
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="container">
+          <h2>See AssetStage Implement SFI + ISO 14224 in Weeks</h2>
+          <p>Clean, standardized data ready for AMOS, Maximo, SAP — without six-figure consulting.</p>
+          <div className="hero-buttons">
+            <Link href="/#demo" className="btn-primary">Schedule a Demo</Link>
+            <Link href="https://app.assetstage.io" className="btn-secondary" target="_blank" rel="noopener noreferrer">
+              Start Free Trial
+            </Link>
+          </div>
+        </div>
+      </section>
 
-        .hero{background:linear-gradient(180deg,#f5f9ff,#eef3f9); padding:48px 0 64px}
-        .hero h1{margin:0 0 8px; font-size:36px; line-height:1.2}
-        .sub{color:var(--muted); margin:0 0 22px; font-size:18px}
-
-        .split{display:grid; grid-template-columns: 1.1fr 0.9fr; gap:20px}
-        .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:0 6px 18px rgba(0,0,0,0.05)}
-        .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:#edf2ff; color:#2b45a6; font-weight:700; font-size:12px; margin-bottom:10px}
-
-        .checks{list-style:none; padding:0; margin:10px 0 18px}
-        .checks li{display:flex; gap:8px; align-items:flex-start; margin:6px 0}
-        .checks span{line-height:1.2}
-
-        .mini-case{border-top:1px dashed var(--line); padding-top:14px}
-        .mini-title{font-weight:700; margin-bottom:8px}
-        .mini-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
-        .mini-grid div{background:#fafcff; border:1px solid var(--line); border-radius:10px; padding:10px; text-align:center}
-
-        .form h2{margin:0 0 6px}
-        .muted{color:var(--muted)}
-        .grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0}
-        label{display:flex; flex-direction:column; gap:6px; font-size:14px}
-        input, select, textarea{padding:10px 12px; border:1px solid #dbe3ef; border-radius:10px; font-size:14px; background:white}
-        textarea{min-height:100px; resize:vertical}
-        .block{margin-top:8px}
-
-        .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 16px; border-radius:12px; border:1px solid transparent; background:var(--primary); color:#fff; font-weight:800; text-decoration:none}
-        .btn:hover{opacity:.95}
-        .btn-outlined{display:inline-flex; margin-top:10px; padding:10px 14px; border-radius:12px; border:1px solid var(--primary); color:var(--primary); text-decoration:none; font-weight:800; background:#fff}
-        .btn.white{background:#fff; color:var(--primary); border-color:#fff}
-        .btn.ghost{background:transparent; border-color:#fff; color:#fff}
-
-        .alert{background:#fff4e6; border:1px solid #ffd5a8; color:#7b4b00; padding:10px 12px; border-radius:10px; margin:8px 0}
-
-        .explain{padding:32px 0 10px}
-        .ex-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
-        .ex-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px}
-        .dots{margin:10px 0 0; padding-left:20px}
-        code{background:#eef3ff; padding:2px 6px; border-radius:6px}
-
-        .strip{background:linear-gradient(90deg,var(--primary),var(--primary2)); color:#fff; padding:26px 0}
-        .strip-inner{display:flex; align-items:center; justify-content:space-between; gap:20px}
-        .strip-actions{display:flex; gap:10px; flex-wrap:wrap}
-
-        .or{display:flex; align-items:center; gap:10px; margin:12px 0}
-        .or:before, .or:after{content:""; flex:1; height:1px; background:var(--line)}
-
-        @media (max-width: 980px){
-          .split{grid-template-columns:1fr}
-          .mini-grid{grid-template-columns:1fr 1fr}
-          .ex-grid{grid-template-columns:1fr}
-          .grid{grid-template-columns:1fr}
-          .strip-inner{flex-direction:column; align-items:flex-start}
+      {/* Responsive Styles */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          section.section > div > div:first-child {
+            grid-template-columns: 1fr !important;
+          }
         }
       `}</style>
     </>
   );
 }
-

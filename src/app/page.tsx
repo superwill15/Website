@@ -308,12 +308,12 @@ export default function HomePage() {
               <div className="blog-image">Featured Article</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>August 15, 2024</span>
-                  <span>Data Quality</span>
+                  <span>September 8, 2025</span>
+                  <span>Maritime Standards</span>
                 </div>
-                <h3>Why 70% of CMMS Implementations Fail (And How to Be in the 30%)</h3>
-                <p>The shocking truth about CMMS failures isn&apos;t technology - it&apos;s data. Learn the five critical data quality mistakes that doom implementations and our proven framework for avoiding them.</p>
-                <a href="/blog/why-cmms-implementations-fail" className="read-more">Read More →</a>
+                <h3>SFI Coding and ISO 14224: A Complete Guide for Maritime CMMS</h3>
+                <p>How combining SFI equipment identification with ISO 14224 reliability standards creates a comprehensive framework for maritime maintenance management.</p>
+                <a href="/blog/SFI-ISO14224" className="read-more">Read More →</a>
               </div>
             </article>
             
@@ -321,12 +321,12 @@ export default function HomePage() {
               <div className="blog-image">Industry Guide</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>August 5, 2024</span>
-                  <span>Best Practices</span>
+                  <span>September 1, 2025</span>
+                  <span>Maritime</span>
                 </div>
-                <h3>The Complete Guide to CMMS Data Migration</h3>
-                <p>Everything you need to know about migrating from legacy systems to modern CMMS platforms. Includes templates, checklists, and common pitfalls to avoid.</p>
-                <a href="/blog/complete-guide-cmms-data-migration" className="read-more">Read More →</a>
+                <h3>Maritime CMMS: Revolutionizing the $30 Billion Shipping Industry</h3>
+                <p>With over 109,000 vessels and maintenance eating up 30% of operating costs, the maritime industry is ripe for digital transformation.</p>
+                <a href="/blog/maritime-cmms-guide" className="read-more">Read More →</a>
               </div>
             </article>
             
@@ -334,51 +334,25 @@ export default function HomePage() {
               <div className="blog-image">Technical Deep Dive</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>July 28, 2024</span>
-                  <span>Technical</span>
+                  <span>August 25, 2025</span>
+                  <span>Standards</span>
                 </div>
-                <h3>Maximo vs SAP PM: Data Structure Comparison</h3>
-                <p>A technical comparison of how Maximo and SAP PM handle asset hierarchies, work orders, and preventive maintenance. Essential reading for migration projects.</p>
-                <a href="/blog/maximo-vs-sap-pm-comparison" className="read-more">Read More →</a>
-              </div>
-            </article>
-            
-            <article className="blog-card">
-              <div className="blog-image">Industry Trends</div>
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <span>July 20, 2024</span>
-                  <span>Market Analysis</span>
-                </div>
-                <h3>Why AI Won&apos;t Save Your CMMS (But Good Data Will)</h3>
-                <p>Everyone&apos;s talking about AI in maintenance, but the real ROI comes from something much simpler: clean, standardized data. Here&apos;s why data quality beats algorithms every time.</p>
-                <a href="/blog/why-ai-wont-save-your-cmms" className="read-more">Read More →</a>
-              </div>
-            </article>
-            
-            <article className="blog-card">
-              <div className="blog-image">Maritime Industry</div>
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <span>September 3, 2025</span>
-                  <span>Maritime CMMS</span>
-                </div>
-                <h3>Maritime CMMS: How Digital Maintenance Systems Are Revolutionizing the $30 Billion Shipping Industry</h3>
-                <p>With over 109,000 vessels sailing the world's oceans and maintenance eating up 30% of shipping operating costs, discover how maritime CMMS platforms are turning reactive maintenance into predictive success stories.</p>
-                <a href="/blog/maritime-cmms-guide" className="read-more">Read More →</a>
-              </div>
-            </article>
-            
-            <article className="blog-card">
-              <div className="blog-image">Standards Guide</div>
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <span>August 27, 2024</span>
-                  <span>Engineering Standards</span>
-                </div>
-                <h3>RDS-PP to RDS-PS: Understanding the Evolution and Modern Improvements</h3>
-                <p>A detailed comparison exploring how RDS-PS improves upon RDS-PP with modern standardization, enhanced flexibility, and superior digital integration capabilities.</p>
+                <h3>RDS-PP to RDS-PS: Evolution in Power System Classification</h3>
+                <p>A detailed comparison of RDS-PP and RDS-PS reference designation systems for power generation and electrical systems.</p>
                 <a href="/blog/rds-pp-vs-rds-ps-improvements" className="read-more">Read More →</a>
+              </div>
+            </article>
+            
+            <article className="blog-card">
+              <div className="blog-image">Best Practices</div>
+              <div className="blog-content">
+                <div className="blog-meta">
+                  <span>August 18, 2025</span>
+                  <span>Implementation</span>
+                </div>
+                <h3>Building Your Asset Hierarchy: A Step-by-Step Guide</h3>
+                <p>Learn how to structure your asset hierarchy for maximum efficiency. Includes real-world examples from manufacturing, utilities, and facilities.</p>
+                <a href="/blog/building-asset-hierarchy-guide" className="read-more">Read More →</a>
               </div>
             </article>
           </div>

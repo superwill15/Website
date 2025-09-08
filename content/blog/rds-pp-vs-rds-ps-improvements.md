@@ -1,6 +1,6 @@
 ---
 title: "RDS-PP to RDS-PS: Understanding the Evolution in Power System Classification"
-date: "2024-08-27"
+date: "2025-08-25"
 description: "A detailed comparison of RDS-PP and RDS-PS reference designation systems for power generation and electrical systems, exploring how RDS-PS improves upon RDS-PP with enhanced flexibility and broader applications."
 ---
 

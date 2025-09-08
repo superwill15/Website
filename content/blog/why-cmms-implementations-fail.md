@@ -1,6 +1,6 @@
 ---
 title: "Why 70% of CMMS Implementations Fail (And How to Be in the 30%)"
-date: "2024-08-15"
+date: "2025-07-21"
 description: "The shocking truth about CMMS failures isn't technology - it's data. Learn the five critical data quality mistakes that doom implementations and our proven framework for avoiding them."
 ---
 

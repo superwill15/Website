@@ -1,6 +1,6 @@
 ---
 title: "The Complete Guide to CMMS Data Migration"
-date: "2024-08-05"
+date: "2025-07-28"
 description: "Everything you need to know about migrating from legacy systems to modern CMMS platforms. Includes templates, checklists, and common pitfalls to avoid."
 ---
 

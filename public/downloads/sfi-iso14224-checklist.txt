@@ -1,0 +1,199 @@
+SFI + ISO 14224 Implementation Checklist
+AssetStage.io
+==========================================
+
+PHASE 1: PLANNING & PREPARATION (Weeks 1-2)
+============================================
+
+[ ] Define Project Scope
+    - Identify vessel types to include
+    - Select pilot vessel(s) for initial rollout
+    - Define success criteria and KPIs
+
+[ ] Stakeholder Alignment
+    - Get buy-in from fleet management
+    - Assign project champion
+    - Set up steering committee
+
+[ ] Current State Assessment
+    - Audit existing CMMS data quality
+    - Document current coding systems in use
+    - Identify data gaps and inconsistencies
+
+[ ] Resource Planning
+    - Allocate project team members
+    - Set implementation timeline
+    - Budget for training and tools
+
+
+PHASE 2: SFI IMPLEMENTATION (Weeks 3-6)
+=======================================
+
+[ ] SFI Structure Setup
+    - Establish main groups (1-9)
+    - Define subgroups for your fleet type
+    - Create detail codes for specific equipment
+
+[ ] Equipment Mapping
+    - Map existing assets to SFI codes
+    - Start with critical systems first
+    - Create standardized equipment library
+
+[ ] CMMS Configuration
+    - Configure asset hierarchies in CMMS
+    - Set up SFI-based work order templates
+    - Create spare parts catalogs with SFI codes
+
+[ ] Data Migration
+    - Clean existing asset data
+    - Import SFI-coded equipment list
+    - Validate data accuracy
+
+Common SFI Codes for Maritime Equipment:
+- 700-799: Propulsion systems
+  - 735.007: Stern tube seal
+  - 741.001: Main engine
+  - 762.003: Propeller shaft
+- 400-499: Electrical systems
+- 600-699: Deck machinery
+- 300-399: Hull and structures
+
+
+PHASE 3: ISO 14224 INTEGRATION (Weeks 7-10)
+===========================================
+
+[ ] Equipment Boundaries Definition
+    - Define what constitutes each equipment item
+    - Set clear boundaries between systems
+    - Document equipment hierarchies
+
+[ ] Failure Mode Classification
+    - Implement ISO 14224 failure categories
+    - Create standardized failure codes
+    - Map to existing maintenance history
+
+[ ] Maintenance Data Standardization
+    - Standardize work order types
+    - Implement ISO 14224 maintenance categories:
+      * Preventive Maintenance (PM)
+      * Corrective Maintenance (CM)
+      * Condition-Based Maintenance (CBM)
+      * Modifications
+
+[ ] Reliability Data Collection
+    - Set up failure tracking
+    - Configure downtime recording
+    - Establish maintenance action codes
+
+ISO 14224 Equipment Classes (Maritime Focus):
+- Rotating Equipment: Pumps, Compressors, Motors
+- Static Equipment: Tanks, Heat Exchangers, Piping
+- Electrical Equipment: Generators, Switchgear, Motors
+- Safety Systems: Fire detection, Emergency shutdown
+- Control Systems: Navigation, Automation, SCADA
+
+
+PHASE 4: CMMS PLATFORM INTEGRATION (Weeks 11-12)
+================================================
+
+[ ] AMOS Configuration
+    - Set up SFI-based equipment trees
+    - Configure ISO 14224 failure hierarchies
+    - Create standardized PM templates
+
+[ ] Maximo Setup (if applicable)
+    - Configure asset templates
+    - Set up classification structures
+    - Implement failure reporting
+
+[ ] SAP PM Configuration (if applicable)
+    - Create functional locations using SFI
+    - Set up equipment master data
+    - Configure maintenance plans
+
+[ ] Data Validation
+    - Verify all equipment has both SFI codes and ISO boundaries
+    - Test failure reporting workflows
+    - Validate maintenance scheduling
+
+
+PHASE 5: TRAINING & ROLLOUT (Weeks 13-14)
+=========================================
+
+[ ] Training Materials
+    - Create SFI quick reference guides
+    - Develop ISO 14224 failure reporting guides
+    - Record training videos for key processes
+
+[ ] User Training
+    - Train maintenance planners
+    - Train deck officers and engineers
+    - Train shore-based superintendents
+
+[ ] Pilot Testing
+    - Run parallel systems for 2 weeks
+    - Collect feedback from users
+    - Refine processes based on feedback
+
+[ ] Full Deployment
+    - Roll out to remaining vessels
+    - Monitor data quality metrics
+    - Provide ongoing support
+
+
+PHASE 6: MONITORING & OPTIMIZATION (Ongoing)
+============================================
+
+[ ] Quality Metrics Tracking
+    - Monitor data completeness
+    - Track user adoption rates
+    - Measure maintenance efficiency gains
+
+[ ] Continuous Improvement
+    - Regular data quality audits
+    - User feedback sessions
+    - Process refinements
+
+[ ] Benchmarking
+    - Compare performance across vessels
+    - Industry benchmarking where possible
+    - Share best practices fleet-wide
+
+Success Metrics to Track:
+- % of equipment with complete SFI codes
+- % of work orders with proper ISO 14224 data
+- Reduction in parts search time
+- Improvement in first-time fix rates
+- Maintenance cost per vessel/per hour
+- Equipment availability improvements
+
+
+TEMPLATES & TOOLS INCLUDED
+==========================
+
+1. SFI Code Mapping Spreadsheet
+2. ISO 14224 Equipment Boundary Definitions
+3. Failure Mode Classification Guide
+4. CMMS Configuration Checklists
+5. Training Presentation Templates
+6. Data Quality Audit Checklist
+7. KPI Dashboard Templates
+
+
+NEXT STEPS
+==========
+
+Ready to implement SFI + ISO 14224 across your fleet?
+
+AssetStage can help you:
+- Complete this checklist in weeks, not months
+- Avoid common implementation pitfalls
+- Ensure data quality from day one
+- Integrate seamlessly with your existing CMMS
+
+Schedule a demo: https://assetstage.io/#demo
+Questions? Email: team@assetstage.io
+
+---
+© 2025 AssetStage - Maritime CMMS Data Excellence
+https://assetstage.io

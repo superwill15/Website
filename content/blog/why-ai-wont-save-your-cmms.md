@@ -1,6 +1,6 @@
 ---
 title: "Why AI Won't Save Your CMMS (But Good Data Will)"
-date: "2024-07-20"
+date: "2025-08-11"
 description: "Everyone's talking about AI in maintenance, but the real ROI comes from something much simpler: clean, standardized data. Here's why data quality beats algorithms every time."
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Building Your Asset Hierarchy: A Step-by-Step Guide"
-date: "2024-07-15"
+date: "2025-08-18"
 description: "Learn how to structure your asset hierarchy for maximum efficiency. Includes real-world examples from manufacturing, utilities, and facilities management."
 ---
 

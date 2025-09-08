@@ -1,6 +1,6 @@
 ---
 title: "Maximo vs SAP PM: Data Structure Comparison"
-date: "2024-07-28"
+date: "2025-08-04"
 description: "A technical comparison of how Maximo and SAP PM handle asset hierarchies, work orders, and preventive maintenance. Essential reading for migration projects."
 ---
 

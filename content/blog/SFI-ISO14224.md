@@ -1,6 +1,6 @@
 ---
 title: "SFI Coding and ISO 14224: A Complete Guide for Maritime CMMS"
-date: "2024-09-04"
+date: "2025-09-08"
 description: "How combining SFI equipment identification with ISO 14224 reliability standards creates a comprehensive framework for maritime maintenance management."
 ---
 
