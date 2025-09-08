@@ -11,6 +11,7 @@ export type PostMeta = {
   title: string;
   date: string;
   description?: string;
+  readingTime?: string;
 };
 
 export async function getAllPosts(): Promise<PostMeta[]> {
@@ -19,12 +20,15 @@ export async function getAllPosts(): Promise<PostMeta[]> {
     const slug = file.replace(/\.md$/, "");
     const filePath = path.join(postsDirectory, file);
     const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data } = matter(fileContents);
+    const { data, content } = matter(fileContents);
+    const words = content.trim().split(/\s+/).filter(Boolean).length;
+    const minutes = Math.max(1, Math.ceil(words / 200));
     return {
       slug,
       title: data.title ?? slug,
       date: data.date ?? "",
       description: data.description ?? "",
+      readingTime: `${minutes} min read`,
     } as PostMeta;
   });
   // newest first

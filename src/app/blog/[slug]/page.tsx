@@ -32,17 +32,25 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <div className="blog-article">
-      <div className="blog-article-header">
-        <Link href="/blog" className="back-link">← Back to Blog</Link>
-        <h1 className="blog-article-title">{post!.title}</h1>
-        {post!.date && <p className="blog-article-meta">{post!.date}</p>}
-      </div>
-      <article
-        className="blog-article-content"
-        dangerouslySetInnerHTML={{ __html: post!.contentHtml }}
-      />
+    <div className="blog-post-container">
+      <article className="blog-post">
+        <header className="blog-post-header">
+          <Link href="/blog" className="back-to-blog">← Back to Blog</Link>
+          <h1 className="blog-post-title">{post!.title}</h1>
+          {post!.date && (
+            <div className="blog-post-meta">
+              <span className="blog-post-date">{post!.date}</span>
+            </div>
+          )}
+          {post!.description && (
+            <p className="blog-post-description">{post!.description}</p>
+          )}
+        </header>
+        <div
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: post!.contentHtml }}
+        />
+      </article>
     </div>
   );
 }
-
