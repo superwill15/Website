@@ -17,7 +17,7 @@ export default function HomePage() {
     "name": "AssetStage",
     "url": "https://assetstage.io",
     "logo": "https://assetstage.io/logo.png",
-    "description": "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards.",
+    "description": "The CMMS Data Workspace. AssetStage transforms messy Excel files into validated CMMS hierarchies in weeks, not months—without expensive consultants.",
     "founder": {
       "@type": "Organization",
       "name": "AssetStage"
@@ -138,11 +138,21 @@ export default function HomePage() {
       {/* Hero */}
       <section className="hero" id="home">
         <div className="hero-content">
-          <h1>Transform Your Industrial Data Into Operational Excellence</h1>
-          <p>AssetStage delivers cutting-edge data staging and quality solutions that make your CMMS actually work. Stop fighting bad data. Start driving results.</p>
+          <div style={{
+            fontSize: '14px',
+            fontWeight: '600',
+            color: 'var(--accent-blue)',
+            marginBottom: '16px',
+            letterSpacing: '2px',
+            textTransform: 'uppercase'
+          }}>
+            The CMMS Data Workspace
+          </div>
+          <h1>Stop Fighting Spreadsheets. Start Shipping Clean Data.</h1>
+          <p>AssetStage transforms messy Excel files into validated CMMS hierarchies in 2 weeks, not 8 months—without expensive consultants. Join maintenance teams saving $100K+ per implementation.</p>
           <div className="hero-buttons">
-            <a href="#assetstage" className="btn-primary">Explore AssetStage</a>
-            <button className="btn-secondary" onClick={openModal}>Book a Demo</button>
+            <button className="btn-primary" onClick={openModal}>See Your Data Transformed</button>
+            <a href="#assetstage" className="btn-secondary">Learn How It Works</a>
           </div>
         </div>
       </section>
@@ -175,28 +185,61 @@ export default function HomePage() {
       <section className="section section-gray" id="assetstage">
         <div className="container">
           <div className="section-header">
-            <h2>AssetStage: Your CMMS Data Staging Platform</h2>
-            <p>The self-service platform that transforms messy CMMS data into operational gold in weeks, not months</p>
+            <h2>The CMMS Data Workspace Built for Maintenance Teams</h2>
+            <p>Not staging. Not MDM. Not consulting. A purpose-built workspace where CMMS data problems get solved.</p>
           </div>
-          
+
           <div className="product-showcase">
             <div className="product-content">
-              <h3>Finally, CMMS Data That Works</h3>
-              <p>AssetStage is the missing link between your legacy systems and a successful CMMS implementation. Our guided self-implementation platform empowers your team to clean, standardize, and optimize maintenance data without expensive consultants.</p>
-              
-              <ul className="feature-list">
-                <li>Import from any CMMS - Maximo, SAP PM, Excel</li>
-                <li>Intelligent data validation and error detection</li>
-                <li>PM standardization across identical assets</li>
-                <li>Pre-built templates for common industries</li>
-                <li>Export-ready files for all major CMMS platforms</li>
-              </ul>
-              
-              <div style={{marginTop: '30px'}}>
-                <a href="https://app.assetstage.io" className="btn-primary" target="_blank" rel="noopener noreferrer">
-                  Start Free Trial
-                </a>
+              <h3>Visual, Not Spreadsheets</h3>
+              <p>AssetStage gives your team a collaborative workspace to clean, validate, and prepare CMMS data—without the consultant price tag. See your entire asset structure at a glance. Drag, drop, done. No formulas required.</p>
+
+              <div style={{
+                background: 'white',
+                padding: '24px',
+                borderRadius: '8px',
+                marginTop: '24px',
+                marginBottom: '24px',
+                border: '1px solid var(--border-light)'
+              }}>
+                <h4 style={{ fontSize: '18px', marginBottom: '16px' }}>How Traditional Consulting Compares:</h4>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', fontSize: '14px' }}>
+                  <div>
+                    <div style={{ fontWeight: '600', color: 'var(--text-light)' }}>Traditional Consultants</div>
+                    <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--text-dark)', margin: '8px 0' }}>$180K+</div>
+                    <div style={{ color: 'var(--text-light)' }}>8+ months</div>
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: '600', color: 'var(--text-light)' }}>DIY in Excel</div>
+                    <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--text-dark)', margin: '8px 0' }}>$0</div>
+                    <div style={{ color: 'var(--text-light)' }}>12+ months + chaos</div>
+                  </div>
+                  <div style={{
+                    background: 'var(--accent-blue)',
+                    padding: '16px',
+                    borderRadius: '8px',
+                    color: 'white',
+                    margin: '-8px'
+                  }}>
+                    <div style={{ fontWeight: '600' }}>AssetStage</div>
+                    <div style={{ fontSize: '24px', fontWeight: '700', margin: '8px 0' }}>Contact Us</div>
+                    <div>2-4 weeks</div>
+                  </div>
+                </div>
               </div>
+
+              <ul className="feature-list">
+                <li>Visual hierarchy builder - see your entire structure at once</li>
+                <li>Real-time validation catches errors before CMMS import</li>
+                <li>Bulk operations fix 1000 errors with one click</li>
+                <li>Works with Maximo, SAP PM, Oracle, and any CMMS</li>
+                <li>Complete audit trail - know who changed what, when</li>
+              </ul>
+
+              <div style={{marginTop: '30px'}}>
+                <button className="btn-primary" onClick={openModal}>
+                  Book a Demo
+                </button>
             </div>
             
             <div className="product-visual">

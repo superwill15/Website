@@ -3,10 +3,10 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
-  title: "AssetStage - CMMS Data Quality & Engineering Standards Platform",
+  title: "AssetStage - The CMMS Data Workspace | Transform Data in Weeks, Not Months",
   description:
-    "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards. 90% cost reduction vs consultants.",
-  keywords: "CMMS data quality, asset management, RDS-PS, RDS-PP, ISO 14224, KKS, SFI, engineering standards, maintenance data migration, CMMS implementation, industrial data staging",
+    "The CMMS Data Workspace. AssetStage transforms messy Excel files into validated CMMS hierarchies in 2 weeks, not 8 months—without expensive consultants. Save $100K+ per implementation.",
+  keywords: "CMMS data workspace, CMMS data quality, asset management, data staging platform, Maximo data prep, SAP PM implementation, maintenance data migration, CMMS implementation, industrial data staging, RDS-PS, ISO 14224, SFI standards",
   authors: [{ name: "AssetStage" }],
   creator: "AssetStage",
   publisher: "AssetStage",
@@ -16,9 +16,9 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "AssetStage - CMMS Data Quality & Engineering Standards Platform",
+    title: "AssetStage - The CMMS Data Workspace",
     description:
-      "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards. 90% cost reduction vs consultants.",
+      "Transform messy Excel files into validated CMMS hierarchies in 2 weeks, not 8 months—without expensive consultants. Save $100K+ per implementation.",
     url: "https://assetstage.io",
     siteName: "AssetStage",
     type: "website",
@@ -28,15 +28,15 @@ export const metadata = {
         url: "https://assetstage.io/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AssetStage - CMMS Data Staging & Quality Platform",
+        alt: "AssetStage - The CMMS Data Workspace",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AssetStage - CMMS Data Quality & Engineering Standards Platform",
+    title: "AssetStage - The CMMS Data Workspace",
     description:
-      "Transform your CMMS with AssetStage's data staging platform. Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards.",
+      "Transform messy Excel files into validated CMMS hierarchies in 2 weeks, not 8 months—without expensive consultants.",
     creator: "@AssetStage",
     images: ["https://assetstage.io/og-image.png"],
   },
