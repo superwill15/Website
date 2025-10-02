@@ -334,6 +334,12 @@ export default function HomePage() {
               <h3>FMEA Workshop Facilitation</h3>
               <p>Expert-led Failure Mode and Effects Analysis (FMEA) workshops for your critical assets. Identify potential failure modes, assess risks, and develop targeted maintenance strategies to prevent costly downtime.</p>
             </div>
+
+            <div className="service-card">
+              <div className="service-icon">⏳</div>
+              <h3>Obsolescence Studies</h3>
+              <p>Proactive obsolescence management for aging assets and equipment. Identify at-risk components, assess spare parts availability, and develop mitigation strategies before obsolescence becomes a critical issue affecting operations.</p>
+            </div>
           </div>
         </div>
       </section>
