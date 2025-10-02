@@ -3,9 +3,9 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
-  title: "AssetStage - The CMMS Data Workspace | Transform Data in Weeks, Not Months",
+  title: "AssetStage - The CMMS Data Workspace | Professional Data Quality Tools",
   description:
-    "The CMMS Data Workspace. AssetStage transforms messy Excel files into validated CMMS hierarchies in 2 weeks, not 8 months—without expensive consultants. Save $100K+ per implementation.",
+    "The CMMS Data Workspace. AssetStage helps maintenance teams transform messy data into production-ready hierarchies—faster than traditional consulting, without the six-figure price tag.",
   keywords: "CMMS data workspace, CMMS data quality, asset management, data staging platform, Maximo data prep, SAP PM implementation, maintenance data migration, CMMS implementation, industrial data staging, RDS-PS, ISO 14224, SFI standards",
   authors: [{ name: "AssetStage" }],
   creator: "AssetStage",
@@ -18,7 +18,7 @@ export const metadata = {
   openGraph: {
     title: "AssetStage - The CMMS Data Workspace",
     description:
-      "Transform messy Excel files into validated CMMS hierarchies in 2 weeks, not 8 months—without expensive consultants. Save $100K+ per implementation.",
+      "AssetStage helps maintenance teams transform messy data into production-ready hierarchies—faster than traditional consulting, without the six-figure price tag.",
     url: "https://assetstage.io",
     siteName: "AssetStage",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "AssetStage - The CMMS Data Workspace",
     description:
-      "Transform messy Excel files into validated CMMS hierarchies in 2 weeks, not 8 months—without expensive consultants.",
+      "Professional tools for maintenance teams to transform messy data into production-ready hierarchies—without the consulting price tag.",
     creator: "@AssetStage",
     images: ["https://assetstage.io/og-image.png"],
   },

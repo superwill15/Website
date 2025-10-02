@@ -149,7 +149,7 @@ export default function HomePage() {
             The CMMS Data Workspace
           </div>
           <h1>Stop Fighting Spreadsheets. Start Shipping Clean Data.</h1>
-          <p>AssetStage transforms messy Excel files into validated CMMS hierarchies in 2 weeks, not 8 months—without expensive consultants. Join maintenance teams saving $100K+ per implementation.</p>
+          <p>AssetStage helps maintenance teams transform messy CMMS data into production-ready hierarchies—faster than traditional consulting, without the six-figure price tag.</p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={openModal}>See Your Data Transformed</button>
             <a href="#assetstage" className="btn-secondary">Learn How It Works</a>
