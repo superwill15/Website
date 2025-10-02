@@ -170,12 +170,12 @@ export default function HomePage() {
               <div className="stat-label">Get Up and Running</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">90%</div>
-              <div className="stat-label">Cost Reduction vs Consultants</div>
+              <div className="stat-number">100%</div>
+              <div className="stat-label">Audit Trail Coverage</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">$150k+</div>
-              <div className="stat-label">saved per project</div>
+              <div className="stat-number">Instant</div>
+              <div className="stat-label">Error Detection</div>
             </div>
           </div>
         </div>
