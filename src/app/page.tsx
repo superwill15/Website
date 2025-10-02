@@ -166,8 +166,8 @@ export default function HomePage() {
               <div className="stat-label">CMMS Failures Due to Bad Data</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">&lt;20 Min</div>
-              <div className="stat-label">Get Up and Running</div>
+              <div className="stat-number">Zero IT</div>
+              <div className="stat-label">Setup Required</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">100%</div>
