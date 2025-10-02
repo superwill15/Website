@@ -231,7 +231,6 @@ export default function MxloaderSolutionsLanding() {
               <form
                 action="https://api.web3forms.com/submit"
                 method="POST"
-                onSubmit={handleSubmit}
                 className="demo-form"
               >
                 <input type="hidden" name="access_key" value="5737364f-4088-402b-87b3-80dafb3d48cd" />
