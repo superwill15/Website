@@ -322,6 +322,18 @@ export default function HomePage() {
               <h3>Cross-Industry Standards Mapping</h3>
               <p>Bridge different classification systems during mergers, acquisitions, or multi-site operations. Map between RDS-PP, RDS-PS, ISO 14224, KKS, SFI and other standards for seamless integration.</p>
             </div>
+
+            <div className="service-card">
+              <div className="service-icon">⚠️</div>
+              <h3>Criticality Analysis Workshops</h3>
+              <p>Facilitated criticality assessment sessions to identify and rank your most important assets. Establish risk-based maintenance priorities using industry-standard methodologies aligned with ISO 55000 and ISO 14224 frameworks.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon">🔬</div>
+              <h3>FMEA Workshop Facilitation</h3>
+              <p>Expert-led Failure Mode and Effects Analysis (FMEA) workshops for your critical assets. Identify potential failure modes, assess risks, and develop targeted maintenance strategies to prevent costly downtime.</p>
+            </div>
           </div>
         </div>
       </section>
