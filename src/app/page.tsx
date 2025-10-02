@@ -196,40 +196,6 @@ export default function HomePage() {
               See your entire asset structure at a glance. Drag, drop, done. No formulas required.
             </p>
 
-            <div style={{
-              background: 'white',
-              padding: '32px',
-              borderRadius: '12px',
-              marginBottom: '40px',
-              border: '1px solid var(--border-light)',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
-            }}>
-              <h4 style={{ fontSize: '20px', marginBottom: '24px', textAlign: 'center' }}>How Traditional Consulting Compares:</h4>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', fontSize: '14px' }}>
-                <div style={{ textAlign: 'center', padding: '20px' }}>
-                  <div style={{ fontWeight: '600', color: 'var(--text-light)', marginBottom: '12px' }}>Traditional Consultants</div>
-                  <div style={{ fontSize: '32px', fontWeight: '700', color: 'var(--text-dark)', margin: '12px 0' }}>$180K+</div>
-                  <div style={{ color: 'var(--text-light)' }}>8+ months</div>
-                </div>
-                <div style={{ textAlign: 'center', padding: '20px' }}>
-                  <div style={{ fontWeight: '600', color: 'var(--text-light)', marginBottom: '12px' }}>DIY in Excel</div>
-                  <div style={{ fontSize: '32px', fontWeight: '700', color: 'var(--text-dark)', margin: '12px 0' }}>$0</div>
-                  <div style={{ color: 'var(--text-light)' }}>12+ months + chaos</div>
-                </div>
-                <div style={{
-                  background: 'var(--accent-blue)',
-                  padding: '20px',
-                  borderRadius: '12px',
-                  color: 'white',
-                  textAlign: 'center'
-                }}>
-                  <div style={{ fontWeight: '600', marginBottom: '12px' }}>AssetStage</div>
-                  <div style={{ fontSize: '32px', fontWeight: '700', margin: '12px 0' }}>Contact Us</div>
-                  <div>Weeks, not months</div>
-                </div>
-              </div>
-            </div>
-
             <ul className="feature-list" style={{ maxWidth: '600px', margin: '0 auto 40px' }}>
               <li>Visual hierarchy builder - see your entire structure at once</li>
               <li>Real-time validation catches errors before CMMS import</li>
