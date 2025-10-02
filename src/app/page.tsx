@@ -189,72 +189,59 @@ export default function HomePage() {
             <p>Not staging. Not MDM. Not consulting. A purpose-built workspace where CMMS data problems get solved.</p>
           </div>
 
-          <div className="product-showcase">
-            <div className="product-content">
-              <h3>Visual, Not Spreadsheets</h3>
-              <p>AssetStage gives your team a collaborative workspace to clean, validate, and prepare CMMS data—without the consultant price tag. See your entire asset structure at a glance. Drag, drop, done. No formulas required.</p>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <h3 style={{ fontSize: '32px', marginBottom: '20px', textAlign: 'center' }}>Visual, Not Spreadsheets</h3>
+            <p style={{ fontSize: '18px', color: 'var(--text-light)', marginBottom: '40px', textAlign: 'center' }}>
+              AssetStage gives your team a collaborative workspace to clean, validate, and prepare CMMS data—without the consultant price tag.
+              See your entire asset structure at a glance. Drag, drop, done. No formulas required.
+            </p>
 
-              <div style={{
-                background: 'white',
-                padding: '24px',
-                borderRadius: '8px',
-                marginTop: '24px',
-                marginBottom: '24px',
-                border: '1px solid var(--border-light)'
-              }}>
-                <h4 style={{ fontSize: '18px', marginBottom: '16px' }}>How Traditional Consulting Compares:</h4>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', fontSize: '14px' }}>
-                  <div>
-                    <div style={{ fontWeight: '600', color: 'var(--text-light)' }}>Traditional Consultants</div>
-                    <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--text-dark)', margin: '8px 0' }}>$180K+</div>
-                    <div style={{ color: 'var(--text-light)' }}>8+ months</div>
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: '600', color: 'var(--text-light)' }}>DIY in Excel</div>
-                    <div style={{ fontSize: '24px', fontWeight: '700', color: 'var(--text-dark)', margin: '8px 0' }}>$0</div>
-                    <div style={{ color: 'var(--text-light)' }}>12+ months + chaos</div>
-                  </div>
-                  <div style={{
-                    background: 'var(--accent-blue)',
-                    padding: '16px',
-                    borderRadius: '8px',
-                    color: 'white',
-                    margin: '-8px'
-                  }}>
-                    <div style={{ fontWeight: '600' }}>AssetStage</div>
-                    <div style={{ fontSize: '24px', fontWeight: '700', margin: '8px 0' }}>Contact Us</div>
-                    <div>2-4 weeks</div>
-                  </div>
+            <div style={{
+              background: 'white',
+              padding: '32px',
+              borderRadius: '12px',
+              marginBottom: '40px',
+              border: '1px solid var(--border-light)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+            }}>
+              <h4 style={{ fontSize: '20px', marginBottom: '24px', textAlign: 'center' }}>How Traditional Consulting Compares:</h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', fontSize: '14px' }}>
+                <div style={{ textAlign: 'center', padding: '20px' }}>
+                  <div style={{ fontWeight: '600', color: 'var(--text-light)', marginBottom: '12px' }}>Traditional Consultants</div>
+                  <div style={{ fontSize: '32px', fontWeight: '700', color: 'var(--text-dark)', margin: '12px 0' }}>$180K+</div>
+                  <div style={{ color: 'var(--text-light)' }}>8+ months</div>
                 </div>
-              </div>
-
-              <ul className="feature-list">
-                <li>Visual hierarchy builder - see your entire structure at once</li>
-                <li>Real-time validation catches errors before CMMS import</li>
-                <li>Bulk operations fix 1000 errors with one click</li>
-                <li>Works with Maximo, SAP PM, Oracle, and any CMMS</li>
-                <li>Complete audit trail - know who changed what, when</li>
-              </ul>
-
-              <div style={{marginTop: '30px'}}>
-                <button className="btn-primary" onClick={openModal}>
-                  Book a Demo
-                </button>
+                <div style={{ textAlign: 'center', padding: '20px' }}>
+                  <div style={{ fontWeight: '600', color: 'var(--text-light)', marginBottom: '12px' }}>DIY in Excel</div>
+                  <div style={{ fontSize: '32px', fontWeight: '700', color: 'var(--text-dark)', margin: '12px 0' }}>$0</div>
+                  <div style={{ color: 'var(--text-light)' }}>12+ months + chaos</div>
+                </div>
+                <div style={{
+                  background: 'var(--accent-blue)',
+                  padding: '20px',
+                  borderRadius: '12px',
+                  color: 'white',
+                  textAlign: 'center'
+                }}>
+                  <div style={{ fontWeight: '600', marginBottom: '12px' }}>AssetStage</div>
+                  <div style={{ fontSize: '32px', fontWeight: '700', margin: '12px 0' }}>Contact Us</div>
+                  <div>Weeks, not months</div>
+                </div>
               </div>
             </div>
 
-            <div className="product-visual">
-              <div className="demo-box">
-                <div style={{background: 'var(--accent-green)', color: 'white', padding: '20px', borderRadius: '8px', marginBottom: '20px'}}>
-                  <div style={{fontSize: '24px', fontWeight: 'bold'}}>AssetStage Demo</div>
-                </div>
-                <div style={{textAlign: 'left', padding: '20px', background: 'white', borderRadius: '8px'}}>
-                  <div style={{marginBottom: '15px'}}>📊 Data Quality Score: <span style={{color: 'var(--accent-green)', fontWeight: 'bold'}}>87%</span></div>
-                  <div style={{marginBottom: '15px'}}>🔧 Assets Processed: <span style={{fontWeight: 'bold'}}>2,347</span></div>
-                  <div style={{marginBottom: '15px'}}>⚠️ Issues Found: <span style={{color: 'var(--accent-orange)', fontWeight: 'bold'}}>156</span></div>
-                  <div>✅ Ready for Import: <span style={{color: 'var(--accent-green)', fontWeight: 'bold'}}>2,191</span></div>
-                </div>
-              </div>
+            <ul className="feature-list" style={{ maxWidth: '600px', margin: '0 auto 40px' }}>
+              <li>Visual hierarchy builder - see your entire structure at once</li>
+              <li>Real-time validation catches errors before CMMS import</li>
+              <li>Bulk operations fix 1000 errors with one click</li>
+              <li>Works with Maximo, SAP PM, Oracle, and any CMMS</li>
+              <li>Complete audit trail - know who changed what, when</li>
+            </ul>
+
+            <div style={{ textAlign: 'center' }}>
+              <button className="btn-primary" onClick={openModal}>
+                Book a Demo
+              </button>
             </div>
           </div>
           
