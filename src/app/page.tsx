@@ -240,8 +240,9 @@ export default function HomePage() {
                 <button className="btn-primary" onClick={openModal}>
                   Book a Demo
                 </button>
+              </div>
             </div>
-            
+
             <div className="product-visual">
               <div className="demo-box">
                 <div style={{background: 'var(--accent-green)', color: 'white', padding: '20px', borderRadius: '8px', marginBottom: '20px'}}>
