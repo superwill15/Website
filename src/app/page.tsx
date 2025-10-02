@@ -378,6 +378,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Security Section */}
+      <section className="section section-gray">
+        <div className="container">
+          <div className="section-header">
+            <h2>Enterprise Security, Built-In</h2>
+            <p>Professional-grade security for your CMMS data</p>
+          </div>
+
+          <div className="services-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+            <div className="service-card">
+              <div className="service-icon">🔒</div>
+              <h3>Data Isolation & Access Control</h3>
+              <p>Complete tenant isolation at the database level ensures your data never mixes with other customers. Role-based access control gives you granular permissions—control exactly who can view, edit, or delete data.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon">📋</div>
+              <h3>Complete Audit Trail</h3>
+              <p>Every action is logged with user identity, timestamp, and affected records. Full visibility into platform activity helps you meet compliance requirements and investigate issues with confidence.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon">🏢</div>
+              <h3>Enterprise Infrastructure</h3>
+              <p>Built on Supabase and Vercel—both SOC 2 Type II certified platforms. Your data is protected with AES-256 encryption at rest and TLS 1.3 in transit. Enterprise-grade security without enterprise complexity.</p>
+            </div>
+          </div>
+
+          <p style={{
+            textAlign: 'center',
+            marginTop: '40px',
+            fontSize: '16px',
+            color: 'var(--text-light)',
+            maxWidth: '800px',
+            margin: '40px auto 0'
+          }}>
+            Significantly more secure than Excel spreadsheets, email attachments, and shared drives. Professional data security without the consultant price tag.
+          </p>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="section" id="about">
         <div className="container">
