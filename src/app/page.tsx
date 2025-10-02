@@ -17,7 +17,7 @@ export default function HomePage() {
     "name": "AssetStage",
     "url": "https://assetstage.io",
     "logo": "https://assetstage.io/logo.png",
-    "description": "The CMMS Data Workspace. AssetStage transforms messy Excel files into validated CMMS hierarchies in weeks, not months—without expensive consultants.",
+    "description": "The CMMS Data Workspace. AssetStage transforms messy Excel files into validated CMMS hierarchies in weeks, not months, without expensive consultants.",
     "founder": {
       "@type": "Organization",
       "name": "AssetStage"
@@ -149,7 +149,7 @@ export default function HomePage() {
             The CMMS Data Workspace
           </div>
           <h1>Stop Fighting Spreadsheets. Start Shipping Clean Data.</h1>
-          <p>AssetStage helps maintenance teams transform messy CMMS data into production-ready hierarchies—faster than traditional consulting, without the six-figure price tag.</p>
+          <p>AssetStage helps maintenance teams transform messy CMMS data into production-ready hierarchies. Faster than traditional consulting, without the six-figure price tag.</p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={openModal}>See Your Data Transformed</button>
             <a href="#assetstage" className="btn-secondary">Learn How It Works</a>
@@ -192,7 +192,7 @@ export default function HomePage() {
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <h3 style={{ fontSize: '32px', marginBottom: '20px', textAlign: 'center' }}>Visual, Not Spreadsheets</h3>
             <p style={{ fontSize: '18px', color: 'var(--text-light)', marginBottom: '40px', textAlign: 'center' }}>
-              AssetStage gives your team a collaborative workspace to clean, validate, and prepare CMMS data—without the consultant price tag.
+              AssetStage gives your team a collaborative workspace to clean, validate, and prepare CMMS data without the consultant price tag.
               See your entire asset structure at a glance. Drag, drop, done. No formulas required.
             </p>
 
@@ -390,7 +390,7 @@ export default function HomePage() {
             <div className="service-card">
               <div className="service-icon">🔒</div>
               <h3>Data Isolation & Access Control</h3>
-              <p>Complete tenant isolation at the database level ensures your data never mixes with other customers. Role-based access control gives you granular permissions—control exactly who can view, edit, or delete data.</p>
+              <p>Complete tenant isolation at the database level ensures your data never mixes with other customers. Role-based access control gives you granular permissions. Control exactly who can view, edit, or delete data.</p>
             </div>
 
             <div className="service-card">
@@ -402,7 +402,7 @@ export default function HomePage() {
             <div className="service-card">
               <div className="service-icon">🏢</div>
               <h3>Enterprise Infrastructure</h3>
-              <p>Built on Supabase and Vercel—both SOC 2 Type II certified platforms. Your data is protected with AES-256 encryption at rest and TLS 1.3 in transit. Enterprise-grade security without enterprise complexity.</p>
+              <p>Built on Supabase and Vercel (both SOC 2 Type II certified platforms). Your data is protected with AES-256 encryption at rest and TLS 1.3 in transit. Enterprise-grade security without enterprise complexity.</p>
             </div>
           </div>
 
