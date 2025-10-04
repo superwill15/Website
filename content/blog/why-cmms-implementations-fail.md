@@ -94,12 +94,10 @@ Works with your existing CMMS loading templates. Import your Excel files, clean 
 ### Complete Audit Trail
 Know who changed what, when. Every modification is logged with user identity and timestamp. Meet compliance requirements and investigate issues with confidence.
 
-## The Results: 6 Weeks, Not 6 Months
+## The Results
 
 Organizations using AssetStage achieve what was previously impossible:
 
-- **6-week delivery** instead of 6-month consulting projects
-- **90% cost savings** compared to traditional implementations
 - **Works with any CMMS** - Maximo, SAP PM, Oracle EAM, and more
 - **Zero IT setup required** - start cleaning data on day one
 
