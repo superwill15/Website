@@ -206,7 +206,8 @@ export default function HomePage() {
 
             <ul className="feature-list" style={{ maxWidth: '600px', margin: '0 auto 40px' }}>
               <li>Drag-and-drop hierarchy builder - reorganize thousands of assets instantly</li>
-              <li>Visual tree structure - see your entire asset hierarchy at once and easily identify issues</li>
+              <li>Visual tree structure - see your entire asset hierarchy at once</li>
+              <li>Team collaboration - multiple users working together, no more emailing Excel files</li>
               <li>Real-time validation catches errors before CMMS import</li>
               <li>Bulk operations fix 1000 errors with one click</li>
               <li>Works with Maximo, SAP PM, Oracle, and any CMMS</li>
