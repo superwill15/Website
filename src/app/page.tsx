@@ -205,7 +205,8 @@ export default function HomePage() {
             </div>
 
             <ul className="feature-list" style={{ maxWidth: '600px', margin: '0 auto 40px' }}>
-              <li>Visual hierarchy builder - see your entire structure at once</li>
+              <li>Drag-and-drop hierarchy builder - reorganize thousands of assets instantly</li>
+              <li>Visual tree structure - see your entire asset hierarchy at once and easily identify issues</li>
               <li>Real-time validation catches errors before CMMS import</li>
               <li>Bulk operations fix 1000 errors with one click</li>
               <li>Works with Maximo, SAP PM, Oracle, and any CMMS</li>
