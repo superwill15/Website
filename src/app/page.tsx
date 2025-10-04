@@ -196,6 +196,14 @@ export default function HomePage() {
               See your entire asset structure at a glance. Drag, drop, done. No formulas required.
             </p>
 
+            <div style={{ marginBottom: '40px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+              <img
+                src="/assetstage-visual-interface.png"
+                alt="AssetStage visual interface showing hierarchical asset management with dual-pane navigation"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+
             <ul className="feature-list" style={{ maxWidth: '600px', margin: '0 auto 40px' }}>
               <li>Visual hierarchy builder - see your entire structure at once</li>
               <li>Real-time validation catches errors before CMMS import</li>
