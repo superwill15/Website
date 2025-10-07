@@ -31,14 +31,6 @@ Not anymore.
 - Before/after comparisons
 - Export ready for your CMMS
 
-## Real Results from Beta Users
-
-We've been testing this with a few early users:
-
-- **Cohesive (CMMS Consultancy)**: Cut PM standardization time from 3 days to 3 hours on their latest Maximo implementation
-- **Manufacturing Site**: Found 30% of their pumps were over-maintained, saving £40K annually after optimization
-- **Post-Merger Integration**: Standardized two different maintenance philosophies into one coherent strategy in under a week
-
 ## How to Get Started
 
 **Already an AssetStage user?**
