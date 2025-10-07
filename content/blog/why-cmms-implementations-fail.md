@@ -1,6 +1,6 @@
 ---
 title: "Why 70% of CMMS Implementations Fail (And How AssetStage Fixes It)"
-date: "2025-10-07"
+date: "2025-10-04"
 description: "70% of CMMS implementations fail due to bad data, not bad software. Discover how AssetStage's visual workspace solves the data quality crisis that traditional methods can't fix."
 ---
 
