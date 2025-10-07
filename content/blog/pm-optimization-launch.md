@@ -16,8 +16,6 @@ Not anymore.
 
 ## What It Does
 
-![PM Optimization interface showing side-by-side comparison of maintenance schedules](/pm-optimization-screenshot.png)
-
 **See the problem clearly**
 - View all PM schedules for identical assets side-by-side
 - Differences are highlighted automatically
