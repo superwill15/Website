@@ -1,12 +1,18 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import Logo from '@/components/Logo';
 
 export default function PMOptimizationPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   const openModal = () => {
     setModalOpen(true);
@@ -60,6 +66,48 @@ export default function PMOptimizationPage() {
 
   return (
     <>
+      {/* Navigation */}
+      <nav>
+        <div className="nav-container">
+          <a href="/" className="logo-link" aria-label="AssetStage Home">
+            <Logo variant="primary" width={200} height={50} />
+          </a>
+          <ul className="nav-links">
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#assetstage">AssetStage</a></li>
+            <li><a href="/pm-optimization">PM Optimization</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#resources">Resources</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+          <button className="nav-cta" onClick={openModal}>Get Demo</button>
+
+          {/* Mobile Menu Button */}
+          <button className={`mobile-menu-btn ${mobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu} aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
+          <ul className="mobile-nav-links">
+            <li><a href="/#home" onClick={toggleMobileMenu}>Home</a></li>
+            <li><a href="/#assetstage" onClick={toggleMobileMenu}>AssetStage</a></li>
+            <li><a href="/pm-optimization" onClick={toggleMobileMenu}>PM Optimization</a></li>
+            <li><a href="/#services" onClick={toggleMobileMenu}>Services</a></li>
+            <li><a href="/blog" onClick={toggleMobileMenu}>Blog</a></li>
+            <li><a href="/#resources" onClick={toggleMobileMenu}>Resources</a></li>
+            <li><a href="/#about" onClick={toggleMobileMenu}>About</a></li>
+            <li><a href="/#contact" onClick={toggleMobileMenu}>Contact</a></li>
+            <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Get Demo</button></li>
+          </ul>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
