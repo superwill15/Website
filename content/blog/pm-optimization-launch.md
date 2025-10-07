@@ -37,7 +37,7 @@ Not anymore.
 PM Optimization is available now in your Professional or Enterprise tier. Look for the "PM Optimization" tab in your main navigation.
 
 **New to AssetStage?**
-1. Sign up for a 30-day free trial at app.assetstage.io
+1. Sign up for a 14-day free trial at app.assetstage.io
 2. Upload your PM data (we support CSV, Excel, and direct CMMS exports)
 3. See your PM inconsistencies immediately
 4. Fix what you want during the trial - keep the improvements even if you don't continue
