@@ -8,13 +8,15 @@ description: "Standardize preventive maintenance schedules across identical equi
 
 ## The Feature You've Been Asking For
 
-PM Optimization is now available in AssetStage.
+PM Optimization is now available in AssetStage. [Learn more about PM Optimization →](/pm-optimization)
 
 If you've ever tried to standardize preventive maintenance schedules across identical equipment, you know the pain. Export to Excel. Compare dozens of schedules. Copy and paste for hours. Import back. Hope nothing breaks.
 
 Not anymore.
 
 ## What It Does
+
+![PM Optimization interface showing side-by-side comparison of maintenance schedules](/pm-optimization-screenshot.png)
 
 **See the problem clearly**
 - View all PM schedules for identical assets side-by-side
