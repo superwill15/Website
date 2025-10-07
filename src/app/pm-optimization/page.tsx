@@ -362,35 +362,6 @@ export default function PMOptimizationPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <h2>User Feedback</h2>
-          </div>
-
-          <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gap: '30px' }}>
-            <div className="service-card" style={{ borderLeft: '4px solid var(--accent-blue)' }}>
-              <p style={{ fontSize: '18px', fontStyle: 'italic', lineHeight: '1.7' }}>
-                &quot;Seeing it laid out visually was eye-opening. We had pumps getting monthly PMs next to identical pumps with annual PMs.&quot;
-              </p>
-            </div>
-
-            <div className="service-card" style={{ borderLeft: '4px solid var(--accent-green)' }}>
-              <p style={{ fontSize: '18px', fontStyle: 'italic', lineHeight: '1.7' }}>
-                &quot;Was dreading standardizing our compressor PMs. Did it Friday afternoon instead of spending the weekend on it.&quot;
-              </p>
-            </div>
-
-            <div className="service-card" style={{ borderLeft: '4px solid var(--accent-orange)' }}>
-              <p style={{ fontSize: '18px', fontStyle: 'italic', lineHeight: '1.7' }}>
-                &quot;What used to take me 3 days took 3 hours. Better results in less time.&quot;
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
