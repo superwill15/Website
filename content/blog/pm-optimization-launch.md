@@ -96,6 +96,10 @@ That's why we built this. Maintenance teams have real problems to solve. Spreads
 
 ---
 
-*PM Optimization is live now at app.assetstage.io*
+*PM Optimization is live now at [app.assetstage.io](https://app.assetstage.io)*
 
 **P.S.** If you try it and find a scenario we don't handle well, tell us. We're maintenance people building for maintenance people. Your feedback directly shapes what we build next.
+
+---
+
+*Want to learn more about PM Optimization? Visit our [PM Optimization page](/pm-optimization) for detailed information, or [start your free trial](https://app.assetstage.io) to see it in action. Questions? [Contact our team](/#contact).*
