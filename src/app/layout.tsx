@@ -67,6 +67,10 @@ export default function RootLayout({
             gtag('config', 'G-Q027KXVY63');
           `}
         </Script>
+      </head>
+      <body>
+        {children}
+        <Analytics />
         {/* HubSpot Tracking Code */}
         <Script
           id="hs-script-loader"
@@ -75,10 +79,6 @@ export default function RootLayout({
           src="//js-eu1.hs-scripts.com/147136026.js"
           strategy="afterInteractive"
         />
-      </head>
-      <body>
-        {children}
-        <Analytics />
       </body>
     </html>
   );
