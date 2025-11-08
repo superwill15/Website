@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
+import { validateBusinessEmail } from '@/utils/emailValidation';
 
 export default function SfiIso14224Landing() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
   const orgLd = {
@@ -25,15 +27,33 @@ export default function SfiIso14224Landing() {
     "publisher": { "@type": "Organization", "name": "AssetStage" }
   };
 
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const email = e.target.value;
+    const validationError = validateBusinessEmail(email);
+    setEmailError(validationError);
+    setError(null); // Clear general error when user is typing
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+
+    // Get email value from form
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const email = data.get('email') as string;
+
+    // Validate email before submitting
+    const validationError = validateBusinessEmail(email);
+    if (validationError) {
+      setEmailError(validationError);
+      setError(validationError);
+      return;
+    }
+
     setSubmitting(true);
-    
+
     try {
-      const form = e.currentTarget;
-      const data = new FormData(form);
-      
       console.log('Submitting to:', form.action);
       
       const res = await fetch('https://api.web3forms.com/submit', { 
@@ -56,6 +76,7 @@ export default function SfiIso14224Landing() {
       if (json.success) {
         setSuccess(true);
         form.reset();
+        setEmailError(null);
         // Short delay to show success message, then redirect
         setTimeout(() => {
           window.location.href = '/thank-you';
@@ -238,7 +259,24 @@ export default function SfiIso14224Landing() {
                   </div>
                   <div className="form-group">
                     <label>Work email *</label>
-                    <input name="email" type="email" required autoComplete="email" />
+                    <input
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      onChange={handleEmailChange}
+                      className={emailError ? 'error' : ''}
+                    />
+                    {emailError && (
+                      <span style={{
+                        display: 'block',
+                        color: '#f44336',
+                        fontSize: '13px',
+                        marginTop: '5px'
+                      }}>
+                        {emailError}
+                      </span>
+                    )}
                   </div>
                 </div>
 

@@ -1,13 +1,15 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
 import Logo from '@/components/Logo';
+import { validateBusinessEmail } from '@/utils/emailValidation';
 
 export default function PMOptimizationPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
+  const [emailError, setEmailError] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -24,7 +26,15 @@ export default function PMOptimizationPage() {
     document.body.style.overflow = 'auto';
     setFormSuccess(false);
     setFormError('');
+    setEmailError(null);
     setFormSubmitting(false);
+  };
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    const error = validateBusinessEmail(email);
+    setEmailError(error);
+    setFormError(''); // Clear general form error when user is typing
   };
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -32,12 +42,22 @@ export default function PMOptimizationPage() {
 
     if (formSubmitting) return;
 
+    // Get email value from form
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const email = formData.get('email') as string;
+
+    // Validate email before submitting
+    const validationError = validateBusinessEmail(email);
+    if (validationError) {
+      setEmailError(validationError);
+      setFormError(validationError);
+      return;
+    }
+
     setFormSubmitting(true);
     setFormError('');
     setFormSuccess(false);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -50,6 +70,7 @@ export default function PMOptimizationPage() {
       if (response.ok && data.success) {
         setFormSuccess(true);
         form.reset();
+        setEmailError(null);
         setTimeout(() => {
           closeModal();
         }, 3000);
@@ -415,8 +436,26 @@ export default function PMOptimizationPage() {
                     <input type="text" id="name" name="name" required autoComplete="name"/>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required autoComplete="email"/>
+                    <label htmlFor="email">Work Email Address *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      autoComplete="email"
+                      onChange={handleEmailChange}
+                      className={emailError ? 'error' : ''}
+                    />
+                    {emailError && (
+                      <span style={{
+                        display: 'block',
+                        color: '#f44336',
+                        fontSize: '13px',
+                        marginTop: '5px'
+                      }}>
+                        {emailError}
+                      </span>
+                    )}
                   </div>
                 </div>
 
