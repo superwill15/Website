@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
+import { validateBusinessEmail } from '@/utils/emailValidation';
 
 interface ResourceModalProps {
   isOpen: boolean;
@@ -18,30 +19,49 @@ export default function ResourceModal({ isOpen, onClose, resource, onDownload }:
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
+  const [emailError, setEmailError] = useState<string | null>(null);
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    const error = validateBusinessEmail(email);
+    setEmailError(error);
+    setFormError(''); // Clear general form error when user is typing
+  };
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (formSubmitting) return;
-    
+
+    // Get email value from form
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const email = formData.get('email') as string;
+
+    // Validate email before submitting
+    const validationError = validateBusinessEmail(email);
+    if (validationError) {
+      setEmailError(validationError);
+      setFormError(validationError);
+      return;
+    }
+
     setFormSubmitting(true);
     setFormError('');
     setFormSuccess(false);
-    
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    
+
     try {
       await onDownload(formData);
       setFormSuccess(true);
       form.reset();
-      
+      setEmailError(null);
+
       // Auto-close modal after successful download
       setTimeout(() => {
         onClose();
         setFormSuccess(false);
       }, 2000);
-      
+
     } catch (error) {
       console.error('Resource download error:', error);
       setFormError('Failed to process download. Please try again or contact us directly.');
@@ -53,6 +73,7 @@ export default function ResourceModal({ isOpen, onClose, resource, onDownload }:
   const closeModal = () => {
     setFormSuccess(false);
     setFormError('');
+    setEmailError(null);
     setFormSubmitting(false);
     onClose();
   };
@@ -115,8 +136,26 @@ export default function ResourceModal({ isOpen, onClose, resource, onDownload }:
                 <input type="text" id="resource_name" name="name" required autoComplete="name"/>
               </div>
               <div className="form-group">
-                <label htmlFor="resource_email">Email Address *</label>
-                <input type="email" id="resource_email" name="email" required autoComplete="email"/>
+                <label htmlFor="resource_email">Work Email Address *</label>
+                <input
+                  type="email"
+                  id="resource_email"
+                  name="email"
+                  required
+                  autoComplete="email"
+                  onChange={handleEmailChange}
+                  className={emailError ? 'error' : ''}
+                />
+                {emailError && (
+                  <span style={{
+                    display: 'block',
+                    color: '#f44336',
+                    fontSize: '13px',
+                    marginTop: '5px'
+                  }}>
+                    {emailError}
+                  </span>
+                )}
               </div>
             </div>
             
