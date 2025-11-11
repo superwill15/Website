@@ -376,4 +376,4 @@ Data staging isn't a nice-to-have. It's insurance against known, predictable, ex
 
 -----
 
-*AssetStage provides data staging and validation for CMMS migrations, helping organizations identify and fix data quality issues before production deployment. [Learn more about our migration services](/) or [start your free trial](https://app.assetstage.io) to validate your Maximo data today.*
+*AssetStage provides data staging and validation for CMMS migrations, helping organizations identify and fix data quality issues before production deployment. [Learn more about our migration services](/) or [request a trial](/#contact) to validate your Maximo data today.*

@@ -37,7 +37,7 @@ Not anymore.
 PM Optimization is available now in your Professional or Enterprise tier. Look for the "PM Optimization" tab in your main navigation.
 
 **New to AssetStage?**
-1. Sign up for a 14-day free trial at app.assetstage.io
+1. [Request a trial](/#contact) to get started
 2. Upload your PM data (we support CSV, Excel, and direct CMMS exports)
 3. See your PM inconsistencies immediately
 4. Fix what you want during the trial - keep the improvements even if you don't continue
@@ -78,7 +78,7 @@ But today, we're focused on PM standardization. Because that's where the biggest
 
 **Pricing questions**: Email us at sales@assetstage.io
 
-**Just want to try it**: Sign up at app.assetstage.io - no sales call required
+**Just want to try it**: [Request a trial here](/#contact) and we'll get you set up
 
 ## One Last Thing
 
@@ -88,10 +88,10 @@ That's why we built this. Maintenance teams have real problems to solve. Spreads
 
 ---
 
-*PM Optimization is live now at [app.assetstage.io](https://app.assetstage.io)*
+*PM Optimization is live now - [request a trial](/#contact) to try it with your data.*
 
 **P.S.** If you try it and find a scenario we don't handle well, tell us. We're maintenance people building for maintenance people. Your feedback directly shapes what we build next.
 
 ---
 
-*Want to learn more about PM Optimization? Visit our [PM Optimization page](/pm-optimization) for detailed information, or [start your free trial](https://app.assetstage.io) to see it in action. Questions? [Contact our team](/#contact).*
+*Want to learn more about PM Optimization? Visit our [PM Optimization page](/pm-optimization) for detailed information, or [request a trial](/#contact) to see it in action. Questions? [Contact our team](/#contact).*

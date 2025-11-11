@@ -465,8 +465,8 @@ export default function MxloaderSolutionsLanding() {
           <p>Pre-validate your data, catch errors early, and maintain complete audit trails.</p>
           <div className="hero-buttons">
             <Link href="/#demo" className="btn-primary">Schedule a Demo</Link>
-            <Link href="https://app.assetstage.io" className="btn-secondary" target="_blank" rel="noopener noreferrer">
-              Start Free Trial
+            <Link href="/#contact" className="btn-secondary">
+              Request a Trial
             </Link>
           </div>
         </div>

@@ -394,9 +394,9 @@ export default function PMOptimizationPage() {
             <button className="btn-primary" onClick={openModal} style={{ background: 'var(--white)', color: 'var(--primary-navy)' }}>
               Request Analysis
             </button>
-            <a href="https://app.assetstage.io" className="btn-secondary" target="_blank" rel="noopener noreferrer">
-              Start Free Trial
-            </a>
+            <button className="btn-secondary" onClick={openModal}>
+              Request a Trial
+            </button>
           </div>
         </div>
       </section>

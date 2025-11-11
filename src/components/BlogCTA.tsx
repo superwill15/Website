@@ -15,11 +15,11 @@ export default function BlogCTA({ variant = 'default' }: { variant?: 'default' |
           Ready to Transform Your CMMS Data?
         </h3>
         <p style={{ color: '#E2E8F0', marginBottom: '20px', fontSize: '16px' }}>
-          Stop struggling with bad data. Start your free trial today.
+          Stop struggling with bad data. Request a trial today.
         </p>
         <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a 
-            href="https://app.assetstage.io" 
+          <a
+            href="/#contact"
             className="cta-button-primary"
             style={{
               background: '#10B981',
@@ -30,10 +30,8 @@ export default function BlogCTA({ variant = 'default' }: { variant?: 'default' |
               fontWeight: 'bold',
               display: 'inline-block',
             }}
-            target="_blank"
-            rel="noopener noreferrer"
           >
-            Start Free Trial →
+            Request a Trial →
           </a>
           <a 
             href="/#demo" 
@@ -73,8 +71,8 @@ export default function BlogCTA({ variant = 'default' }: { variant?: 'default' |
           <strong style={{ fontSize: '18px', color: '#1a365d' }}>Transform Your CMMS Data</strong>
           <p style={{ margin: '5px 0 0', color: '#4A5568' }}>6-week implementation, 90% cost savings</p>
         </div>
-        <a 
-          href="https://app.assetstage.io" 
+        <a
+          href="/#contact"
           style={{
             background: '#10B981',
             color: 'white',
@@ -84,10 +82,8 @@ export default function BlogCTA({ variant = 'default' }: { variant?: 'default' |
             fontWeight: 'bold',
             whiteSpace: 'nowrap'
           }}
-          target="_blank"
-          rel="noopener noreferrer"
         >
-          Start Free Trial
+          Request a Trial
         </a>
       </div>
     );
@@ -120,15 +116,15 @@ export default function BlogCTA({ variant = 'default' }: { variant?: 'default' |
           Get enterprise-quality results at 90% less cost than traditional consultants.
         </p>
         
-        <div style={{ 
-          display: 'flex', 
-          gap: '20px', 
+        <div style={{
+          display: 'flex',
+          gap: '20px',
           justifyContent: 'center',
           flexWrap: 'wrap',
           marginBottom: '40px'
         }}>
-          <a 
-            href="https://app.assetstage.io" 
+          <a
+            href="/#contact"
             className="cta-button-primary"
             style={{
               background: '#10B981',
@@ -141,10 +137,8 @@ export default function BlogCTA({ variant = 'default' }: { variant?: 'default' |
               display: 'inline-block',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
             }}
-            target="_blank"
-            rel="noopener noreferrer"
           >
-            Start Your Free Trial →
+            Request a Trial →
           </a>
           <a 
             href="/#demo" 

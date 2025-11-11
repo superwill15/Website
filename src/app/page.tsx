@@ -524,9 +524,9 @@ export default function HomePage() {
           <p>Join forward-thinking maintenance teams who&apos;ve stopped accepting bad data as inevitable.</p>
           <div className="hero-buttons">
             <button className="btn-secondary" onClick={openModal}>Schedule Demo</button>
-            <a href="https://app.assetstage.io" className="btn-primary" target="_blank" rel="noopener noreferrer" style={{background:'#fff',color:'var(--primary-navy)'}}>
-              Start Free Trial
-            </a>
+            <button className="btn-primary" onClick={openModal} style={{background:'#fff',color:'var(--primary-navy)'}}>
+              Request a Trial
+            </button>
           </div>
         </div>
       </section>

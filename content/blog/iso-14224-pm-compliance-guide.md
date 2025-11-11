@@ -274,4 +274,4 @@ The best time to rationalize your maintenance program was when you first impleme
 
 ---
 
-*Ready to achieve ISO 14224 compliance for your preventive maintenance program? AssetStage's PM Optimization feature helps you identify PM inconsistencies across identical assets, standardize maintenance schedules systematically, and maintain compliance going forward. [Learn more about PM Optimization](/pm-optimization) or [start your free trial](https://app.assetstage.io) to see your PM compliance gaps in minutes.*
+*Ready to achieve ISO 14224 compliance for your preventive maintenance program? AssetStage's PM Optimization feature helps you identify PM inconsistencies across identical assets, standardize maintenance schedules systematically, and maintain compliance going forward. [Learn more about PM Optimization](/pm-optimization) or [request a trial](/#contact) to see your PM compliance gaps in minutes.*

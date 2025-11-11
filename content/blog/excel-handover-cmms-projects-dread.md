@@ -160,4 +160,4 @@ Some projects insure against it.
 
 -----
 
-*Need to validate your CMMS data before it goes live? [AssetStage](https://app.assetstage.io) gives you hierarchy validation, change tracking, and quality rules—before the handover becomes a crisis.*
+*Need to validate your CMMS data before it goes live? [AssetStage](/#contact) gives you hierarchy validation, change tracking, and quality rules—before the handover becomes a crisis. [Request a trial](/#contact) to see how it works for your data.*

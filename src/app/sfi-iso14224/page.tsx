@@ -392,8 +392,8 @@ export default function SfiIso14224Landing() {
           <p>Clean, standardized data ready for AMOS, Maximo, SAP — without six-figure consulting.</p>
           <div className="hero-buttons">
             <Link href="/#demo" className="btn-primary">Schedule a Demo</Link>
-            <Link href="https://app.assetstage.io" className="btn-secondary" target="_blank" rel="noopener noreferrer">
-              Start Free Trial
+            <Link href="/#contact" className="btn-secondary">
+              Request a Trial
             </Link>
           </div>
         </div>
