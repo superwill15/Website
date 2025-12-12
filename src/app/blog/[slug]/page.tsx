@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPost } from "@/lib/posts";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
   try {
     const post = await getPost(slug);
     return {
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
   let post;
   try {
     post = await getPost(slug);
