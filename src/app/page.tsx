@@ -171,7 +171,7 @@ export default function HomePage() {
           }}>
             The CMMS Data Workspace
           </div>
-          <h1>Stop Fighting Spreadsheets. Start Shipping Clean Data.</h1>
+          <h1>Stop Fighting Spreadsheets.<br />Start Shipping Clean Data.</h1>
           <p>AssetStage helps maintenance teams transform messy CMMS data into production-ready hierarchies. Faster than traditional consulting, without the six-figure price tag.</p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={openModal}>See Your Data Transformed</button>
