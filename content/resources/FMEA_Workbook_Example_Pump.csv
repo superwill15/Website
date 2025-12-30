@@ -1,0 +1,57 @@
+FMEA Worksheet - Equipment Failure Mode and Effects Analysis
+Company:,Example Refinery Inc.,,,,,,,,,,
+Equipment/System:,P-101A Seawater Lift Pump,,,,,,,,,,
+FMEA Date:,2025-01-15,,,,,,,,,,
+Team Members:,"J. Smith (Mech Eng), M. Johnson (Operations), K. Lee (Reliability)",,,,,,,,,,
+Revision:,1.0,,,,,,,,,,
+
+Item #,Equipment/Component,Function,Failure Mode,Failure Effect (Local),Failure Effect (System),Failure Cause,Severity (S),Occurrence (O),Detection (D),RPN,Recommended Action,Action Owner,Target Date,Action Taken,New S,New O,New D,New RPN
+1,Mechanical Seal,Prevent process fluid leakage,External leakage,"Seal leak, fluid loss",Reduced pump capacity; environmental release if severe,Worn seal faces from abrasive particles,7,5,4,140,Install seal flush system with cyclone separator,K. Lee,2025-03-01,Flush system installed,7,2,4,56
+2,Mechanical Seal,Prevent process fluid leakage,Catastrophic failure,Complete seal failure,Pump shutdown; major leak; fire risk if flammable,Dry running during startup,9,3,6,162,Add low-flow alarm and interlock,M. Johnson,2025-02-15,,,,,
+3,Bearings (Drive End),Support rotating shaft,Excessive vibration,Increased wear; noise,Potential shaft damage; seal damage,Misalignment; inadequate lubrication,6,4,3,72,Implement quarterly vibration monitoring,K. Lee,2025-02-01,Vibration route established,6,3,2,36
+4,Bearings (Drive End),Support rotating shaft,Seizure,Pump stops immediately,Production loss; shaft damage; coupling damage,Lubrication failure,8,2,5,80,Install bearing temperature monitors,K. Lee,2025-03-15,,,,,
+5,Impeller,Transfer energy to fluid,Erosion wear,Reduced head and flow,Insufficient cooling water; process impact,Abrasive particles in seawater,5,6,5,150,Install strainer upstream; quarterly impeller inspection,J. Smith,2025-02-28,,,,,
+6,Impeller,Transfer energy to fluid,Cavitation damage,Pitting; reduced efficiency,Reduced flow; increased vibration,Low suction pressure; blocked strainer,6,4,4,96,Add suction pressure low alarm; strainer DP monitoring,M. Johnson,2025-02-15,,,,,
+7,Shaft,Transmit torque to impeller,Fatigue crack,Gradual vibration increase,Eventual shaft failure; major repair,Cyclic stress; corrosion,8,2,4,64,Annual NDT inspection during turnaround,J. Smith,2025-06-01,,,,,
+8,Shaft,Transmit torque to impeller,Shaft breakage,Catastrophic failure,Extended downtime (2+ weeks); impeller damage,Fatigue; corrosion pitting,9,1,6,54,Include shaft replacement in 5-year plan,J. Smith,2025-12-31,,,,,
+9,Coupling,Connect motor to pump,Misalignment,Increased vibration; wear,Bearing damage; seal damage,Installation error; thermal growth,5,4,3,60,Laser align after any maintenance; verify quarterly,K. Lee,2025-02-01,Alignment specs updated,5,2,2,20
+10,Coupling,Connect motor to pump,Element failure,Coupling breaks,Pump stops; production loss,Fatigue; improper installation,7,2,4,56,Replace coupling element during seal change,J. Smith,2025-06-01,,,,,
+11,Motor Bearings,Support motor rotor,Overheating,Motor trips on overtemp,Pump shutdown; production loss,Grease degradation; overgreasing,6,3,3,54,Implement ultrasonic grease monitoring,K. Lee,2025-04-01,,,,,
+12,Motor Winding,Generate magnetic field,Insulation breakdown,Motor fails,Pump shutdown; long repair time,Overheating; moisture; age,8,2,6,96,Annual motor current analysis; megger testing,K. Lee,2025-02-01,Added to PM plan,8,2,4,64
+13,Baseplate/Foundation,Support pump and motor,Loose anchor bolts,Increased vibration; misalignment,Accelerated wear on all components,Vibration; improper torque,4,3,4,48,Add anchor bolt check to quarterly PM,J. Smith,2025-02-01,,,,,
+14,Suction Strainer,Remove debris from suction,Blocked/Clogged,Reduced suction pressure,Cavitation; reduced flow; pump damage,Marine growth; debris accumulation,6,5,4,120,Install DP indicator with high alarm; weekly inspection,M. Johnson,2025-02-01,,,,,
+15,Discharge Check Valve,Prevent reverse flow,Fails to close,Reverse flow during shutdown,Pump reverse rotation; water hammer,Disc wear; foreign material,6,3,5,90,Quarterly valve inspection; exercise valve monthly,J. Smith,2025-03-01,,,,,
+
+Action Summary - Items Ranked by RPN:
+,RPN,Item,Recommended Action,Priority
+,162,Mechanical Seal (dry run),Add low-flow alarm and interlock,HIGH
+,150,Impeller erosion,Install strainer upstream; quarterly inspection,HIGH
+,140,Mechanical Seal (wear),Install seal flush system,MEDIUM - COMPLETE
+,120,Suction Strainer,DP indicator with high alarm,MEDIUM
+,96,Motor Winding,Annual motor analysis - COMPLETE,MEDIUM
+,96,Impeller cavitation,Suction pressure alarm; strainer DP monitoring,MEDIUM
+,90,Check Valve,Quarterly inspection; monthly exercise,MEDIUM
+,80,Bearing seizure,Bearing temperature monitors,MEDIUM
+,72,Bearing vibration - COMPLETE,Vibration monitoring established,LOW
+,64,Shaft fatigue,Annual NDT inspection,LOW
+
+Key Findings:
+"1. Highest risk items relate to mechanical seal and impeller - common for seawater service"
+"2. Seal flush system addresses primary wear mechanism (abrasives)"
+"3. Low-flow protection critical to prevent dry running during startup"
+"4. Strainer maintenance is key preventive measure"
+"5. Several items can be addressed with improved condition monitoring"
+
+Next Steps:
+"1. Complete high-priority items before Q2 2025"
+"2. Schedule remaining medium-priority items"
+"3. Review FMEA after implementing changes"
+"4. Update RPN values based on actual performance data"
+"5. Conduct annual FMEA review"
+
+Reference - See separate tabs for:
+- Severity Scale (S)
+- Occurrence Scale (O)
+- Detection Scale (D)
+- RPN Interpretation
+- Common Failure Modes by Equipment Type

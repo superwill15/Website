@@ -1,0 +1,114 @@
+FMEA Worksheet - Equipment Failure Mode and Effects Analysis
+Company:,,,,,,,,,,,
+Equipment/System:,,,,,,,,,,,
+FMEA Date:,,,,,,,,,,,
+Team Members:,,,,,,,,,,,
+Revision:,,,,,,,,,,,
+
+Item #,Equipment/Component,Function,Failure Mode,Failure Effect (Local),Failure Effect (System),Failure Cause,Severity (S),Occurrence (O),Detection (D),RPN,Recommended Action,Action Owner,Target Date,Action Taken,New S,New O,New D,New RPN
+1,,,,,,,,,,,,,,,,,
+2,,,,,,,,,,,,,,,,,
+3,,,,,,,,,,,,,,,,,
+4,,,,,,,,,,,,,,,,,
+5,,,,,,,,,,,,,,,,,
+6,,,,,,,,,,,,,,,,,
+7,,,,,,,,,,,,,,,,,
+8,,,,,,,,,,,,,,,,,
+9,,,,,,,,,,,,,,,,,
+10,,,,,,,,,,,,,,,,,
+11,,,,,,,,,,,,,,,,,
+12,,,,,,,,,,,,,,,,,
+13,,,,,,,,,,,,,,,,,
+14,,,,,,,,,,,,,,,,,
+15,,,,,,,,,,,,,,,,,
+16,,,,,,,,,,,,,,,,,
+17,,,,,,,,,,,,,,,,,
+18,,,,,,,,,,,,,,,,,
+19,,,,,,,,,,,,,,,,,
+20,,,,,,,,,,,,,,,,,
+
+SEVERITY SCALE (S)
+Rating,Effect,Criteria
+10,Hazardous - No Warning,"Sudden failure causing injury, death, or environmental catastrophe without warning"
+9,Hazardous - With Warning,"Failure causing injury, death, or environmental catastrophe with warning"
+8,Very High,"Equipment destroyed, major production loss (>1 week), regulatory violation"
+7,High,"Major equipment damage, significant production loss (days), safety system impaired"
+6,Moderate,"Moderate equipment damage, production loss (8-24 hours), quality affected"
+5,Low,"Minor equipment damage, production loss (4-8 hours)"
+4,Very Low,"Cosmetic damage, minor production impact (<4 hours)"
+3,Minor,Slight inconvenience to operations
+2,Very Minor,Negligible effect noticed by operator
+1,None,No effect
+
+OCCURRENCE SCALE (O)
+Rating,Probability,Failure Rate
+10,Very High,">100 per 1000 operating hours (daily or more)"
+9,High,"50-100 per 1000 hours (weekly)"
+8,High,"20-50 per 1000 hours (every 2 weeks)"
+7,Moderately High,"10-20 per 1000 hours (monthly)"
+6,Moderate,"5-10 per 1000 hours (quarterly)"
+5,Moderate,"2-5 per 1000 hours (semi-annually)"
+4,Moderately Low,"1-2 per 1000 hours (annually)"
+3,Low,"0.5-1 per 1000 hours (every 2 years)"
+2,Very Low,"0.1-0.5 per 1000 hours (every 5 years)"
+1,Remote,"<0.1 per 1000 hours (unlikely)"
+
+DETECTION SCALE (D)
+Rating,Detection Method,Likelihood of Detection
+10,No Detection,"No known controls, failure not detectable"
+9,Very Remote,Very unlikely to detect (unmonitored system)
+8,Remote,Controls unlikely to detect (infrequent inspection)
+7,Very Low,Very low chance of detection (annual inspection only)
+6,Low,Low chance of detection (quarterly inspection)
+5,Moderate,Moderate chance of detection (monthly inspection + basic monitoring)
+4,Moderately High,Moderately high chance (weekly checks + trend analysis)
+3,High,High chance of detection (continuous monitoring with alerts)
+2,Very High,Very high chance (automated detection + shutdown)
+1,Almost Certain,Failure prevented by design (fail-safe mechanisms)
+
+RPN INTERPRETATION
+RPN Range,Priority,Action Required
+500-1000,Critical - Immediate Action,Stop operation if safe to do so. Implement corrective action immediately.
+250-499,High Priority,Plan corrective action within 1 week. Increase monitoring.
+125-249,Medium Priority,Schedule corrective action within 1 month. Review during next PM.
+50-124,Low Priority,Address during next scheduled maintenance window.
+1-49,Monitor Only,No immediate action required. Review during annual FMEA update.
+
+COMMON FAILURE MODES BY EQUIPMENT TYPE
+Equipment,Typical Failure Modes
+Centrifugal Pump,"Seal leak, Bearing failure, Impeller wear, Cavitation damage, Shaft misalignment"
+Reciprocating Pump,"Valve failure, Packing leak, Diaphragm rupture, Check valve failure"
+Compressor,"Bearing failure, Valve failure, Seal leak, Oil contamination, Vibration"
+Electric Motor,"Bearing failure, Winding failure, Overheating, Vibration, Insulation breakdown"
+Heat Exchanger,"Tube leak, Fouling, Corrosion, Baffle damage, Gasket failure"
+Control Valve,"Actuator failure, Positioner failure, Seat wear, Stem leak, Sticking"
+Gearbox,"Gear wear, Bearing failure, Oil degradation, Seal leak, Misalignment"
+Fan/Blower,"Blade wear, Bearing failure, Vibration, Belt failure, Motor failure"
+Conveyor,"Belt wear, Roller failure, Motor failure, Chain stretch, Misalignment"
+Pressure Vessel,"Corrosion, Weld crack, Relief valve failure, Level instrument failure"
+
+COMMON FAILURE CAUSES
+Category,Typical Causes
+Design,"Inadequate capacity, Wrong material selection, Poor accessibility, Missing redundancy"
+Fabrication,"Welding defects, Machining errors, Assembly errors, Material defects"
+Installation,"Misalignment, Improper support, Wrong orientation, Piping stress"
+Operations,"Operating outside limits, Incorrect startup/shutdown, Process upset"
+Maintenance,"Inadequate PM, Wrong parts, Improper repair, Missed inspection"
+Environmental,"Corrosion, Erosion, Temperature extremes, Vibration, Contamination"
+
+Instructions:
+"1. Fill in header information (company, equipment, date, team)"
+"2. List each component in the Equipment/Component column"
+"3. Define the function of each component"
+"4. Identify potential failure modes (how it could fail)"
+"5. Describe effects at local level and system level"
+"6. Identify root causes for each failure mode"
+"7. Rate Severity (S), Occurrence (O), and Detection (D) using the scales above"
+"8. Calculate RPN = S x O x D"
+"9. Prioritize actions based on RPN and severity"
+"10. Assign owners and target dates for high-priority items"
+"11. After implementing actions, re-score and calculate new RPN"
+"12. Review and update FMEA at least annually"
+
+AssetStage FMEA Workbook - Free to distribute with attribution
+Contact: sales@assetstage.io
