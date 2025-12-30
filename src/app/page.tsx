@@ -534,7 +534,6 @@ export default function HomePage() {
       {/* Footer */}
       <footer>
         <div className="footer-logo-section">
-          <Logo variant="reverse" width={280} height={70} />
           <p style={{ marginTop: '20px', color: '#7f8c8d', fontSize: '14px' }}>
             Transform your CMMS data with enterprise-quality staging and validation. 
             Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards.
