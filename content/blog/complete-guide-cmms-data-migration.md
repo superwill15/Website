@@ -6,7 +6,7 @@ description: "Everything you need to know about migrating from legacy systems to
 
 ## The Stakes Are Higher Than You Think
 
-A CMMS data migration isn't just an IT project – it's a transformation that will define your maintenance operations for the next decade. Get it right, and you unlock efficiency gains worth millions. Get it wrong, and you'll be apologizing to technicians for years.
+A CMMS data migration isn't just an IT project – it's a decision that will define your maintenance operations for the next decade. Get it right, and you'll save millions in efficiency gains. Get it wrong, and you'll be apologizing to technicians for years.
 
 This guide distills lessons from 100+ migrations across manufacturing, utilities, and facilities management. Whether you're moving from Excel, Access, or another CMMS, this is your roadmap to success.
 

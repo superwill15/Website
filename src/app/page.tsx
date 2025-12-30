@@ -373,8 +373,8 @@ export default function HomePage() {
                   <span>September 1, 2025</span>
                   <span>Maritime</span>
                 </div>
-                <h3>Maritime CMMS: Revolutionizing the $30 Billion Shipping Industry</h3>
-                <p>With over 109,000 vessels and maintenance eating up 30% of operating costs, the maritime industry is ripe for digital transformation.</p>
+                <h3>Maritime CMMS: Why Shipping's $30B Maintenance Bill Keeps Growing</h3>
+                <p>With 109,000+ vessels and maintenance consuming 30% of operating costs, most fleets still run on paper and spreadsheets.</p>
                 <a href="/blog/maritime-cmms-guide" className="read-more">Read More →</a>
               </div>
             </article>
@@ -483,7 +483,7 @@ export default function HomePage() {
         <div className="container">
           <div className="section-header">
             <h2>Get In Touch</h2>
-            <p>Ready to transform your maintenance data?</p>
+            <p>Ready to clean up your CMMS data?</p>
           </div>
           
           <div style={{maxWidth: '600px', margin: '0 auto', textAlign: 'center'}}>
@@ -592,7 +592,7 @@ export default function HomePage() {
             <div className="modal-header">
               <button className="close" aria-label="Close dialog" onClick={closeModal}>&times;</button>
               <h2 id="demoTitle">Schedule Your AssetStage Demo</h2>
-              <p>See how AssetStage can transform your CMMS data in just 6 weeks</p>
+              <p>See how AssetStage cleans up messy CMMS data in 6 weeks</p>
             </div>
             <div className="modal-body">
               {formSuccess && (

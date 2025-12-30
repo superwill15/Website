@@ -121,4 +121,4 @@ Which group will you join?
 
 ---
 
-*Ready to transform your CMMS data? AssetStage helps organizations achieve data excellence in 6 weeks, not 6 months. [Learn more about our platform](/#assetstage) or [contact our team](/#contact) to see how we can transform your maintenance data.*
+*Ready to fix your CMMS data? AssetStage helps organizations achieve data excellence in 6 weeks, not 6 months. [Learn more about our platform](/#assetstage) or [contact our team](/#contact) to see how we can clean up your maintenance data.*

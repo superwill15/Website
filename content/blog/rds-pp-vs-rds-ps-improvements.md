@@ -421,7 +421,7 @@ The evolution from RDS-PP to RDS-PS represents a fundamental shift from traditio
 4. **Grid-scale flexible** - Transmission and distribution support
 5. **Future-proof** - Ready for next-generation power systems
 
-For power industry organizations, the question isn't whether RDS-PS is better than RDS-PP – it's whether your electrical systems are ready to leverage the enhanced capabilities that RDS-PS provides for modern power infrastructure.
+For power industry organizations, the question isn't whether RDS-PS is better than RDS-PP – it's whether your electrical systems are ready to use the enhanced capabilities that RDS-PS provides for modern power infrastructure.
 
 ---
 
