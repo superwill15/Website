@@ -52,9 +52,6 @@ export default function ResourceCard({
           <span className="resource-type" style={{ color: getCategoryColor() }}>
             {fileType}
           </span>
-          <span className="resource-downloads">
-            {downloadCount.toLocaleString()} downloads
-          </span>
         </div>
       </div>
       
