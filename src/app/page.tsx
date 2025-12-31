@@ -220,11 +220,15 @@ export default function HomePage() {
             </p>
 
             <div style={{ marginBottom: '40px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
-              <img
-                src="/assetstage-visual-interface.png"
-                alt="AssetStage visual interface showing hierarchical asset management with dual-pane navigation"
-                style={{ width: '100%', height: 'auto', display: 'block' }}
-              />
+              <div style={{ position: 'relative', paddingTop: '56.25%' }}>
+                <iframe
+                  src="https://customer-6izgdnhakq10f1a4.cloudflarestream.com/12b5fc07116ba74094281864183736b7/iframe?poster=https%3A%2F%2Fcustomer-6izgdnhakq10f1a4.cloudflarestream.com%2F12b5fc07116ba74094281864183736b7%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
+                  loading="lazy"
+                  style={{ border: 'none', position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }}
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                  allowFullScreen={true}
+                ></iframe>
+              </div>
             </div>
 
             <ul className="feature-list" style={{ maxWidth: '600px', margin: '0 auto 40px' }}>

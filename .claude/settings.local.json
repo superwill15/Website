@@ -8,7 +8,13 @@
       "Bash(git filter-branch:*)",
       "Bash(git rm:*)",
       "Bash(npm run build:*)",
-      "Read(/C:\\Users\\willi\\Dev\\AssetStage-site\\src\\app\\pricing/**)"
+      "Read(/C:\\Users\\willi\\Dev\\AssetStage-site\\src\\app\\pricing/**)",
+      "Bash(npm view:*)",
+      "Bash(npm audit:*)",
+      "Bash(npm run lint)",
+      "Bash(npm install:*)",
+      "Bash(md-to-pdf:*)",
+      "Bash(markdown-pdf:*)"
     ],
     "deny": [],
     "ask": []
