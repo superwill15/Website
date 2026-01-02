@@ -1,16 +1,12 @@
 'use client';
 
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState } from 'react';
 import Logo from '@/components/Logo';
 import ResourcesSection from '@/components/ResourcesSection';
-import { validateBusinessEmail } from '@/utils/emailValidation';
+import DemoModal from '@/components/DemoModal';
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [formSubmitting, setFormSubmitting] = useState(false);
-  const [formSuccess, setFormSuccess] = useState(false);
-  const [formError, setFormError] = useState('');
-  const [emailError, setEmailError] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const organizationSchema = {
@@ -45,69 +41,10 @@ export default function HomePage() {
   const closeModal = () => {
     setModalOpen(false);
     document.body.style.overflow = 'auto';
-    setFormSuccess(false);
-    setFormError('');
-    setEmailError(null);
-    setFormSubmitting(false);
   };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const email = e.target.value;
-    const error = validateBusinessEmail(email);
-    setEmailError(error);
-    setFormError(''); // Clear general form error when user is typing
-  };
-
-  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (formSubmitting) return;
-
-    // Get email value from form
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const email = formData.get('email') as string;
-
-    // Validate email before submitting
-    const validationError = validateBusinessEmail(email);
-    if (validationError) {
-      setEmailError(validationError);
-      setFormError(validationError);
-      return;
-    }
-
-    setFormSubmitting(true);
-    setFormError('');
-    setFormSuccess(false);
-    
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok && data.success) {
-        setFormSuccess(true);
-        form.reset();
-        setEmailError(null);
-        setTimeout(() => {
-          closeModal();
-        }, 3000);
-      } else {
-        throw new Error(data.message || 'Form submission failed');
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setFormError('Failed to submit form. Please try again or email us directly at sales@assetstage.io');
-    } finally {
-      setFormSubmitting(false);
-    }
   };
 
   return (
@@ -589,124 +526,7 @@ export default function HomePage() {
       </footer>
 
       {/* Demo Request Modal */}
-      {modalOpen && (
-        <div id="demoModal" className="modal show" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button className="close" aria-label="Close dialog" onClick={closeModal}>&times;</button>
-              <h2 id="demoTitle">Schedule Your AssetStage Demo</h2>
-              <p>See how AssetStage cleans up messy CMMS data in 6 weeks</p>
-            </div>
-            <div className="modal-body">
-              {formSuccess && (
-                <div className="success-message" style={{display: 'block', padding: '15px', background: '#4CAF50', color: 'white', borderRadius: '4px', marginBottom: '20px'}}>
-                  ✓ Thank you! We&apos;ll contact you within 24 hours to schedule your demo.
-                </div>
-              )}
-              
-              {formError && (
-                <div className="error-message" style={{display: 'block', padding: '15px', background: '#f44336', color: 'white', borderRadius: '4px', marginBottom: '20px'}}>
-                  {formError}
-                </div>
-              )}
-              
-              <form id="demoForm" className="demo-form" onSubmit={handleFormSubmit}>
-                <input type="hidden" name="access_key" value="5737364f-4088-402b-87b3-80dafb3d48cd" />
-                <input type="checkbox" name="botcheck" tabIndex={-1} style={{display:'none'}}/>
-                <input type="hidden" name="subject" value="AssetStage Demo Request" />
-                <input type="hidden" name="from_name" value="AssetStage Website" />
-                <input type="hidden" name="reply_to" value="team@assetstage.io" />
-
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required autoComplete="name"/>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="email">Work Email Address *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      autoComplete="email"
-                      onChange={handleEmailChange}
-                      className={emailError ? 'error' : ''}
-                    />
-                    {emailError && (
-                      <span style={{
-                        display: 'block',
-                        color: '#f44336',
-                        fontSize: '13px',
-                        marginTop: '5px'
-                      }}>
-                        {emailError}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="company">Company *</label>
-                    <input type="text" id="company" name="company" required autoComplete="organization"/>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" autoComplete="tel"/>
-                  </div>
-                </div>
-                
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="assets">Number of Assets</label>
-                    <select id="assets" name="assets">
-                      <option value="">Select range</option>
-                      <option value="0-500">Less than 500</option>
-                      <option value="500-1000">500 - 1,000</option>
-                      <option value="1000-5000">1,000 - 5,000</option>
-                      <option value="5000-10000">5,000 - 10,000</option>
-                      <option value="10000+">More than 10,000</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="cmms">Current CMMS</label>
-                    <select id="cmms" name="cmms">
-                      <option value="">Select CMMS</option>
-                      <option value="maximo">IBM Maximo</option>
-                      <option value="sap">SAP PM</option>
-                      <option value="oracle">Oracle EAM</option>
-                      <option value="infor">Infor EAM</option>
-                      <option value="fiix">Fiix</option>
-                      <option value="maintainx">MaintainX</option>
-                      <option value="emaint">eMaint</option>
-                      <option value="excel">Excel/Spreadsheets</option>
-                      <option value="other">Other</option>
-                      <option value="none">No CMMS Currently</option>
-                    </select>
-                  </div>
-                </div>
-                
-                <div className="form-group full-width">
-                  <label htmlFor="message">Tell us about your data challenges (optional)</label>
-                  <textarea id="message" name="message" placeholder="What are your main CMMS data pain points? What would you like to achieve?"></textarea>
-                </div>
-                
-                <input type="hidden" name="form_type" value="demo_request"/>
-                <input type="hidden" name="page" value="homepage"/>
-                <input type="hidden" name="redirect" value="https://assetstage.io/thank-you"/>
-
-                <div className="form-actions">
-                  <button type="button" className="btn btn-cancel" onClick={closeModal} disabled={formSubmitting}>Cancel</button>
-                  <button type="submit" className="btn btn-submit" disabled={formSubmitting}>
-                    {formSubmitting ? 'Submitting...' : 'Request Demo'}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
+      <DemoModal isOpen={modalOpen} onClose={closeModal} />
     </>
   );
 }
