@@ -123,25 +123,43 @@ export default function ResourcesSection() {
     setSelectedResource(null);
   };
 
-  const handleDownload = () => {
+  const handleDownload = async (formData: FormData) => {
     if (!selectedResource) return;
 
-    // Mark resource as downloaded
-    const newDownloaded = new Set(downloadedResources);
-    newDownloaded.add(selectedResource.id);
-    setDownloadedResources(newDownloaded);
+    try {
+      // Submit form to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Form submission failed');
+      }
 
-    // Save to localStorage
-    localStorage.setItem('assetstage-downloaded-resources', JSON.stringify(Array.from(newDownloaded)));
+      // Mark resource as downloaded
+      const newDownloaded = new Set(downloadedResources);
+      newDownloaded.add(selectedResource.id);
+      setDownloadedResources(newDownloaded);
+      
+      // Save to localStorage
+      localStorage.setItem('assetstage-downloaded-resources', JSON.stringify(Array.from(newDownloaded)));
 
-    // Trigger file download
-    const link = document.createElement('a');
-    link.href = `/resources/${selectedResource.fileName}`;
-    link.download = selectedResource.fileName;
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      // Trigger file download
+      const link = document.createElement('a');
+      link.href = `/resources/${selectedResource.fileName}`;
+      link.download = selectedResource.fileName;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+    } catch (error) {
+      console.error('Download error:', error);
+      throw error;
+    }
   };
 
   return (
