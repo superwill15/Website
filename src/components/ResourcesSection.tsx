@@ -18,7 +18,7 @@ const resources: Resource[] = [
   {
     id: 'maximo-mas9-migration',
     title: 'Maximo to MAS 9 Migration Checklist',
-    description: 'Complete step-by-step checklist for migrating from IBM Maximo to MAS 9. Covers data preparation, validation, testing, and go-live activities.',
+    description: 'Avoid costly migration mistakes with this 100+ point checklist. Covers data export sequencing, field mappings, validation queries, and cutover planning.',
     fileType: 'PDF',
     downloadCount: 2847,
     category: 'template',
@@ -27,7 +27,7 @@ const resources: Resource[] = [
   {
     id: 'sap-s4hana-migration',
     title: 'SAP S/4HANA Migration Checklist',
-    description: 'Essential checklist for SAP PM to S/4HANA migration projects. Includes data mapping, testing scenarios, and risk mitigation strategies.',
+    description: 'Navigate the ECC to S/4HANA transition with confidence. Includes ABAP validation queries, table mapping changes, and Fiori app testing scenarios.',
     fileType: 'PDF',
     downloadCount: 1923,
     category: 'template',
@@ -36,7 +36,7 @@ const resources: Resource[] = [
   {
     id: 'iso14224-cheat-sheet',
     title: 'ISO 14224 Implementation Cheat Sheet',
-    description: 'Quick reference guide for implementing ISO 14224 reliability data standards. Includes taxonomy, failure modes, and classification examples.',
+    description: 'Stop reinventing failure codes. Complete reference with all equipment classes, failure modes, mechanisms, and causes plus CMMS field mappings for Maximo and SAP.',
     fileType: 'PDF',
     downloadCount: 4156,
     category: 'guide',
@@ -45,7 +45,7 @@ const resources: Resource[] = [
   {
     id: 'maritime-cmms-setup',
     title: 'Maritime CMMS Setup Guide',
-    description: 'Industry-specific guide for implementing CMMS systems in maritime operations, including vessel hierarchies, SFI classification, and regulatory compliance.',
+    description: 'Purpose-built for shipping operations. Covers complete SFI hierarchy setup, ISM/class survey tracking, running hour meters, and fleet standardization templates.',
     fileType: 'PDF',
     downloadCount: 856,
     category: 'industry',
@@ -54,7 +54,7 @@ const resources: Resource[] = [
   {
     id: 'engineering-standards-guide',
     title: 'Engineering Standards Implementation Guide',
-    description: 'Comprehensive guide for implementing engineering standards in your CMMS. Covers RDS-PP, RDS-PS, KKS, and integration strategies.',
+    description: 'Choose the right standard for your industry. Decision matrix comparing ISO 14224, RDS-PP, RDS-PS, KKS, and SFI with implementation roadmaps for each.',
     fileType: 'PDF',
     downloadCount: 1634,
     category: 'guide',
@@ -63,7 +63,7 @@ const resources: Resource[] = [
   {
     id: 'fmea-maintenance-engineers',
     title: 'FMEA for Maintenance Engineers',
-    description: 'Practical guide to Failure Mode and Effects Analysis specifically for maintenance teams. Includes templates and real-world examples.',
+    description: 'Run effective FMEA workshops. Covers RPN scoring scales, workshop facilitation tips, PM task development, and common pitfalls to avoid.',
     fileType: 'PDF',
     downloadCount: 743,
     category: 'whitepaper',
@@ -72,7 +72,7 @@ const resources: Resource[] = [
   {
     id: 'fmea-workbook',
     title: 'FMEA Workbook',
-    description: 'Interactive Excel workbook for conducting FMEA analysis. Includes templates, calculations, and step-by-step guidance for maintenance teams.',
+    description: 'Ready-to-use Excel workbook with blank FMEA template and worked example (centrifugal pump). Includes severity, occurrence, and detection scales.',
     fileType: 'Excel',
     downloadCount: 892,
     category: 'template',
@@ -81,7 +81,7 @@ const resources: Resource[] = [
   {
     id: 'asset-standardization-guide',
     title: 'Asset Standardization Guide for CMMS',
-    description: 'Comprehensive guide for standardizing asset naming, classification, and hierarchy in CMMS systems. Includes industry best practices and implementation strategies.',
+    description: 'End the naming chaos. Complete equipment type codes, attribute templates by class, crosswalk methodology, and data quality KPIs with audit queries.',
     fileType: 'PDF',
     downloadCount: 1256,
     category: 'guide',
@@ -89,8 +89,8 @@ const resources: Resource[] = [
   },
   {
     id: 'iso14224-non-oilgas',
-    title: 'ISO 14224 for Non Oil & Gas Industries Guide',
-    description: 'Practical guide for applying ISO 14224 reliability data standards in manufacturing, utilities, and other non-oil & gas industries.',
+    title: 'ISO 14224 for Non-Oil & Gas Industries',
+    description: 'Adapt proven oil & gas reliability standards for manufacturing, utilities, water treatment, and other industries. Includes equipment class mappings and worked examples.',
     fileType: 'PDF',
     downloadCount: 687,
     category: 'guide',

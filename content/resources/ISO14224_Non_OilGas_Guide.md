@@ -1,5 +1,5 @@
 # ISO 14224 for Non-Oil & Gas Industries
-## Applying Reliability Data Standards to Manufacturing, Utilities, and Beyond
+## Applying Proven Reliability Standards to Manufacturing, Utilities, and Beyond
 
 ---
 
