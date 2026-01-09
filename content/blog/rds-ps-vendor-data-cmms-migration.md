@@ -20,15 +20,15 @@ The confusion starts because both standards deal with "asset classification" but
 
 ### RDS-PS (Reference Designation System for Power Systems)
 
-RDS-PS—the evolution of RDS-PP, aligned with IEC 81346—is a designation system. It tells you what something is called and where it sits in the functional hierarchy.
+RDS-PS, the evolution of RDS-PP aligned with IEC 81346, is a designation system. It tells you what something is called and where it sits in the functional hierarchy.
 
 It answers questions like:
 
 - What's the standardised tag for this feedwater pump, wind turbine gearbox, or solar inverter?
 - Where does this motor sit in the plant structure?
-- How do I ensure consistent naming across 47 vendors delivering equipment to the same project—whether that's a combined cycle plant, a 200-turbine wind farm, or a utility-scale solar array?
+- How do I ensure consistent naming across 47 vendors delivering equipment to the same project, whether that's a combined cycle plant, a 200-turbine wind farm, or a utility-scale solar array?
 
-RDS-PS gives you a **taxonomy**: a structured way to name and organise equipment so that everyone—engineering, operations, maintenance—uses the same language.
+RDS-PS gives you a **taxonomy**: a structured way to name and organise equipment so that engineering, operations, and maintenance all use the same language.
 
 ### ISO 14224 (Reliability and Maintenance Data)
 
@@ -77,9 +77,9 @@ Your engineering contractor wrote "equipment tagging per RDS-PP" into the vendor
 
 ### 2. Vendors Interpret Differently
 
-Vendor A uses RDS-PP aspect codes correctly but invents their own location structure. Vendor B uses the right location codes but wrong function designations. Vendor C delivers Excel spreadsheets with no RDS codes at all—just their internal part numbers with a column that says "RDS Tag" containing values they made up.
+Vendor A uses RDS-PP aspect codes correctly but invents their own location structure. Vendor B uses the right location codes but wrong function designations. Vendor C delivers Excel spreadsheets with no RDS codes at all, just their internal part numbers with a column that says "RDS Tag" containing values they made up.
 
-Renewables projects face additional complexity: your turbine OEM uses one tagging system, your inverter supplier uses another, your tracker vendor delivers data in yet another format, and your balance of plant contractor has their own conventions. By the time commissioning finishes, you've got equipment data in five different structures—none of which match your CMMS hierarchy.
+Renewables projects face additional complexity: your turbine OEM uses one tagging system, your inverter supplier uses another, your tracker vendor delivers data in yet another format, and your balance of plant contractor has their own conventions. By the time commissioning finishes, you've got equipment data in five different structures, none of which match your CMMS hierarchy.
 
 ### 3. Nobody Validates During Delivery
 
@@ -95,9 +95,9 @@ Now you're 3 months from go-live with a data cleanup project nobody budgeted for
 
 Here's what the standards bodies don't tell you: RDS-PS and ISO 14224 were designed by different communities for different purposes.
 
-**RDS-PS** came from electrical engineering and power systems design. It's about designation—ensuring everyone uses the same naming convention during design and construction.
+**RDS-PS** came from electrical engineering and power systems design. It's about designation: ensuring everyone uses the same naming convention during design and construction.
 
-**ISO 14224** came from reliability engineering and oil & gas operations. It's about data quality—ensuring maintenance and failure information is consistent and analysable.
+**ISO 14224** came from reliability engineering and oil & gas operations. It's about data quality: ensuring maintenance and failure information is consistent and analysable.
 
 Your CMMS sits in the middle. It needs:
 
@@ -134,7 +134,7 @@ Let's be specific about what "CMMS-ready" asset data looks like:
 - Spare parts relationships
 - Document and drawing links
 
-Vendors deliver pieces of this. Your job is assembling the puzzle—except nobody gave you the picture on the box.
+Vendors deliver pieces of this. Your job is assembling the puzzle, except nobody gave you the picture on the box.
 
 ## A Practical Framework: RDS-PS to CMMS Migration
 
@@ -196,7 +196,7 @@ For a mid-size power plant with 5,000 maintainable assets, that's:
 - **Realistic:** 2,500 hours (62 weeks)
 - **Complex brownfield:** 3,750 hours (93 weeks)
 
-Wind and solar portfolios face similar challenges at scale. A 100-turbine wind farm might have 3,000+ maintainable assets across nacelles, towers, foundations, substations, and collection systems. A 200MW solar plant can easily exceed 10,000 assets when you include inverters, trackers, combiner boxes, and balance of plant equipment—often from a dozen different vendors.
+Wind and solar portfolios face similar challenges at scale. A 100-turbine wind farm might have 3,000+ maintainable assets across nacelles, towers, foundations, substations, and collection systems. A 200MW solar plant can easily exceed 10,000 assets when you include inverters, trackers, combiner boxes, and balance of plant equipment, often from a dozen different vendors.
 
 This work happens. The question is whether you budget for it or discover it 3 months before go-live.
 
@@ -239,10 +239,10 @@ When RDS-PS and ISO 14224 are properly implemented together, your CMMS enables:
 1. **RDS-PS and ISO 14224 solve different problems** but your CMMS needs both
 2. **Vendor data rarely arrives compliant** with either standard despite specifications
 3. **The gap between "RDS-PP compliant" specifications and reality** creates significant remediation work
-4. **Manual remediation costs 15-45 minutes per asset**—budget accordingly
+4. **Manual remediation costs 15-45 minutes per asset**, so budget accordingly
 5. **Systematic data staging before CMMS loading** prevents months of cleanup later
 6. **Equipment taxonomy is the bridge:** get classification right and maintenance strategy follows
 
 ---
 
-Ready to bridge the gap between your vendor data and CMMS-ready assets? AssetStage helps you stage, structure, and standardise equipment data before loading—whether you're working with RDS-PS hierarchies, ISO 14224 equipment classes, or the messy reality of what vendors actually deliver. [Request a demo](/demo) to see how your current data measures up.
+Ready to bridge the gap between your vendor data and CMMS-ready assets? AssetStage helps you stage, structure, and standardise equipment data before loading, whether you're working with RDS-PS hierarchies, ISO 14224 equipment classes, or the messy reality of what vendors actually deliver. [Request a demo](/demo) to see how your current data measures up.
