@@ -44,10 +44,11 @@ function getStoredConsent(): ConsentPreferences | null {
 
 interface CookieConsentProps {
   gaId?: string; // Google Analytics Measurement ID (G-XXXXXXXXXX)
+  hubspotId?: string; // HubSpot Portal ID (e.g., "147136026")
   onConsentChange?: (consent: ConsentPreferences) => void;
 }
 
-export default function CookieConsent({ gaId, onConsentChange }: CookieConsentProps) {
+export default function CookieConsent({ gaId, hubspotId, onConsentChange }: CookieConsentProps) {
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [preferences, setPreferences] = useState<ConsentPreferences>({
@@ -57,20 +58,24 @@ export default function CookieConsent({ gaId, onConsentChange }: CookieConsentPr
     timestamp: '',
   });
 
-  // Check consent and load GA if consented
+  // Check consent and load tracking scripts if consented
   useEffect(() => {
     const stored = getStoredConsent();
     if (stored) {
       setPreferences(stored);
       setShowBanner(false);
-      // Load GA if consent was given
+      // Load GA if analytics consent was given
       if (stored.analytics && gaId) {
         loadGoogleAnalytics(gaId);
+      }
+      // Load HubSpot if marketing consent was given
+      if (stored.marketing && hubspotId) {
+        loadHubSpot(hubspotId);
       }
     } else {
       setShowBanner(true);
     }
-  }, [gaId]);
+  }, [gaId, hubspotId]);
 
   // Load Google Analytics dynamically
   const loadGoogleAnalytics = (measurementId: string) => {
@@ -90,6 +95,19 @@ export default function CookieConsent({ gaId, onConsentChange }: CookieConsentPr
     };
   };
 
+  // Load HubSpot tracking dynamically
+  const loadHubSpot = (portalId: string) => {
+    if (document.querySelector(`script[src*="hs-scripts.com/${portalId}"]`)) {
+      return; // Already loaded
+    }
+    const script = document.createElement('script');
+    script.src = `//js-eu1.hs-scripts.com/${portalId}.js`;
+    script.async = true;
+    script.defer = true;
+    script.id = 'hs-script-loader';
+    document.body.appendChild(script);
+  };
+
   const saveConsent = useCallback((consent: ConsentPreferences) => {
     const updated = { ...consent, timestamp: new Date().toISOString() };
     localStorage.setItem(CONSENT_KEY, JSON.stringify(updated));
@@ -102,7 +120,11 @@ export default function CookieConsent({ gaId, onConsentChange }: CookieConsentPr
     if (updated.analytics && gaId) {
       loadGoogleAnalytics(gaId);
     }
-  }, [gaId, onConsentChange]);
+    // Load HubSpot if marketing consent given
+    if (updated.marketing && hubspotId) {
+      loadHubSpot(hubspotId);
+    }
+  }, [gaId, hubspotId, onConsentChange]);
 
   const handleAcceptAll = () => saveConsent({ essential: true, analytics: true, marketing: true, timestamp: '' });
   const handleRejectNonEssential = () => saveConsent({ essential: true, analytics: false, marketing: false, timestamp: '' });

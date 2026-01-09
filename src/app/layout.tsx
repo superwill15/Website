@@ -1,5 +1,4 @@
 import "./globals.css";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import CookieConsent from "@/components/CookieConsent";
 
@@ -59,15 +58,7 @@ export default function RootLayout({
       <body>
         {children}
         <Analytics />
-        <CookieConsent gaId="G-Q027KXVY63" />
-        {/* HubSpot Tracking Code */}
-        <Script
-          id="hs-script-loader"
-          async
-          defer
-          src="//js-eu1.hs-scripts.com/147136026.js"
-          strategy="afterInteractive"
-        />
+        <CookieConsent gaId="G-Q027KXVY63" hubspotId="147136026" />
       </body>
     </html>
   );
