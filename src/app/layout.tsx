@@ -1,5 +1,4 @@
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
 import CookieConsent from "@/components/CookieConsent";
 
 export const metadata = {
@@ -57,7 +56,6 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <Analytics />
         <CookieConsent gaId="G-Q027KXVY63" hubspotId="147136026" />
       </body>
     </html>

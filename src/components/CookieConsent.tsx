@@ -1,16 +1,15 @@
 /**
  * Cookie Consent Banner - Standalone Version for assetstage.io
  *
- * Drop this file into your marketing site's components folder.
- *
  * Usage in layout.tsx:
  *   import CookieConsent from '@/components/CookieConsent'
- *   // Add inside <body>: <CookieConsent gaId="G-XXXXXXXXXX" />
+ *   // Add inside <body>: <CookieConsent gaId="G-XXXXXXXXXX" hubspotId="123456" />
  */
 
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { Analytics } from '@vercel/analytics/next';
 
 // Brand colors (matches AssetStage app)
 const colors = {
@@ -51,6 +50,8 @@ interface CookieConsentProps {
 export default function CookieConsent({ gaId, hubspotId, onConsentChange }: CookieConsentProps) {
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
+  const [hasConsent, setHasConsent] = useState(false);
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
   const [preferences, setPreferences] = useState<ConsentPreferences>({
     essential: true,
     analytics: false,
@@ -63,7 +64,12 @@ export default function CookieConsent({ gaId, hubspotId, onConsentChange }: Cook
     const stored = getStoredConsent();
     if (stored) {
       setPreferences(stored);
+      setHasConsent(true);
       setShowBanner(false);
+      // Enable Vercel Analytics if analytics consent was given
+      if (stored.analytics) {
+        setAnalyticsEnabled(true);
+      }
       // Load GA if analytics consent was given
       if (stored.analytics && gaId) {
         loadGoogleAnalytics(gaId);
@@ -112,10 +118,15 @@ export default function CookieConsent({ gaId, hubspotId, onConsentChange }: Cook
     const updated = { ...consent, timestamp: new Date().toISOString() };
     localStorage.setItem(CONSENT_KEY, JSON.stringify(updated));
     setPreferences(updated);
+    setHasConsent(true);
     setShowBanner(false);
     setShowPreferences(false);
     onConsentChange?.(updated);
 
+    // Enable Vercel Analytics if analytics consent given
+    if (updated.analytics) {
+      setAnalyticsEnabled(true);
+    }
     // Load GA if analytics consent given
     if (updated.analytics && gaId) {
       loadGoogleAnalytics(gaId);
@@ -130,10 +141,11 @@ export default function CookieConsent({ gaId, hubspotId, onConsentChange }: Cook
   const handleRejectNonEssential = () => saveConsent({ essential: true, analytics: false, marketing: false, timestamp: '' });
   const handleSavePreferences = () => saveConsent(preferences);
 
-  if (!showBanner && !showPreferences) return null;
-
   return (
     <>
+      {/* Vercel Analytics - only renders after consent */}
+      {analyticsEnabled && <Analytics />}
+
       {/* Minimal Banner */}
       {showBanner && !showPreferences && (
         <div style={{
@@ -160,6 +172,42 @@ export default function CookieConsent({ gaId, hubspotId, onConsentChange }: Cook
             <button onClick={() => setShowPreferences(true)} style={buttonStyle('link')}>Settings</button>
           </div>
         </div>
+      )}
+
+      {/* Floating Cookie Settings Button - appears after consent given */}
+      {hasConsent && !showBanner && !showPreferences && (
+        <button
+          onClick={() => setShowPreferences(true)}
+          aria-label="Cookie Settings"
+          style={{
+            position: 'fixed',
+            bottom: 16,
+            left: 16,
+            width: 40,
+            height: 40,
+            borderRadius: '50%',
+            backgroundColor: colors.surface,
+            border: `1px solid ${colors.border}`,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 18,
+            zIndex: 9998,
+            transition: 'transform 0.2s, box-shadow 0.2s',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'scale(1.1)';
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+          }}
+        >
+          🍪
+        </button>
       )}
 
       {/* Preferences Modal */}
