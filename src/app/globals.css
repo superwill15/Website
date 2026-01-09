@@ -885,6 +885,15 @@ footer{ background:var(--text-dark); color:#fff; padding:60px 20px 30px; }
 .footer-bottom{
   max-width:1200px; margin:0 auto; padding-top:30px; border-top:1px solid rgba(255,255,255,.1);
   text-align:center; color:rgba(255,255,255,.7);
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+}
+.footer-social{ display:flex; gap:12px; }
+.social-link{
+  color:rgba(255,255,255,.7); transition:color .3s, transform .2s; display:flex; align-items:center;
+}
+.social-link:hover{ color:#fff; transform:scale(1.1); }
+@media (max-width:600px){
+  .footer-bottom{ justify-content:center; }
 }
 
 /* Modal */

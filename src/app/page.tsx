@@ -69,7 +69,7 @@ export default function HomePage() {
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-          <button className="nav-cta" onClick={openModal}>Get Demo</button>
+          <button className="nav-cta" onClick={openModal}>Book a Demo</button>
           
           {/* Mobile Menu Button */}
           <button className={`mobile-menu-btn ${mobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu} aria-label="Toggle menu">
@@ -90,7 +90,7 @@ export default function HomePage() {
             <li><a href="#resources" onClick={toggleMobileMenu}>Resources</a></li>
             <li><a href="#about" onClick={toggleMobileMenu}>About</a></li>
             <li><a href="#contact" onClick={toggleMobileMenu}>Contact</a></li>
-            <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Get Demo</button></li>
+            <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Book a Demo</button></li>
           </ul>
         </div>
       </nav>
@@ -464,9 +464,8 @@ export default function HomePage() {
           <h2>Ready to Fix Your CMMS Data?</h2>
           <p>Join forward-thinking maintenance teams who&apos;ve stopped accepting bad data as inevitable.</p>
           <div className="hero-buttons">
-            <button className="btn-secondary" onClick={openModal}>Schedule Demo</button>
             <button className="btn-primary" onClick={openModal} style={{background:'#fff',color:'var(--primary-navy)'}}>
-              Request a Trial
+              Book a Demo
             </button>
           </div>
         </div>
@@ -521,7 +520,20 @@ export default function HomePage() {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2025 AssetStage. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} AssetStage. All rights reserved.</p>
+          <div className="footer-social">
+            <a
+              href="https://www.linkedin.com/company/assetstage/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow AssetStage on LinkedIn"
+              className="social-link"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </footer>
 
