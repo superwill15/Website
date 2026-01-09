@@ -4,7 +4,7 @@ date: "2026-01-09"
 description: "RDS-PS and ISO 14224 solve different problems but work together. Learn why your EPC vendor data never arrives RDS-compliant and how to fix it before CMMS go-live."
 ---
 
-If you're implementing a CMMS for a power plant or process facility, you've probably encountered RDS-PP (or its successor, RDS-PS) and ISO 14224 in the same conversation.
+If you're implementing a CMMS for a power plant, wind farm, solar installation, or process facility, you've probably encountered RDS-PP (or its successor, RDS-PS) and ISO 14224 in the same conversation.
 
 They're often mentioned together. They're both "standards." They both relate to asset data. And most project teams assume their EPC contractor is handling compliance with both.
 
@@ -24,9 +24,9 @@ RDS-PS—the evolution of RDS-PP, aligned with IEC 81346—is a designation syst
 
 It answers questions like:
 
-- What's the standardised tag for this feedwater pump?
+- What's the standardised tag for this feedwater pump, wind turbine gearbox, or solar inverter?
 - Where does this motor sit in the plant structure?
-- How do I ensure consistent naming across 47 vendors delivering equipment to the same project?
+- How do I ensure consistent naming across 47 vendors delivering equipment to the same project—whether that's a combined cycle plant, a 200-turbine wind farm, or a utility-scale solar array?
 
 RDS-PS gives you a **taxonomy**: a structured way to name and organise equipment so that everyone—engineering, operations, maintenance—uses the same language.
 
@@ -73,6 +73,8 @@ Your engineering contractor wrote "equipment tagging per RDS-PP" into the vendor
 ### 2. Vendors Interpret Differently
 
 Vendor A uses RDS-PP aspect codes correctly but invents their own location structure. Vendor B uses the right location codes but wrong function designations. Vendor C delivers Excel spreadsheets with no RDS codes at all—just their internal part numbers with a column that says "RDS Tag" containing values they made up.
+
+Renewables projects face additional complexity: your turbine OEM uses one tagging system, your inverter supplier uses another, your tracker vendor delivers data in yet another format, and your balance of plant contractor has their own conventions. By the time commissioning finishes, you've got equipment data in five different structures—none of which match your CMMS hierarchy.
 
 ### 3. Nobody Validates During Delivery
 
@@ -139,7 +141,7 @@ Before touching vendor data, define what your CMMS hierarchy should look like:
 
 1. **Map RDS-PS to your CMMS structure** - How do RDS-PS aspects (=, -, +) translate to your locations, assets, and sub-assets?
 2. **Define your equipment taxonomy** - What ISO 14224 equipment classes will you use? How do they map to RDS-PS product codes?
-3. **Create the template** - Build a sample hierarchy for one system (e.g., feedwater system) showing exactly how data should be structured.
+3. **Create the template** - Build a sample hierarchy for one system (e.g., feedwater system, wind turbine string, or solar array block) showing exactly how data should be structured.
 4. **Document the rules** - What's mandatory? What are valid values? What parent-child relationships are allowed?
 
 ### Phase 2: Assess Vendor Data Quality
@@ -188,6 +190,8 @@ For a mid-size power plant with 5,000 maintainable assets, that's:
 - **Conservative:** 1,250 hours (31 weeks of full-time work)
 - **Realistic:** 2,500 hours (62 weeks)
 - **Complex brownfield:** 3,750 hours (93 weeks)
+
+Wind and solar portfolios face similar challenges at scale. A 100-turbine wind farm might have 3,000+ maintainable assets across nacelles, towers, foundations, substations, and collection systems. A 200MW solar plant can easily exceed 10,000 assets when you include inverters, trackers, combiner boxes, and balance of plant equipment—often from a dozen different vendors.
 
 This work happens. The question is whether you budget for it or discover it 3 months before go-live.
 
