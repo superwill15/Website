@@ -1,6 +1,7 @@
 import "./globals.css";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata = {
   title: "AssetStage - The CMMS Data Workspace | Professional Data Quality Tools",
@@ -54,23 +55,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* Google Analytics 4 */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-Q027KXVY63"
-        />
-        <Script id="ga4-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-Q027KXVY63');
-          `}
-        </Script>
       </head>
       <body>
         {children}
         <Analytics />
+        <CookieConsent gaId="G-Q027KXVY63" />
         {/* HubSpot Tracking Code */}
         <Script
           id="hs-script-loader"
