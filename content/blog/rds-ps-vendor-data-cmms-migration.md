@@ -46,13 +46,18 @@ ISO 14224 gives you a **data model**: a structured way to capture equipment char
 
 Both standards want consistent asset classification. But:
 
-| Aspect | RDS-PS | ISO 14224 |
-|--------|--------|-----------|
-| Primary purpose | Naming/designation | Data collection |
-| Hierarchy focus | Functional location | Equipment taxonomy |
-| Maintenance strategy | Not addressed | Core requirement |
-| Failure recording | Not addressed | Core requirement |
-| Vendor deliverables | Common requirement | Rarely specified |
+<table>
+<thead>
+<tr><th>Aspect</th><th>RDS-PS</th><th>ISO 14224</th></tr>
+</thead>
+<tbody>
+<tr><td>Primary purpose</td><td>Naming/designation</td><td>Data collection</td></tr>
+<tr><td>Hierarchy focus</td><td>Functional location</td><td>Equipment taxonomy</td></tr>
+<tr><td>Maintenance strategy</td><td>Not addressed</td><td>Core requirement</td></tr>
+<tr><td>Failure recording</td><td>Not addressed</td><td>Core requirement</td></tr>
+<tr><td>Vendor deliverables</td><td>Common requirement</td><td>Rarely specified</td></tr>
+</tbody>
+</table>
 
 **The overlap:** Both need you to know "what type of equipment is this?" and "where does it belong?"
 
