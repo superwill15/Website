@@ -72,12 +72,17 @@ Criticality assessment integrates directly with Reliability-Centered Maintenance
 
 The numbers are clear:
 
-| Impact Area | Measured Improvement |
-|-------------|---------------------|
-| Unplanned Downtime Reduction | 40-60% with proper criticality ranking |
-| Equipment Lifecycle Extension | 25-35% longer asset life |
-| Maintenance Cost Savings | Up to 40% vs reactive approach |
-| Single Point of Failure Elimination | 45-65% downtime reduction |
+<table>
+<thead>
+<tr><th>Impact Area</th><th>Measured Improvement</th></tr>
+</thead>
+<tbody>
+<tr><td>Unplanned Downtime Reduction</td><td>40-60% with proper criticality ranking</td></tr>
+<tr><td>Equipment Lifecycle Extension</td><td>25-35% longer asset life</td></tr>
+<tr><td>Maintenance Cost Savings</td><td>Up to 40% vs reactive approach</td></tr>
+<tr><td>Single Point of Failure Elimination</td><td>45-65% downtime reduction</td></tr>
+</tbody>
+</table>
 
 Organisations that implement comprehensive failure analysis programmes, starting with criticality assessment, achieve these improvements while extending equipment life by 25-35%. The investment in systematic risk ranking pays for itself many times over.
 
