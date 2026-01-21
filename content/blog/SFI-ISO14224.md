@@ -10,11 +10,11 @@ description: "How combining SFI equipment identification with ISO 14224 reliabil
 
 ## Introduction: The Hidden Challenge in Maritime Maintenance
 
-Picture this: A chief engineer on an offshore supply vessel needs to order a replacement seal for the stern tube forward assembly. In their CMMS—whether it's AMOS, Maximo, or another platform—they search for the part. But is it under "propulsion systems," "shaft sealing," or "stern equipment"? Without standardized coding, finding the right component becomes a time-consuming treasure hunt through inconsistent data structures.
+A chief engineer on an offshore supply vessel needs to order a replacement seal for the stern tube forward assembly. In their CMMS (whether AMOS, Maximo, or another platform) they search for the part. But is it under "propulsion systems," "shaft sealing," or "stern equipment"? Without standardized coding, finding the right component becomes a time-consuming search through inconsistent data structures.
 
 This scenario plays out thousands of times daily across the global shipping fleet, costing the industry millions in inefficiencies. Recent studies found that unplanned downtime costs industrial manufacturers an estimated $50 billion annually, with maritime operations bearing a significant portion of these losses.
 
-Enter SFI coding and ISO 14224—two standards that, when combined, create a comprehensive framework for maritime CMMS data quality that addresses how shipping companies manage their maintenance operations.
+SFI coding and ISO 14224 are two standards that, when combined, create a comprehensive framework for maritime CMMS data quality. This guide explains how they work together and how shipping companies can use them to transform their maintenance operations.
 
 ## Understanding SFI: The Maritime Industry's Universal Language
 
@@ -32,11 +32,21 @@ The hierarchical structure works as follows:
 - **Sub-group (3 digits)**: Component type (e.g., 601 = Diesel engines)
 - **Detail Code (6 digits)**: Specific component (e.g., 601001 = Main diesel engine)
 
+The main groups cover all ship systems:
+- **Group 1**: Ship General
+- **Group 2**: Hull
+- **Group 3**: Cargo Equipment
+- **Group 4**: Ship Equipment
+- **Group 5**: Equipment for Crew and Passengers
+- **Group 6**: Machinery Main Components
+- **Group 7**: Systems for Machinery Main Components
+- **Group 8**: Ship Common Systems
+
 ### Real-World Application
 
 When a shipping company orders spare parts, these may be identified by the SFI Detail Code + consecutive numbers (total of 9-10 digits), creating a universal identification system that works across shipyards, suppliers, and operators globally.
 
-For example, that stern tube seal mentioned earlier? It would be coded as 735.007 in the SFI system—instantly recognizable to any maritime professional worldwide, regardless of their CMMS platform or native language.
+For example, that stern tube seal mentioned earlier would be coded as 735.007 in the SFI system. This code is instantly recognizable to any maritime professional worldwide, regardless of their CMMS platform or native language.
 
 ## ISO 14224: The Data Quality Framework
 
@@ -56,7 +66,17 @@ It describes data collection principles and associated terms and definitions tha
 
 ### The Power of Standardized Failure Modes
 
-ISO 14224 introduces structured hierarchies such as functional locations (FLOCs), equipment classes, and failure modes, which are vital when implementing systems or migrating to advanced CMMS platforms. This standardization enables:
+ISO 14224 introduces structured hierarchies such as functional locations (FLOCs), equipment classes, and failure modes, which are vital when implementing systems or migrating to advanced CMMS platforms.
+
+The failure data structure captures:
+- **Failure date**: When the failure occurred
+- **Items failed**: Which components were affected
+- **Failure impact**: Operational consequences (critical, degraded, incipient)
+- **Failure mode**: How the equipment failed (e.g., leakage, vibration, overheating)
+- **Failure cause**: Root cause (e.g., wear, corrosion, contamination)
+- **Detection method**: How the failure was discovered (e.g., routine inspection, alarm, operator observation)
+
+This standardization enables:
 - Benchmarking across vessels and fleets
 - Predictive maintenance modeling
 - Root cause analysis
@@ -125,7 +145,7 @@ Key activities include:
 *Solution*: Use automated mapping tools and validate in phases rather than attempting complete migration at once
 
 **Challenge 3: Training Requirements**
-*Solution*: Develop role-specific training—simplified for deck officers, detailed for superintendents
+*Solution*: Develop role-specific training. Keep it simplified for deck officers and detailed for superintendents.
 
 **Challenge 4: Inconsistent Legacy Data**
 *Solution*: Focus on "going forward" data quality while gradually cleaning historical records
@@ -193,7 +213,7 @@ As companies embrace digitalization, ISO 14224 becomes a foundation for AI-drive
 
 ### Digital Twin Applications
 
-Emerging integration opportunities for SFI coding in digital transformation include Digital Twin Integration—SFI codes serving as the backbone for virtual asset modeling and real-time monitoring. This creates:
+SFI codes are increasingly serving as the backbone for digital twin applications. Virtual asset modeling and real-time monitoring require consistent equipment identification, and SFI provides exactly that. This creates:
 - Real-time equipment status visualization
 - Predictive simulation of maintenance scenarios
 - Virtual training environments for crew
@@ -201,7 +221,7 @@ Emerging integration opportunities for SFI coding in digital transformation incl
 
 ### Blockchain for Data Integrity
 
-Blockchain Applications—Immutable maintenance records linked to SFI codes for audit trails ensure:
+Blockchain technology offers potential for immutable maintenance records linked to SFI codes. This could ensure:
 - Tamper-proof maintenance history
 - Transparent data sharing between stakeholders
 - Smart contracts for automated warranty claims
@@ -209,11 +229,11 @@ Blockchain Applications—Immutable maintenance records linked to SFI codes for 
 
 ## Conclusion: The Path to Excellence in Maritime Data Quality
 
-The combination of SFI coding and ISO 14224 represents more than just technical standards—it's a strategic framework for operational excellence in maritime maintenance management. As the shipping industry faces increasing pressure to optimize operations, reduce emissions, and improve safety, high-quality maintenance data becomes not just beneficial but essential.
+The combination of SFI coding and ISO 14224 represents more than technical standards. Together they form a strategic framework for operational excellence in maritime maintenance management. As the shipping industry faces increasing pressure to optimize operations, reduce emissions, and improve safety, high-quality maintenance data becomes essential.
 
-For shipping companies still relying on inconsistent coding systems or generic CMMS configurations, the message is clear: implementing SFI and ISO 14224 isn't about adding complexity—it's about creating clarity, consistency, and competitive advantage.
+For shipping companies still relying on inconsistent coding systems or generic CMMS configurations, the path forward is clear: implementing SFI and ISO 14224 creates clarity, consistency, and competitive advantage.
 
-The journey to data excellence requires commitment, but the rewards—reduced downtime, optimized maintenance costs, and improved vessel reliability—make it one of the most valuable investments a shipping company can make in today's data-driven maritime environment.
+The journey to data excellence requires commitment, but the rewards (reduced downtime, optimized maintenance costs, and improved vessel reliability) make it one of the most valuable investments a shipping company can make.
 
 ### Key Takeaways:
 
@@ -221,10 +241,8 @@ The journey to data excellence requires commitment, but the rewards—reduced do
 2. **Together, they enable predictive maintenance**, benchmarking, and continuous improvement
 3. **Modern CMMS platforms like AMOS and Maximo** can leverage both standards for maximum value
 4. **Implementation should be phased** with clear milestones and measurable objectives
-5. **The future of maritime maintenance** lies in AI, digital twins, and blockchain—all built on standardized data foundations
+5. **The future of maritime maintenance** lies in AI, digital twins, and blockchain, all built on standardized data foundations
 
-## Implementation Resources
+---
 
-For companies looking to implement SFI and ISO 14224 standards, success depends on proper data preparation and system configuration. Many CMMS platforms now offer built-in support for these standards, making implementation more straightforward than traditional custom approaches.
-
-The investment in proper data standardization typically pays for itself within 12-18 months through reduced maintenance costs and improved equipment reliability.
+AssetStage helps maritime teams map SFI codes and ISO 14224 failure modes during CMMS data staging. Instead of struggling with spreadsheets and inconsistent legacy data, you can standardize your equipment hierarchy and failure classifications before they reach your production system. [Start a free trial](/#contact) or [book a demo](/#demo) to see how it works.
