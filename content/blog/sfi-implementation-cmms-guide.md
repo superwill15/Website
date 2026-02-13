@@ -20,9 +20,7 @@ If you need a primer on what SFI is and how it relates to ISO 14224, start with 
 
 ## Step 1: Get Your SFI Licence and Know What You're Working With
 
-Before anything else, you need a valid SFI User Licence Certificate from SpecTec. One licence is required for each ship, site, or rig that will use the SFI coding structure, with additional charges for the manuals (available as A5 books, pocket versions, or database files).
-
-This isn't optional. The SFI Group System is protected by the Norwegian Copyright Act and corresponding international conventions. Using the codes without a licence, or reproducing the detailed code tables, puts your company at legal risk.
+Before anything else, you'll need to licence the SFI Group System from SpecTec, who own and maintain the standard. The SFI Group System is protected by the Norwegian Copyright Act and corresponding international conventions, so using the codes without a licence, or reproducing the detailed code tables, puts your company at legal risk. Contact SpecTec directly for current licensing terms and documentation formats.
 
 Once licensed, familiarise yourself with what you actually have:
 
