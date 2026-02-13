@@ -83,27 +83,35 @@ ul > li {
 }
 
 /* Task lists / Checklists - NO bullets, just checkboxes */
-ul.contains-task-list,
-.task-list-item {
+ul.contains-task-list {
   list-style-type: none !important;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 li.task-list-item {
   list-style-type: none !important;
-  margin-left: -20pt;
-  padding-left: 0;
+  position: relative;
+  padding-left: 24pt;
+  margin-left: 0;
 }
 
 /* Alternative: target any li that starts with checkbox */
 li:has(> input[type="checkbox"]) {
   list-style-type: none !important;
+  position: relative;
+  padding-left: 24pt;
 }
 
 input[type="checkbox"] {
-  margin-right: 8pt;
-  width: 12pt;
-  height: 12pt;
+  position: absolute;
+  left: 0;
+  top: 2pt;
+  margin: 0;
+  width: 14pt;
+  height: 14pt;
   accent-color: #27ae60;
+  vertical-align: middle;
 }
 
 /* Tables */
