@@ -1,3 +1,9 @@
+---
+title: "Maximo to MAS 9 Migration Checklist"
+subtitle: "Complete Data Preparation Guide for IBM Maximo Application Suite Migration"
+author: "AssetStage"
+---
+
 # Maximo to MAS 9 Migration Checklist
 ## Complete Data Preparation Guide for IBM Maximo Application Suite Migration
 
@@ -19,12 +25,14 @@
 ### Migration Paths
 
 **Path 1: Side-by-Side Migration (Recommended)**
+
 - Stand up new MAS 9 environment
 - Export data from Maximo 7.x
 - Transform and load to MAS 9
 - Parallel run and cutover
 
 **Path 2: In-Place Upgrade (Limited scenarios)**
+
 - Upgrade existing infrastructure
 - Higher risk, less flexibility
 - Only for specific configurations
@@ -58,6 +66,7 @@ This checklist assumes Path 1 (Side-by-Side).
 ### 1.2 Customization Inventory
 
 **Application Customizations:**
+
 - [ ] Count custom applications: _____
 - [ ] Count modified standard applications: _____
 - [ ] List custom applications:
@@ -67,6 +76,7 @@ This checklist assumes Path 1 (Side-by-Side).
   | | | |
 
 **Database Customizations:**
+
 - [ ] Count custom tables: _____
 - [ ] Count custom columns on standard tables: _____
 - [ ] Count custom indexes: _____
@@ -75,6 +85,7 @@ This checklist assumes Path 1 (Side-by-Side).
 - [ ] Count stored procedures: _____
 
 **Business Logic:**
+
 - [ ] Count escalations: _____
 - [ ] Count workflows: _____
 - [ ] Count automation scripts: _____
@@ -83,6 +94,7 @@ This checklist assumes Path 1 (Side-by-Side).
 - [ ] Count cron tasks: _____
 
 **Integration:**
+
 - [ ] Count integration channels: _____
 - [ ] Count external systems integrated: _____
 - [ ] List integration points:
@@ -93,6 +105,7 @@ This checklist assumes Path 1 (Side-by-Side).
   | | | | |
 
 **Reporting:**
+
 - [ ] Count BIRT reports: _____
 - [ ] Count Cognos reports: _____
 - [ ] Count KPI Manager configurations: _____
@@ -170,6 +183,7 @@ WHERE a.LOCATION IS NOT NULL
 ```
 
 **Record your findings:**
+
 | Metric | Count | % of Total | Action Required |
 |--------|-------|------------|-----------------|
 | Assets missing manufacturer | | | |
@@ -186,12 +200,14 @@ WHERE a.LOCATION IS NOT NULL
 ### 2.1 Master Data Cleanup
 
 **Organizations & Sites:**
+
 - [ ] Review organization structure - still valid?
 - [ ] Review site definitions - consolidation needed?
 - [ ] Verify GL account mappings
 - [ ] Clean up unused organizations/sites
 
 **Locations:**
+
 - [ ] Verify location hierarchy is correct
 - [ ] Remove decommissioned locations (or mark inactive)
 - [ ] Standardize location descriptions
@@ -199,6 +215,7 @@ WHERE a.LOCATION IS NOT NULL
 - [ ] Check location types are consistently applied
 
 **Assets:**
+
 - [ ] Resolve duplicate assets (merge or delete)
 - [ ] Fill missing manufacturer data
 - [ ] Fill missing model/serial numbers
@@ -210,6 +227,7 @@ WHERE a.LOCATION IS NOT NULL
 - [ ] Remove decommissioned assets (or mark DECOMMISSIONED)
 
 **Items (Spare Parts):**
+
 - [ ] Resolve duplicate item numbers
 - [ ] Standardize item descriptions
 - [ ] Verify item-asset relationships (spare parts)
@@ -218,12 +236,14 @@ WHERE a.LOCATION IS NOT NULL
 - [ ] Verify units of measure
 
 **Vendors:**
+
 - [ ] Remove duplicate vendors
 - [ ] Verify vendor status (active/inactive)
 - [ ] Clean up address data
 - [ ] Verify default payment terms
 
 **Companies:**
+
 - [ ] Merge duplicate company records
 - [ ] Verify company type assignments
 - [ ] Update contact information
@@ -231,6 +251,7 @@ WHERE a.LOCATION IS NOT NULL
 ### 2.2 Transactional Data Decisions
 
 **Work Order History:**
+
 - [ ] Decide retention period: _____ years
 - [ ] Archive work orders older than retention period
 - [ ] Verify all work orders to migrate have valid asset references
@@ -238,17 +259,20 @@ WHERE a.LOCATION IS NOT NULL
 - [ ] Decide on migrating: Labor transactions? Material transactions? Tool transactions?
 
 **Purchase History:**
+
 - [ ] Decide retention period: _____ years
 - [ ] Archive POs older than retention period
 - [ ] Cancel ancient open POs
 - [ ] Verify vendor references on POs to migrate
 
 **Inventory Transactions:**
+
 - [ ] Decide retention period: _____ years
 - [ ] Archive transactions older than retention period
 - [ ] Verify current balances are accurate
 
 **Service Desk History:**
+
 - [ ] Decide retention period: _____ years
 - [ ] Archive tickets older than retention period
 - [ ] Close ancient open tickets
@@ -256,27 +280,32 @@ WHERE a.LOCATION IS NOT NULL
 ### 2.3 Configuration Data Cleanup
 
 **Failure Codes:**
+
 - [ ] Review failure hierarchies - consolidate duplicates
 - [ ] Remove unused failure codes
 - [ ] Verify failure code associations with asset classes
 
 **Job Plans:**
+
 - [ ] Review job plan library - remove unused
 - [ ] Verify job plan labor/material/tool references
 - [ ] Update outdated task instructions
 
 **PM Records:**
+
 - [ ] Review PM definitions - remove obsolete
 - [ ] Verify PM-asset associations
 - [ ] Verify PM-job plan associations
 - [ ] Recalculate PM frequencies if needed
 
 **Routes:**
+
 - [ ] Review route definitions
 - [ ] Remove routes for decommissioned assets
 - [ ] Verify route stop sequences
 
 **Safety Plans:**
+
 - [ ] Review safety plan library
 - [ ] Verify hazard references
 - [ ] Update outdated procedures
@@ -290,105 +319,180 @@ WHERE a.LOCATION IS NOT NULL
 Export in this order to maintain referential integrity:
 
 **Tier 1: Foundation Data (No dependencies)**
+
 1. [ ] Organizations (ORGANIZATION)
+
 2. [ ] Sites (SITE)
+
 3. [ ] GL Components (GLCOMPONENTS)
+
 4. [ ] Currency (CURRENCY)
+
 5. [ ] Exchange Rates (EXCHANGE)
+
 6. [ ] Tax Codes (TAX)
 
 **Tier 2: Reference Data (Depends on Tier 1)**
+
 1. [ ] Persons (PERSON)
+
 2. [ ] Labor (LABOR)
+
 3. [ ] Crafts (CRAFT)
+
 4. [ ] Labor Craft Rate (LABORCRAFTRATE)
+
 5. [ ] Calendars (CALENDAR)
+
 6. [ ] Calendar Shifts (CALENDARSHIFT)
+
 7. [ ] Modifiers (MODIFIERS)
+
 8. [ ] Work Type (WORKTYPE)
+
 9. [ ] Work Priority (WOPRIORITY)
 
 **Tier 3: Classification & Codes (Depends on Tiers 1-2)**
+
 1. [ ] Classification (CLASSSTRUCTURE)
+
 2. [ ] Class Spec (CLASSSPEC)
+
 3. [ ] Failure Codes (FAILURECODE, FAILURELIST)
+
 4. [ ] Commodity Codes (COMMODITIES)
+
 5. [ ] Commodity Groups (COMMODITYGROUP)
+
 6. [ ] Condition Codes (CONDITION)
+
 7. [ ] Units of Measure (MEASUREUNIT)
+
 8. [ ] Meter Groups (METERGROUP)
+
 9. [ ] Meter (METER)
 
 **Tier 4: Company & Vendor Data (Depends on Tiers 1-3)**
+
 1. [ ] Companies (COMPANIES)
+
 2. [ ] Company Contacts (COMPCONTACT)
+
 3. [ ] Company Master (COMPMASTER, if used)
 
 **Tier 5: Location Data (Depends on Tiers 1-4)**
+
 1. [ ] Locations (LOCATIONS)
+
 2. [ ] Location Hierarchy (via PARENT field)
+
 3. [ ] Location Specs (LOCATIONSPEC)
+
 4. [ ] Location Meters (LOCATIONMETER)
 
 **Tier 6: Asset Data (Depends on Tiers 1-5)**
+
 1. [ ] Assets (ASSET)
+
 2. [ ] Asset Hierarchy (via PARENT field)
+
 3. [ ] Asset Specs (ASSETSPEC)
+
 4. [ ] Asset Meters (ASSETMETER)
+
 5. [ ] Moving Assets (if used)
+
 6. [ ] Asset Features (if used)
 
 **Tier 7: Inventory Data (Depends on Tiers 1-6)**
+
 1. [ ] Items (ITEM)
+
 2. [ ] Item Specs (ITEMSPEC)
+
 3. [ ] Storerooms (STOREROOM in LOCATIONS)
+
 4. [ ] Inventory (INVENTORY)
+
 5. [ ] Inventory Balances (INVBALANCES)
+
 6. [ ] Inventory Costs (INVCOST)
+
 7. [ ] Spare Parts (SPAREPART - item-asset relationships)
 
 **Tier 8: Maintenance Setup (Depends on Tiers 1-7)**
+
 1. [ ] Job Plans (JOBPLAN)
+
 2. [ ] Job Plan Labor (JOBLABOR)
+
 3. [ ] Job Plan Material (JOBMATERIAL)
+
 4. [ ] Job Plan Tool (JOBTOOL)
+
 5. [ ] Job Plan Tasks (JOBTASK)
+
 6. [ ] Routes (ROUTE)
+
 7. [ ] Route Stops (ROUTE_STOP)
+
 8. [ ] Safety Plans (SAFETYPLAN)
+
 9. [ ] Safety Hazards (HAZARD)
 10. [ ] PM Master (PM)
 11. [ ] PM Sequences (PMSEQUENCE, if used)
 12. [ ] PM Forecast (PMFORECAST)
 
 **Tier 9: Transactional Data (Depends on Tiers 1-8)**
+
 1. [ ] Work Orders (WORKORDER)
+
 2. [ ] Work Order Tasks (WOACTIVITY, WOTASK)
+
 3. [ ] Actual Labor (LABTRANS)
+
 4. [ ] Actual Materials (MATUSETRANS)
+
 5. [ ] Actual Tools (TOOLTRANS)
+
 6. [ ] Work Order Specs (WORKORDERSPEC)
+
 7. [ ] Work Order Failure Reporting (FAILUREREPORT)
 
 **Tier 10: Procurement Data (If migrating)**
+
 1. [ ] Purchase Requisitions (PR)
+
 2. [ ] PR Lines (PRLINE)
+
 3. [ ] Purchase Orders (PO)
+
 4. [ ] PO Lines (POLINE)
+
 5. [ ] Receipts (MATRECTRANS)
+
 6. [ ] Invoices (INVOICE, if separate from ERP)
 
 **Tier 11: Service Desk Data (If migrating)**
+
 1. [ ] Tickets/Service Requests (TICKET or SR)
+
 2. [ ] Incidents (INCIDENT)
+
 3. [ ] Problems (PROBLEM)
+
 4. [ ] Solutions (SOLUTION)
+
 5. [ ] Knowledge Base (KBANSWER)
 
 **Tier 12: Supporting Data**
+
 1. [ ] Document Links (DOCLINKS) - plan for document migration
+
 2. [ ] Communication Logs (COMMLOG)
+
 3. [ ] Work Log (WORKLOG)
+
 4. [ ] Custom table data
 
 ### 3.2 Export Format
@@ -596,30 +700,35 @@ HAVING COUNT(*) > 1;
 ### 5.1 Pre-Load Configuration
 
 **Organizations & Sites:**
+
 - [ ] Create organizations in MAS 9
 - [ ] Create sites in MAS 9
 - [ ] Configure site defaults (storeroom, calendar, etc.)
 - [ ] Configure GL accounts
 
 **Security:**
+
 - [ ] Create security groups matching source
 - [ ] Map users to groups
 - [ ] Configure application-level security
 - [ ] Set up condition restrictions (if used)
 
 **System Configuration:**
+
 - [ ] Configure system properties
 - [ ] Set up cron tasks schedule
 - [ ] Configure bulletin board (if used)
 - [ ] Set up email configuration
 
 **Domains & Lookups:**
+
 - [ ] Load/verify synonym domains match source
 - [ ] Load/verify ALN domains match source
 - [ ] Load/verify numeric domains match source
 - [ ] Configure crossover domains
 
 **Classifications:**
+
 - [ ] Load class structure
 - [ ] Load class specifications
 - [ ] Verify attribute data types
@@ -629,13 +738,21 @@ HAVING COUNT(*) > 1;
 Load data in this sequence:
 
 1. [ ] Reference data (domains, UoM, currencies)
+
 2. [ ] Classifications
+
 3. [ ] Failure codes
+
 4. [ ] Calendars
+
 5. [ ] Persons and Labor
+
 6. [ ] Companies
+
 7. [ ] Locations
+
 8. [ ] Assets
+
 9. [ ] Items
 10. [ ] Inventory
 11. [ ] Spare parts relationships
@@ -676,6 +793,7 @@ Load data in this sequence:
 Select 20-50 records per object type. Verify field-by-field accuracy.
 
 **Asset Validation Sample:**
+
 | ASSETNUM | Field | Source Value | Target Value | Match? |
 |----------|-------|--------------|--------------|--------|
 | AST-001 | Description | | | |
@@ -688,6 +806,7 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 ### 6.3 Functional Testing
 
 **Asset Management:**
+
 - [ ] Can view asset details
 - [ ] Can view asset hierarchy (parent/children)
 - [ ] Can view asset specifications
@@ -698,6 +817,7 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 - [ ] Can move asset
 
 **Work Management:**
+
 - [ ] Can view work order details
 - [ ] Can view work order tasks
 - [ ] Can view labor, material, tool actuals
@@ -708,6 +828,7 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 - [ ] Route generation works
 
 **Inventory:**
+
 - [ ] Can view inventory balances
 - [ ] Can view item details
 - [ ] Can view spare parts for asset
@@ -717,12 +838,14 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 - [ ] Reorder point processing works
 
 **Procurement:**
+
 - [ ] Can create PR
 - [ ] Can create PO
 - [ ] Can receive against PO
 - [ ] Approval workflow works
 
 **Reporting:**
+
 - [ ] Key reports run successfully
 - [ ] Data in reports matches expectations
 - [ ] KPIs calculate correctly
@@ -743,6 +866,7 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 ### 7.1 Pre-Cutover Checklist
 
 **2 Weeks Before:**
+
 - [ ] Final user acceptance sign-off
 - [ ] Go/No-Go criteria defined
 - [ ] Rollback plan documented
@@ -750,6 +874,7 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 - [ ] User communication sent
 
 **1 Week Before:**
+
 - [ ] Delta load requirements identified
 - [ ] Cutover runbook finalized
 - [ ] Team roles and responsibilities confirmed
@@ -757,6 +882,7 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 - [ ] War room scheduled
 
 **Day Before:**
+
 - [ ] System health check (source and target)
 - [ ] Backup source system
 - [ ] Verify target system access
@@ -780,6 +906,7 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 ### 7.3 Post-Cutover
 
 **Day 1:**
+
 - [ ] Monitor system performance
 - [ ] Monitor error logs
 - [ ] Support team on standby
@@ -787,12 +914,14 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 - [ ] Document issues
 
 **Week 1:**
+
 - [ ] Daily check-ins with key users
 - [ ] Address critical issues
 - [ ] Performance tuning
 - [ ] Integration monitoring
 
 **Month 1:**
+
 - [ ] Weekly review meetings
 - [ ] Training reinforcement
 - [ ] Process refinement
@@ -832,8 +961,8 @@ Select 20-50 records per object type. Verify field-by-field accuracy.
 
 ---
 
-*Need help with your Maximo to MAS 9 migration? AssetStage provides data staging, transformation, and validation services to ensure clean data migration. Contact us at sales@assetstage.io*
+*Need help with your CMMS migration? AssetStage provides data staging, transformation, and validation services for any CMMS platform. Contact us at sales@assetstage.io*
 
 ---
 
-© 2025 AssetStage. This checklist may be freely distributed with attribution.
+© 2026 AssetStage. This checklist may be freely distributed with attribution.

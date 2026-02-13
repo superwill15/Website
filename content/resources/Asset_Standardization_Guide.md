@@ -1,3 +1,9 @@
+---
+title: "Asset Standardization Guide for CMMS"
+subtitle: "Stop Fighting Duplicates, Messy Hierarchies, and Inconsistent Data"
+author: "AssetStage"
+---
+
 # Asset Standardization Guide for CMMS
 ## Stop Fighting Duplicates, Messy Hierarchies, and Inconsistent Data
 
@@ -258,6 +264,7 @@ The description field should be STANDARDIZED and SEARCHABLE.
 [Equipment Type], [Configuration/Subtype], [Key Spec]
 
 Examples:
+
 - Centrifugal Pump, Horizontal, 50HP
 - Electric Motor, TEFC, 37kW
 - Control Valve, Globe, 4" 300#
@@ -288,6 +295,7 @@ Examples:
 ## Attribute Templates by Equipment Class
 
 Every equipment class needs a template defining:
+
 - Required attributes (must fill)
 - Optional attributes (fill if known)
 - Format/allowed values
@@ -584,6 +592,7 @@ WHERE asset_type IN ('Centrifugal Pump', 'Cent. Pump', 'Centrif Pump',
 ### Change Request Workflow
 
 ```
+
 1. REQUEST
    └── Requestor submits change request form
        - What: Describe the change
@@ -713,6 +722,7 @@ ORDER BY count DESC;
 ### Days 1-30: Assess & Define
 
 **Week 1: Data Discovery**
+
 - [ ] Export complete asset register to Excel
 - [ ] Count unique values in: asset type, class, manufacturer, description
 - [ ] Identify top 20 equipment classes by count
@@ -720,6 +730,7 @@ ORDER BY count DESC;
 - [ ] Count duplicates (same serial number, same location+type)
 
 **Week 2: Gap Analysis**
+
 - [ ] Choose target standard (ISO 14224, KKS, or custom)
 - [ ] Compare current classes to target classes
 - [ ] Identify required attributes per class (from templates above)
@@ -727,6 +738,7 @@ ORDER BY count DESC;
 - [ ] Prioritize gaps by impact and effort
 
 **Week 3: Standards Definition**
+
 - [ ] Draft naming convention document
 - [ ] Draft equipment class list with definitions
 - [ ] Draft attribute templates for top 10 equipment classes
@@ -734,6 +746,7 @@ ORDER BY count DESC;
 - [ ] Create good/bad examples
 
 **Week 4: Stakeholder Alignment**
+
 - [ ] Present standards to maintenance leadership
 - [ ] Present to reliability engineering
 - [ ] Present to CMMS administrators
@@ -743,6 +756,7 @@ ORDER BY count DESC;
 ### Days 31-60: Build & Map
 
 **Week 5-6: Crosswalk Development**
+
 - [ ] Build crosswalk for asset type/class variations
 - [ ] Build crosswalk for manufacturer name variations
 - [ ] Build crosswalk for description standardization
@@ -750,6 +764,7 @@ ORDER BY count DESC;
 - [ ] Identify records requiring manual review
 
 **Week 7: Staging Environment**
+
 - [ ] Set up staging environment (AssetStage or test CMMS)
 - [ ] Configure validation rules
 - [ ] Load asset data into staging
@@ -757,6 +772,7 @@ ORDER BY count DESC;
 - [ ] Generate exception reports
 
 **Week 8: Pilot & Refine**
+
 - [ ] Select pilot area (500-1000 assets)
 - [ ] Apply all transformations to pilot
 - [ ] Review results with SMEs
@@ -766,6 +782,7 @@ ORDER BY count DESC;
 ### Days 61-90: Implement & Enforce
 
 **Week 9-10: Full Transformation**
+
 - [ ] Apply transformations to remaining assets
 - [ ] Complete manual review items
 - [ ] Validate parent-child relationships
@@ -773,6 +790,7 @@ ORDER BY count DESC;
 - [ ] Run full data quality report
 
 **Week 11: Go-Live**
+
 - [ ] Load standardized data to production CMMS
 - [ ] Verify data integrity post-load
 - [ ] Configure CMMS validation rules (dropdowns, required fields)
@@ -780,6 +798,7 @@ ORDER BY count DESC;
 - [ ] Train users on new standards
 
 **Week 12: Sustain**
+
 - [ ] Set up data quality dashboard
 - [ ] Schedule monthly data quality reviews
 - [ ] Establish change request process
@@ -797,6 +816,7 @@ Example: PLT1-UTIL-CW-PP-001
 ```
 
 ### Top Equipment Codes
+
 | Code | Type | Code | Type |
 |------|------|------|------|
 | PP | Pump | VV | Valve |
@@ -813,6 +833,7 @@ Example: Centrifugal Pump, Horizontal, 50HP
 ```
 
 ### Required Attributes (All Classes)
+
 - Manufacturer
 - Model Number
 - Serial Number
@@ -821,6 +842,7 @@ Example: Centrifugal Pump, Horizontal, 50HP
 - Parent Location
 
 ### Data Quality Contacts
+
 - Data Owner: ________________
 - CMMS Admin: ________________
 - Questions: ________________
@@ -846,6 +868,7 @@ Score yourself 0-2 on each item (0=No, 1=Partial, 2=Yes)
 | **TOTAL** | **/20** |
 
 **Scoring:**
+
 - 16-20: Excellent - focus on continuous improvement
 - 11-15: Good foundation - close the gaps
 - 6-10: Significant work needed - start with standards
@@ -853,8 +876,8 @@ Score yourself 0-2 on each item (0=No, 1=Partial, 2=Yes)
 
 ---
 
-*Need help standardizing your asset data? AssetStage provides the staging environment, validation rules, and bulk transformation tools to make standardization practical. Contact us at sales@assetstage.io*
+*Need help standardizing your asset data? AssetStage provides data staging, validation, and clean import to any CMMS platform. Contact us at sales@assetstage.io*
 
 ---
 
-© 2025 AssetStage. This guide may be freely distributed with attribution.
+© 2026 AssetStage. This guide may be freely distributed with attribution.

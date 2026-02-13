@@ -1,3 +1,9 @@
+---
+title: "ISO 14224 for Non-Oil & Gas Industries"
+subtitle: "Applying Proven Reliability Standards to Manufacturing, Utilities, and Beyond"
+author: "AssetStage"
+---
+
 # ISO 14224 for Non-Oil & Gas Industries
 ## Applying Proven Reliability Standards to Manufacturing, Utilities, and Beyond
 
@@ -238,6 +244,7 @@ ISO 14224 failure codes work across all industries. A pump leaks the same way wh
 The mechanisms (WHY it failed) are completely universal:
 
 **Mechanical:**
+
 - Wear (1.1) - Universal
 - Erosion (1.2) - Universal
 - Corrosion (1.4-1.6) - Universal
@@ -245,15 +252,18 @@ The mechanisms (WHY it failed) are completely universal:
 - Overload (1.8) - Universal
 
 **Electrical:**
+
 - Short circuit (2.1) - Universal
 - Open circuit (2.2) - Universal
 - Insulation failure (2.5) - Universal
 
 **Instrument/Control:**
+
 - Out of calibration (3.1) - Universal
 - Software fault (3.2) - Universal
 
 **External:**
+
 - Contamination (4.2) - Universal
 - Environmental (4.3) - Universal
 
@@ -276,26 +286,42 @@ Causes may need slight adaptation:
 ### Original ISO 14224 (9 Levels)
 
 ```
+
 1. Industry
+
 2. Business Category
+
 3. Installation
+
 4. Plant/Unit
+
 5. Section/System
+
 6. Equipment Unit
+
 7. Subunit
+
 8. Maintainable Item
+
 9. Part
 ```
 
 ### Manufacturing Adaptation (6-7 Levels)
 
 ```
+
 1. Company/Division
+
 2. Site/Plant
+
 3. Production Area / Building
+
 4. Production Line / System
+
 5. Equipment
+
 6. Component / Assembly
+
 7. Part (optional)
 
 Example:
@@ -311,12 +337,19 @@ ACME Manufacturing
 ### Utilities Adaptation (6-7 Levels)
 
 ```
+
 1. Utility Company
+
 2. Service Area / District
+
 3. Facility (Plant / Station)
+
 4. Process Area / System
+
 5. Equipment
+
 6. Component
+
 7. Part (optional)
 
 Example:
@@ -331,11 +364,17 @@ Metro Water Authority
 ### Facilities Adaptation (5-6 Levels)
 
 ```
+
 1. Portfolio / Company
+
 2. Property / Campus
+
 3. Building
+
 4. Floor / Zone / System
+
 5. Equipment
+
 6. Component (optional)
 
 Example:
@@ -411,18 +450,21 @@ Add these for serious reliability programs:
 ### Phase 1: Planning (Weeks 1-2)
 
 **1.1 Scope Definition**
+
 - [ ] Which sites/facilities?
 - [ ] Which equipment types?
 - [ ] What level of detail?
 - [ ] Who are the stakeholders?
 
 **1.2 Gap Analysis**
+
 - [ ] Current data structure
 - [ ] Current failure coding (if any)
 - [ ] Data quality assessment
 - [ ] System capabilities
 
 **1.3 Customization Decisions**
+
 - [ ] Hierarchy levels needed
 - [ ] Custom equipment classes needed
 - [ ] Failure code modifications
@@ -431,16 +473,19 @@ Add these for serious reliability programs:
 ### Phase 2: Design (Weeks 3-4)
 
 **2.1 Hierarchy Design**
+
 - [ ] Document hierarchy structure
 - [ ] Create examples for each level
 - [ ] Define naming conventions
 
 **2.2 Classification Design**
+
 - [ ] Map equipment to ISO 14224 classes
 - [ ] Define custom classes
 - [ ] Document boundary definitions
 
 **2.3 Failure Code Setup**
+
 - [ ] Select applicable failure modes
 - [ ] Select applicable mechanisms
 - [ ] Document code definitions
@@ -449,6 +494,7 @@ Add these for serious reliability programs:
 ### Phase 3: Configuration (Weeks 5-6)
 
 **3.1 CMMS Configuration**
+
 - [ ] Add classification fields
 - [ ] Load failure code tables
 - [ ] Configure dropdowns/lookups
@@ -456,6 +502,7 @@ Add these for serious reliability programs:
 - [ ] Build hierarchy structure
 
 **3.2 Documentation**
+
 - [ ] User guides
 - [ ] Code selection aids
 - [ ] Examples
@@ -463,12 +510,14 @@ Add these for serious reliability programs:
 ### Phase 4: Data Population (Weeks 7-10)
 
 **4.1 Equipment Classification**
+
 - [ ] Export equipment list
 - [ ] Assign ISO 14224 classes
 - [ ] Fill missing attributes
 - [ ] Validate and load
 
 **4.2 Historical Data (Optional)**
+
 - [ ] Identify key equipment
 - [ ] Review past failures
 - [ ] Code historical failures
@@ -477,16 +526,19 @@ Add these for serious reliability programs:
 ### Phase 5: Rollout (Weeks 11-12)
 
 **5.1 Training**
+
 - [ ] Train reliability engineers
 - [ ] Train maintenance supervisors
 - [ ] Train technicians
 
 **5.2 Go-Live**
+
 - [ ] Start collecting coded data
 - [ ] Monitor compliance
 - [ ] Support users
 
 **5.3 Continuous Improvement**
+
 - [ ] Review data quality monthly
 - [ ] Refine codes based on usage
 - [ ] Analyze failure patterns
@@ -499,6 +551,7 @@ Add these for serious reliability programs:
 ### Manufacturing Example: CNC Machine
 
 **Equipment Data:**
+
 | Field | Value |
 |-------|-------|
 | Equipment ID | CNC-L1-001 |
@@ -548,6 +601,7 @@ CNC-L1-001 CNC Milling Machine
 ### Water Utility Example: Lift Station Pump
 
 **Equipment Data:**
+
 | Field | Value |
 |-------|-------|
 | Equipment ID | LS05-PP-001 |
@@ -591,8 +645,8 @@ CNC-L1-001 CNC Milling Machine
 
 ---
 
-*Need help adapting ISO 14224 for your industry? AssetStage provides consulting services for non-oil & gas implementations. Contact us at sales@assetstage.io*
+*Need help adapting ISO 14224 for your industry? AssetStage provides data staging, validation, and clean import to any CMMS platform. Contact us at sales@assetstage.io*
 
 ---
 
-© 2025 AssetStage. This guide may be freely distributed with attribution.
+© 2026 AssetStage. This guide may be freely distributed with attribution.

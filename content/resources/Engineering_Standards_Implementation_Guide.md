@@ -1,3 +1,9 @@
+---
+title: "Engineering Standards Implementation Guide"
+subtitle: "RDS-PP, RDS-PS, KKS, ISO 14224, and SFI for CMMS"
+author: "AssetStage"
+---
+
 # Engineering Standards Implementation Guide
 ## RDS-PP, RDS-PS, KKS, ISO 14224, and SFI for CMMS
 
@@ -6,6 +12,7 @@
 ## Why Engineering Standards Matter
 
 Without standards, every site invents its own:
+
 - Naming conventions
 - Equipment classifications
 - Failure codes
@@ -14,6 +21,7 @@ Without standards, every site invents its own:
 The result: incompatible data across sites, useless for benchmarking, impossible to standardize maintenance.
 
 Engineering standards solve this by providing:
+
 - **Consistent taxonomy** - Same equipment = same classification everywhere
 - **Comparable data** - MTBF means the same thing across all sites
 - **Industry benchmarking** - Compare your performance to peers
@@ -73,6 +81,7 @@ What industry are you in?
 ISO 14224:2016 "Petroleum, petrochemical and natural gas industries — Collection and exchange of reliability and maintenance data for equipment"
 
 **What it provides:**
+
 - 9-level equipment taxonomy
 - Standard equipment classes with boundaries
 - Failure mode, mechanism, cause codes
@@ -137,6 +146,7 @@ ISO 14224:2016 "Petroleum, petrochemical and natural gas industries — Collecti
 RDS-PP is based on IEC 81346 and provides designation systems for power generation facilities.
 
 **Key features:**
+
 - Three-aspect designation (Function, Location, Product)
 - Covers entire power plant lifecycle
 - International standard (VGB PowerTech)
@@ -144,6 +154,7 @@ RDS-PP is based on IEC 81346 and provides designation systems for power generati
 ### RDS-PP Structure
 
 **Aspect Prefixes:**
+
 - `=` Function aspect (what it does)
 - `+` Location aspect (where it is)
 - `-` Product aspect (what it is)
@@ -212,6 +223,7 @@ RDS-PP is based on IEC 81346 and provides designation systems for power generati
 ### Overview
 
 RDS-PS extends IEC 81346 specifically for electrical power systems, including:
+
 - Transmission & Distribution
 - Substations
 - Renewable energy (wind, solar)
@@ -231,6 +243,7 @@ RDS-PS extends IEC 81346 specifically for electrical power systems, including:
 ### RDS-PS Structure
 
 Same three-aspect system as RDS-PP:
+
 - `=` Function
 - `+` Location
 - `-` Product
@@ -311,10 +324,12 @@ Plant Unit + Function + Equipment + Component
 ### KKS Code Structure
 
 **Level 0: Plant identification (optional)**
+
 - AA = Plant A
 - AB = Plant B
 
 **Level 1: Unit/system area (1-2 characters)**
+
 | Code | System |
 |------|--------|
 | 0 | Plant general |
@@ -329,6 +344,7 @@ Plant Unit + Function + Equipment + Component
 | 9 | Gas turbine |
 
 **Level 2: System (2-3 characters)**
+
 | Code | System |
 |------|--------|
 | LAB | Boiler |
@@ -339,6 +355,7 @@ Plant Unit + Function + Equipment + Component
 | MKA | Generator |
 
 **Level 3: Equipment (2-3 characters)**
+
 | Code | Equipment |
 |------|-----------|
 | AA | General |
@@ -349,6 +366,7 @@ Plant Unit + Function + Equipment + Component
 | CF | Filter |
 
 **Level 4: Component/signal (optional)**
+
 | Code | Meaning |
 |------|---------|
 | 001 | Sequence number |
@@ -423,11 +441,13 @@ Detail (6 digits)     → Specific item
 ### ISO 14224 + RDS-PP/KKS
 
 Use RDS-PP or KKS for:
+
 - Equipment naming/designation
 - Hierarchy structure
 - Location identification
 
 Use ISO 14224 for:
+
 - Equipment classification (for reliability analysis)
 - Failure modes
 - Failure mechanisms
@@ -447,11 +467,13 @@ Use ISO 14224 for:
 ### SFI + ISO 14224
 
 Use SFI for:
+
 - Vessel hierarchy
 - Equipment identification
 - Spare parts cataloging
 
 Use ISO 14224 for:
+
 - Failure coding
 - Reliability analysis
 - Industry benchmarking
@@ -516,8 +538,8 @@ Use ISO 14224 for:
 
 ---
 
-*Need help implementing engineering standards? AssetStage provides consulting, training, and data migration services for ISO 14224, RDS-PP, RDS-PS, KKS, and SFI implementations. Contact us at sales@assetstage.io*
+*Need help implementing engineering standards? AssetStage provides data staging, validation, and clean import to any CMMS platform. Contact us at sales@assetstage.io*
 
 ---
 
-© 2025 AssetStage. This guide may be freely distributed with attribution.
+© 2026 AssetStage. This guide may be freely distributed with attribution.

@@ -1,3 +1,9 @@
+---
+title: "ISO 14224 Implementation Cheat Sheet"
+subtitle: "A Practical Reference Guide for Reliability & Maintenance Engineers"
+author: "AssetStage"
+---
+
 # ISO 14224 Implementation Cheat Sheet
 ## A Practical Reference Guide for Reliability & Maintenance Engineers
 
@@ -328,6 +334,7 @@ Seawater lift pump on offshore platform fails with external seal leak during nor
 | Admin/Logistics | 4 hours |
 
 ### Lessons Learned
+
 - Seal faces should be replaced at every major overhaul regardless of condition
 - Update PM procedure PMP-4501 to mandate seal face replacement
 - Consider upgrading to Silicon Carbide faces for longer life
@@ -496,8 +503,8 @@ For quick code selection in the field:
 
 ---
 
-*Need help implementing ISO 14224 in your CMMS? AssetStage provides staging, validation, and clean import to Maximo and SAP. Contact us at sales@assetstage.io*
+*Need help implementing ISO 14224 in your CMMS? AssetStage provides data staging, validation, and clean import to any CMMS platform. Contact us at sales@assetstage.io*
 
 ---
 
-© 2025 AssetStage. This guide may be freely distributed with attribution.
+© 2026 AssetStage. This guide may be freely distributed with attribution.

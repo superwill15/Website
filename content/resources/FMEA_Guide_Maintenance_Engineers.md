@@ -1,3 +1,9 @@
+---
+title: "FMEA for Maintenance Engineers"
+subtitle: "A Practical Guide to Failure Mode and Effects Analysis"
+author: "AssetStage"
+---
+
 # FMEA for Maintenance Engineers
 ## A Practical Guide to Failure Mode and Effects Analysis
 
@@ -6,6 +12,7 @@
 ## What Is FMEA?
 
 Failure Mode and Effects Analysis (FMEA) is a systematic method for identifying:
+
 - **What can fail** (failure modes)
 - **Why it might fail** (causes)
 - **What happens when it fails** (effects)
@@ -219,6 +226,7 @@ Range: 1 to 1,000
 | < 50 | Low | Monitor, address opportunistically |
 
 **But also consider:**
+
 - Any Severity = 9 or 10 requires action regardless of RPN
 - High occurrence items may warrant action even with low RPN
 - Easy wins (low effort, high impact) should be prioritized
@@ -336,14 +344,19 @@ FMEA findings should drive your PM strategy:
 ### Before the Workshop
 
 1. **Select equipment** - Focus on critical or problem equipment
+
 2. **Gather documentation** - P&IDs, manuals, maintenance history
+
 3. **Analyze failure history** - What has actually failed?
+
 4. **Identify participants** - Operations, maintenance, engineering, OEM
+
 5. **Schedule adequate time** - 4-8 hours for complex equipment
 
 ### During the Workshop
 
 **Facilitator responsibilities:**
+
 - Keep discussion focused on one failure mode at a time
 - Ensure all functions are covered
 - Challenge assumptions (not all failures are "operator error")
@@ -352,6 +365,7 @@ FMEA findings should drive your PM strategy:
 - Keep energy up (breaks, snacks)
 
 **Ground rules:**
+
 - No idea is stupid
 - Focus on failure modes, not blame
 - Use data where available, experience where not
@@ -361,11 +375,17 @@ FMEA findings should drive your PM strategy:
 ### After the Workshop
 
 1. **Clean up documentation** - Format FMEA worksheet
+
 2. **Calculate RPNs** - Verify math
+
 3. **Prioritize actions** - Use RPN plus judgment
+
 4. **Assign owners** - Every action needs a name and date
+
 5. **Update PM program** - Implement task changes
+
 6. **Track completion** - Follow up on actions
+
 7. **Review periodically** - Update FMEA as conditions change
 
 ---
@@ -390,14 +410,17 @@ FMEA findings should drive your PM strategy:
 ### Recording FMEA Data in CMMS
 
 **Option 1: Document attachment**
+
 - Attach FMEA spreadsheet to equipment record
 - Simple but not queryable
 
 **Option 2: Custom fields**
+
 - Add RPN field to equipment
 - Track highest-risk items
 
 **Option 3: Dedicated module**
+
 - Some CMMS have FMEA/RCM modules
 - Full integration with PM tasks
 
@@ -441,8 +464,8 @@ Link PM tasks back to FMEA findings:
 
 ---
 
-*Need help conducting FMEA workshops for your critical equipment? AssetStage offers facilitated FMEA sessions and integration with your CMMS. Contact us at sales@assetstage.io*
+*Need help conducting FMEA workshops for your critical equipment? AssetStage provides data staging, validation, and clean import to any CMMS platform. Contact us at sales@assetstage.io*
 
 ---
 
-© 2025 AssetStage. This guide may be freely distributed with attribution.
+© 2026 AssetStage. This guide may be freely distributed with attribution.

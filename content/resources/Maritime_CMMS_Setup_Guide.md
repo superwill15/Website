@@ -1,3 +1,9 @@
+---
+title: "Maritime CMMS Setup Guide"
+subtitle: "Implementing CMMS for Vessels, Fleets, and Maritime Operations"
+author: "AssetStage"
+---
+
 # Maritime CMMS Setup Guide
 ## Implementing CMMS for Vessels, Fleets, and Maritime Operations
 
@@ -25,6 +31,7 @@ This guide covers maritime-specific CMMS setup including SFI classification, reg
 ### What Is SFI?
 
 The SFI Group System is the international standard for classifying ship components. Developed in Norway in 1972, it's used by:
+
 - 90%+ of commercial shipping
 - All major class societies
 - Most maritime CMMS platforms (AMOS, NS5, ShipManager, etc.)
@@ -274,6 +281,7 @@ Your CMMS must support:
 | 10.5 - Records of maintenance | Complete work history |
 
 **Document Control:**
+
 - [ ] Maintenance procedures accessible on board
 - [ ] Revision control for procedures
 - [ ] Crew trained on procedures
@@ -303,6 +311,7 @@ Track survey items with due dates:
 | Bottom Survey | 2.5 years | Can coincide with intermediate |
 
 Configure CMMS to:
+
 - [ ] Track survey due dates per equipment
 - [ ] Generate reminders 3 months before due
 - [ ] Record survey findings
@@ -328,6 +337,7 @@ Safety of Life at Sea (SOLAS) equipment requires specific maintenance:
 Create checklist job plans for PSC readiness:
 
 **Machinery Items:**
+
 - [ ] Main engine operational and records current
 - [ ] Generators operational with proper load sharing
 - [ ] Steering gear operational with emergency
@@ -336,6 +346,7 @@ Create checklist job plans for PSC readiness:
 - [ ] Emergency generator starts and loads
 
 **Safety Items:**
+
 - [ ] All LSA inspection current
 - [ ] Fire-fighting equipment serviced
 - [ ] Emergency lighting functional
@@ -395,6 +406,7 @@ Some maintenance triggers on voyages/port calls:
 Every vessel should have:
 
 **Main Engine Spares:**
+
 | Item | Min Qty | Location | Lead Time |
 |------|---------|----------|-----------|
 | Cylinder liner | 1 | On board | 12 weeks |
@@ -408,6 +420,7 @@ Every vessel should have:
 | Cylinder head | 1 | Shore (class req) | 12 weeks |
 
 **Aux Engine Spares:**
+
 | Item | Min Qty | Location | Lead Time |
 |------|---------|----------|-----------|
 | Cylinder head | 1 | On board | 6 weeks |
@@ -416,6 +429,7 @@ Every vessel should have:
 | Turbocharger cartridge | 1 | On board | 8 weeks |
 
 **Pumps & Rotating Equipment:**
+
 | Item | Min Qty | Location | Lead Time |
 |------|---------|----------|-----------|
 | Mechanical seal (per pump type) | 2 | On board | 2-4 weeks |
@@ -469,6 +483,7 @@ When you have sister vessels (same design):
 | FW Generator | Alfa Laval D-Type | 8 | |
 
 Benefits of standardization:
+
 - Common spare parts pool
 - Consistent training
 - Comparable performance data
@@ -496,6 +511,7 @@ Use ISO 14224 failure modes across the fleet (see ISO 14224 guide):
 Before crew change:
 
 **Outgoing Chief Engineer:**
+
 - [ ] Update all running hours
 - [ ] Close completed work orders
 - [ ] Document ongoing work (status, parts needed)
@@ -504,6 +520,7 @@ Before crew change:
 - [ ] Ensure spare parts inventory accurate
 
 **Incoming Chief Engineer:**
+
 - [ ] Review open work orders
 - [ ] Review overdue PMs
 - [ ] Review deficiency log
@@ -559,24 +576,28 @@ Your CMMS should support:
 ### Phase 1: Setup (Weeks 1-4)
 
 **Week 1: Fleet Structure**
+
 - [ ] Define fleet organization in CMMS
 - [ ] Create vessel types/classes
 - [ ] Enter vessel master data (IMO, flag, etc.)
 - [ ] Configure user roles (Supt, CE, 2E, ETO)
 
 **Week 2: SFI Hierarchy**
+
 - [ ] Load SFI code master
 - [ ] Build hierarchy for first vessel
 - [ ] Add equipment specifications
 - [ ] Link spare parts
 
 **Week 3: PM Setup**
+
 - [ ] Define PM schedules (time-based)
 - [ ] Define PM schedules (counter-based)
 - [ ] Create job plans with tasks
 - [ ] Link job plans to equipment
 
 **Week 4: Survey & Compliance**
+
 - [ ] Set up class survey tracking
 - [ ] Enter next survey due dates
 - [ ] Create SOLAS equipment checklist
@@ -625,8 +646,8 @@ Your CMMS should support:
 
 ---
 
-*Need help implementing maritime CMMS or standardizing your fleet data? AssetStage provides SFI hierarchy templates, data migration services, and fleet standardization consulting. Contact us at sales@assetstage.io*
+*Need help implementing maritime CMMS or standardizing your fleet data? AssetStage provides SFI hierarchy templates, data staging, and clean import to any CMMS platform. Contact us at sales@assetstage.io*
 
 ---
 
-© 2025 AssetStage. This guide may be freely distributed with attribution.
+© 2026 AssetStage. This guide may be freely distributed with attribution.

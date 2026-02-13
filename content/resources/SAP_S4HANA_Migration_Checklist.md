@@ -1,3 +1,9 @@
+---
+title: "SAP S/4HANA Migration Checklist"
+subtitle: "Complete Data Preparation Guide for SAP PM to S/4HANA Asset Management Migration"
+author: "AssetStage"
+---
+
 # SAP S/4HANA Migration Checklist
 ## Complete Data Preparation Guide for SAP PM to S/4HANA Asset Management Migration
 
@@ -19,18 +25,21 @@
 ### Migration Paths
 
 **Path 1: Greenfield (New Implementation)**
+
 - Fresh S/4HANA installation
 - Selective data migration
 - Process redesign opportunity
 - Highest effort, cleanest result
 
 **Path 2: Brownfield (System Conversion)**
+
 - Convert existing ECC to S/4HANA
 - All data migrates
 - Minimal process change
 - Fastest but carries technical debt
 
 **Path 3: Selective Data Transition (Bluefield)**
+
 - New S/4HANA with selected data
 - Best of both approaches
 - Requires careful scoping
@@ -91,8 +100,11 @@ Run transaction DB02 or SE16N to get record counts:
 ```
 Count of Z* tables in PM area: _____
 Critical Z tables requiring migration:
+
 1. _____________
+
 2. _____________
+
 3. _____________
 ```
 
@@ -105,18 +117,21 @@ Order (AUFK): _____ custom fields
 ```
 
 **Custom Transactions:**
+
 | Transaction | Description | Usage (High/Med/Low) | S/4HANA Equivalent |
 |-------------|-------------|---------------------|-------------------|
 | Z* | | | |
 | | | | |
 
 **Custom Reports (Y/Z programs):**
+
 | Report | Description | Usage | Action (Migrate/Retire/Replace) |
 |--------|-------------|-------|---------------------------------|
 | | | | |
 | | | | |
 
 **Enhancements & Modifications:**
+
 - [ ] Count of user exits (CMOD): _____
 - [ ] Count of BADIs: _____
 - [ ] Count of BTE: _____
@@ -126,6 +141,7 @@ Order (AUFK): _____ custom fields
 
 **Equipment Master Quality:**
 ```abap
+
 * Count equipment missing key fields
 SELECT COUNT(*) INTO @DATA(lv_no_floc)
   FROM equi
@@ -145,6 +161,7 @@ SELECT COUNT(*) INTO @DATA(lv_no_mfr)
 ```
 
 Record results:
+
 | Metric | Count | % of Total | Action Required |
 |--------|-------|------------|-----------------|
 | Equipment without functional location | | | |
@@ -155,6 +172,7 @@ Record results:
 | Duplicate serial numbers | | | |
 
 **Functional Location Quality:**
+
 | Metric | Count | % of Total | Action Required |
 |--------|-------|------------|-----------------|
 | FLOCs without structure indicator | | | |
@@ -169,6 +187,7 @@ Record results:
 ### 2.1 Equipment Master Cleanup
 
 **Identification:**
+
 - [ ] Standardize equipment categories (A, M, Q, etc.)
 - [ ] Verify equipment types are consistently used
 - [ ] Standardize equipment descriptions (see naming convention guide)
@@ -178,6 +197,7 @@ Record results:
 - [ ] Verify/fill inventory numbers
 
 **Organizational Assignment:**
+
 - [ ] Verify maintenance planning plant
 - [ ] Verify maintenance plant
 - [ ] Verify company code
@@ -186,18 +206,21 @@ Record results:
 - [ ] Clean up work centers
 
 **Location:**
+
 - [ ] Verify functional location assignments
 - [ ] Verify location (maintenance) assignments
 - [ ] Verify room assignments
 - [ ] Verify asset (fixed asset) links
 
 **Classification:**
+
 - [ ] Verify class type 002 assignments
 - [ ] Fill missing characteristic values
 - [ ] Standardize characteristic values
 - [ ] Remove obsolete classifications
 
 **Delete/Archive Candidates:**
+
 - [ ] Equipment never installed (created but unused)
 - [ ] Equipment scrapped >5 years ago
 - [ ] Test/training equipment
@@ -206,6 +229,7 @@ Record results:
 ### 2.2 Functional Location Cleanup
 
 **Structure:**
+
 - [ ] Verify structure indicator consistency
 - [ ] Verify hierarchy is correct (parent-child)
 - [ ] Standardize descriptions
@@ -213,12 +237,14 @@ Record results:
 - [ ] Clean up object types
 
 **Master Data:**
+
 - [ ] Fill missing planning plants
 - [ ] Fill missing maintenance plants
 - [ ] Verify cost center assignments
 - [ ] Clean up location data (room, building)
 
 **Archive Candidates:**
+
 - [ ] Demolished facilities
 - [ ] Divested assets
 - [ ] Never-used planning locations
@@ -226,11 +252,13 @@ Record results:
 ### 2.3 Work Order History Cleanup
 
 **Decide Retention Period:**
+
 - Open/active orders: All (must migrate)
 - Completed orders: _____ years
 - Archived orders: _____ years (may not migrate)
 
 **Data Quality:**
+
 - [ ] Close ancient open orders (or document why open)
 - [ ] Verify all orders have valid equipment/FLOC
 - [ ] Clean up orders on deleted equipment
@@ -249,10 +277,12 @@ Record results:
 ### 2.5 Notification Cleanup
 
 **Retention Decision:**
+
 - Completed notifications: _____ years
 - Open notifications: All
 
 **Quality:**
+
 - [ ] Close ancient open notifications
 - [ ] Verify catalog assignments
 - [ ] Verify damage/cause codes
@@ -307,91 +337,145 @@ S/4HANA requires Business Partners instead of separate vendor/customer masters.
 Export in dependency order:
 
 **Tier 1: Organizational Structure**
+
 1. [ ] Company Codes (T001)
+
 2. [ ] Plants (T001W)
+
 3. [ ] Planning Plants (T024F)
+
 4. [ ] Maintenance Plants
+
 5. [ ] Work Centers (CRHD, CRCO)
+
 6. [ ] Cost Centers (CSKS)
 
 **Tier 2: Master Data Setup**
+
 1. [ ] Planner Groups (T024I)
+
 2. [ ] Maintenance Activity Types (T353I)
+
 3. [ ] Object Types (T370T)
+
 4. [ ] ABC Indicators (T370A)
+
 5. [ ] Equipment Categories (T370K)
 
 **Tier 3: Catalogs and Codes**
+
 1. [ ] Catalog Profiles (T357P)
+
 2. [ ] Catalogs (TQ80)
+
 3. [ ] Code Groups (QPCD)
+
 4. [ ] Codes (QPCT)
+
 5. [ ] Damage Codes
+
 6. [ ] Cause Codes
+
 7. [ ] Task Codes
 
 **Tier 4: Classification**
+
 1. [ ] Class Types (T174)
+
 2. [ ] Classes (KLAH)
+
 3. [ ] Characteristics (CABN)
+
 4. [ ] Class-Characteristic Links (KSML)
 
 **Tier 5: Functional Locations**
+
 1. [ ] Structure Indicators (T370S)
+
 2. [ ] Functional Location Hierarchy
+
 3. [ ] Functional Location Master (IFLOT)
+
 4. [ ] Functional Location Texts (IFLOTX)
+
 5. [ ] Functional Location Data (ILOA)
+
 6. [ ] Functional Location Classification
 
 **Tier 6: Equipment**
+
 1. [ ] Equipment Master (EQUI)
+
 2. [ ] Equipment Texts (EQKT)
+
 3. [ ] Equipment-FLOC Links
+
 4. [ ] Equipment Classification
+
 5. [ ] Equipment BOM Links
+
 6. [ ] Measuring Points (IMPT)
+
 7. [ ] Measurement Documents (IMRG)
 
 **Tier 7: Task Lists**
+
 1. [ ] Task List Headers (PLKO)
+
 2. [ ] Task List Operations (PLPO)
+
 3. [ ] Task List Components (STPO via PLMZ)
+
 4. [ ] Maintenance Packages (PLWP)
 
 **Tier 8: Maintenance Plans**
+
 1. [ ] Maintenance Plan (MPLA)
+
 2. [ ] Maintenance Items (MPOS)
+
 3. [ ] Maintenance Cycles (MZYK)
+
 4. [ ] Scheduling Parameters (MHIS)
+
 5. [ ] Call Objects
 
 **Tier 9: Transactional Data**
+
 1. [ ] Notifications (QMEL, QMFE, QMUR)
+
 2. [ ] Order Headers (AUFK, AFIH)
+
 3. [ ] Order Operations (AFVC, AFVV)
+
 4. [ ] Order Components (RESB)
+
 5. [ ] Confirmations (AFRU)
+
 6. [ ] Goods Movements (MSEG linked)
 
 ### 4.2 Export Methods
 
 **Option 1: SAP Migration Cockpit (Recommended for S/4HANA)**
+
 - Use standard migration objects
 - Handles data transformations
 - Built-in validation
 
 **Option 2: LSMW (Legacy System Migration Workbench)**
+
 - Traditional SAP migration tool
 - More manual control
 - Requires more expertise
 
 **Option 3: Direct Database Export**
+
 - Maximum flexibility
 - Requires transformation layer
 - Use for complex scenarios
 
 **Export Format Specification:**
+
 | Field Type | Format | Example |
 |------------|--------|---------|
 | Date | YYYYMMDD | 20241115 |
@@ -461,6 +545,7 @@ Export in dependency order:
 **Pre-Load Validation:**
 
 ```abap
+
 * Validate equipment references valid FLOC
 SELECT e~equnr, e~tplnr
   FROM zstg_equi AS e
@@ -486,6 +571,7 @@ SELECT equnr, COUNT(*) AS count
 ```
 
 **Domain Validation:**
+
 - [ ] Equipment categories exist in T370K
 - [ ] Equipment types exist in T370T
 - [ ] Structure indicators exist in T370S
@@ -500,6 +586,7 @@ SELECT equnr, COUNT(*) AS count
 ### 6.1 Pre-Load Configuration
 
 **Organizational Setup:**
+
 - [ ] Company codes created
 - [ ] Plants created
 - [ ] Planning plants configured
@@ -508,6 +595,7 @@ SELECT equnr, COUNT(*) AS count
 - [ ] Planner groups created
 
 **Master Data Config:**
+
 - [ ] Equipment categories configured
 - [ ] Equipment types configured
 - [ ] Structure indicators configured
@@ -515,12 +603,14 @@ SELECT equnr, COUNT(*) AS count
 - [ ] Number ranges assigned
 
 **Catalog Config:**
+
 - [ ] Catalog profiles created
 - [ ] Damage code catalogs loaded
 - [ ] Cause code catalogs loaded
 - [ ] Activity type catalogs loaded
 
 **Classification:**
+
 - [ ] Class types configured
 - [ ] Classes created
 - [ ] Characteristics created
@@ -529,17 +619,24 @@ SELECT equnr, COUNT(*) AS count
 ### 6.2 Load Sequence
 
 1. [ ] Structure Indicators
+
 2. [ ] Catalog/Code groups
+
 3. [ ] Classification (classes, characteristics)
+
 4. [ ] Functional Locations (by hierarchy level)
    - [ ] Level 1 (top)
    - [ ] Level 2
    - [ ] Level 3
    - [ ] Level 4+
 5. [ ] Equipment Master
+
 6. [ ] Equipment Classification
+
 7. [ ] Measuring Points
+
 8. [ ] Measurement Documents
+
 9. [ ] BOMs
 10. [ ] Task Lists
 11. [ ] Maintenance Plans
@@ -550,6 +647,7 @@ SELECT equnr, COUNT(*) AS count
 ### 6.3 Load Methods
 
 **Migration Cockpit Objects for PM:**
+
 | Object | Description | S/4HANA Object Name |
 |--------|-------------|---------------------|
 | Functional Location | FLOC master data | S4_FUN_LOC |
@@ -580,6 +678,7 @@ SELECT equnr, COUNT(*) AS count
 ### 7.2 Functional Test Cases
 
 **Equipment Management (IE01, IE02, IE03):**
+
 | Test | Transaction | Expected Result | Pass/Fail |
 |------|-------------|-----------------|-----------|
 | View equipment | IE03 | Display all fields correctly | |
@@ -591,6 +690,7 @@ SELECT equnr, COUNT(*) AS count
 | Move equipment | IE01 | FLOC assignment updates | |
 
 **Functional Location (IL01, IL02, IL03):**
+
 | Test | Transaction | Expected Result | Pass/Fail |
 |------|-------------|-----------------|-----------|
 | View FLOC | IL03 | Display correctly | |
@@ -600,6 +700,7 @@ SELECT equnr, COUNT(*) AS count
 | Change FLOC | IL02 | Changes save | |
 
 **Notification (IW21, IW22, IW23):**
+
 | Test | Transaction | Expected Result | Pass/Fail |
 |------|-------------|-----------------|-----------|
 | Create notification | IW21 | Creates with codes | |
@@ -608,6 +709,7 @@ SELECT equnr, COUNT(*) AS count
 | Create order from notif | IW22 → Order | Order created | |
 
 **Maintenance Order (IW31, IW32, IW33):**
+
 | Test | Transaction | Expected Result | Pass/Fail |
 |------|-------------|-----------------|-----------|
 | Create order | IW31 | Creates with operations | |
@@ -618,6 +720,7 @@ SELECT equnr, COUNT(*) AS count
 | View order history | IW33 | All data visible | |
 
 **Maintenance Planning (IP10, IP30):**
+
 | Test | Transaction | Expected Result | Pass/Fail |
 |------|-------------|-----------------|-----------|
 | View maint plan | IP03 | Displays correctly | |
@@ -679,10 +782,15 @@ SELECT equnr, COUNT(*) AS count
 ### 8.3 Rollback Plan
 
 If Go/No-Go = No-Go:
+
 1. Disable S/4HANA access
+
 2. Re-enable ECC access
+
 3. Document issues
+
 4. Schedule remediation
+
 5. Plan new cutover date
 
 ---
@@ -725,8 +833,8 @@ If Go/No-Go = No-Go:
 
 ---
 
-*Need help with your SAP S/4HANA migration? AssetStage provides data staging, validation, and transformation services for complex migrations. Contact us at sales@assetstage.io*
+*Need help with your CMMS migration? AssetStage provides data staging, validation, and transformation services for any CMMS platform. Contact us at sales@assetstage.io*
 
 ---
 
-© 2025 AssetStage. This checklist may be freely distributed with attribution.
+© 2026 AssetStage. This checklist may be freely distributed with attribution.
