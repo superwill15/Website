@@ -4,6 +4,26 @@ import { useState } from 'react';
 import Logo from '@/components/Logo';
 import ResourcesSection from '@/components/ResourcesSection';
 import DemoModal from '@/components/DemoModal';
+import {
+  DollarSign,
+  Zap,
+  Target,
+  Building2,
+  GraduationCap,
+  ClipboardList,
+  RefreshCw,
+  Factory,
+  BarChart3,
+  Rocket,
+  Globe,
+  AlertTriangle,
+  Microscope,
+  Clock,
+  Lock,
+  FileText,
+  Building,
+  Mail
+} from 'lucide-react';
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -118,7 +138,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="section">
+      <section className="section section-tight">
         <div className="container">
           <div className="stats-container">
             <div className="stat-card">
@@ -189,17 +209,17 @@ export default function HomePage() {
           {/* Key Benefits */}
           <div className="services-grid" style={{marginTop: '60px'}}>
             <div className="service-card">
-              <div className="service-icon">💰</div>
+              <div className="service-icon"><DollarSign size={28} /></div>
               <h3>90% Cost Savings</h3>
               <p>Get enterprise-quality results at a fraction of traditional consulting costs. For organizations that prefer hands-on support, our skilled consultants are available to deliver full implementations combining platform efficiency with expert guidance.</p>
             </div>
             <div className="service-card">
-              <div className="service-icon">⚡</div>
+              <div className="service-icon"><Zap size={28} /></div>
               <h3>6-Week Delivery</h3>
               <p>Transform your CMMS data in weeks, not months. Our guided process ensures rapid implementation without sacrificing quality.</p>
             </div>
             <div className="service-card">
-              <div className="service-icon">🎯</div>
+              <div className="service-icon"><Target size={28} /></div>
               <h3>PM Optimization</h3>
               <p>Standardize maintenance across identical assets with one click. Turn 8-hour manual tasks into 15-minute automated workflows.</p>
             </div>
@@ -217,67 +237,67 @@ export default function HomePage() {
           
           <div className="services-grid">
             <div className="service-card">
-              <div className="service-icon">🏗️</div>
+              <div className="service-icon"><Building2 size={28} /></div>
               <h3>Engineering Standards Consultancy</h3>
               <p>Expert implementation of international engineering standards including RDS-PP, RDS-PS (power systems), ISO 14224 (reliability data), KKS (power plant classification), and SFI (marine classification). We ensure your assets are classified and structured according to industry best practices.</p>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">🎓</div>
+              <div className="service-icon"><GraduationCap size={28} /></div>
               <h3>Standards Training & Certification</h3>
               <p>Comprehensive training programs on engineering classification systems. Learn how to implement RDS-PP, RDS-PS for power generation, ISO 14224 for reliability, KKS for industrial plants, and SFI for marine systems. Build internal expertise in global standards.</p>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">📋</div>
+              <div className="service-icon"><ClipboardList size={28} /></div>
               <h3>CMMS Selection Advisory</h3>
               <p>Independent, vendor-neutral guidance to help you choose the right CMMS for your organization. We evaluate your needs, not vendor commissions.</p>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">🔄</div>
+              <div className="service-icon"><RefreshCw size={28} /></div>
               <h3>Data Migration Services</h3>
               <p>Expert assistance with complex data migrations. We handle the heavy lifting while your team learns the process for future autonomy.</p>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">🏭</div>
+              <div className="service-icon"><Factory size={28} /></div>
               <h3>Industry Templates & Standards</h3>
               <p>Pre-built configurations aligned with international standards. Templates for RDS-PP, RDS-PS (power), ISO 14224 (reliability), KKS (plant classification), and SFI (marine). Start with proven industry frameworks.</p>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">📊</div>
+              <div className="service-icon"><BarChart3 size={28} /></div>
               <h3>Master Data Governance</h3>
               <p>Ongoing data quality management services aligned with engineering standards. Keep your CMMS data clean with automated workflows and regular health checks.</p>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">🚀</div>
+              <div className="service-icon"><Rocket size={28} /></div>
               <h3>Standards Implementation</h3>
               <p>End-to-end support for implementing engineering classification systems. From gap analysis to full deployment of RDS-PP, RDS-PS, ISO 14224, KKS, or SFI standards in your organization.</p>
             </div>
-            
+
             <div className="service-card">
-              <div className="service-icon">🌍</div>
+              <div className="service-icon"><Globe size={28} /></div>
               <h3>Cross-Industry Standards Mapping</h3>
               <p>Bridge different classification systems during mergers, acquisitions, or multi-site operations. Map between RDS-PP, RDS-PS, ISO 14224, KKS, SFI and other standards for seamless integration.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon">⚠️</div>
+              <div className="service-icon"><AlertTriangle size={28} /></div>
               <h3>Criticality Analysis Workshops</h3>
               <p>Facilitated criticality assessment sessions to identify and rank your most important assets. Establish risk-based maintenance priorities using industry-standard methodologies aligned with ISO 55000 and ISO 14224 frameworks.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon">🔬</div>
+              <div className="service-icon"><Microscope size={28} /></div>
               <h3>FMEA Workshop Facilitation</h3>
               <p>Expert-led Failure Mode and Effects Analysis (FMEA) workshops for your critical assets. Identify potential failure modes, assess risks, and develop targeted maintenance strategies to prevent costly downtime.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon">⏳</div>
+              <div className="service-icon"><Clock size={28} /></div>
               <h3>Obsolescence Studies</h3>
               <p>Proactive obsolescence management for aging assets and equipment. Identify at-risk components, assess spare parts availability, and develop mitigation strategies before obsolescence becomes a critical issue affecting operations.</p>
             </div>
@@ -363,19 +383,19 @@ export default function HomePage() {
 
           <div className="services-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
             <div className="service-card">
-              <div className="service-icon">🔒</div>
+              <div className="service-icon"><Lock size={28} /></div>
               <h3>Data Isolation & Access Control</h3>
               <p>Complete tenant isolation at the database level ensures your data never mixes with other customers. Role-based access control gives you granular permissions. Control exactly who can view, edit, or delete data.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon">📋</div>
+              <div className="service-icon"><FileText size={28} /></div>
               <h3>Complete Audit Trail</h3>
               <p>Every action is logged with user identity, timestamp, and affected records. Full visibility into platform activity helps you meet compliance requirements and investigate issues with confidence.</p>
             </div>
 
             <div className="service-card">
-              <div className="service-icon">🏢</div>
+              <div className="service-icon"><Building size={28} /></div>
               <h3>Enterprise Infrastructure</h3>
               <p>Built on Supabase and Vercel (both SOC 2 Type II certified platforms). Your data is protected with AES-256 encryption at rest and TLS 1.3 in transit. Enterprise-grade security without enterprise complexity.</p>
             </div>
@@ -429,7 +449,7 @@ export default function HomePage() {
           
           <div style={{maxWidth: '600px', margin: '0 auto', textAlign: 'center'}}>
             <div className="service-card" style={{padding: '40px'}}>
-              <div className="service-icon" style={{fontSize: '48px', marginBottom: '20px'}}>✉️</div>
+              <div className="service-icon" style={{width: '80px', height: '80px', marginBottom: '20px'}}><Mail size={40} /></div>
               <h3 style={{marginBottom: '20px'}}>Contact Our Sales Team</h3>
               <p style={{fontSize: '18px', marginBottom: '30px', color: 'var(--text-light)'}}>
                 Have questions about AssetStage? Want to discuss your specific requirements? 

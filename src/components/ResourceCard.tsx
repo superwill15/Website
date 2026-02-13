@@ -1,5 +1,7 @@
 'use client';
 
+import { ClipboardList, BarChart3, FileText, Factory, Folder, Check } from 'lucide-react';
+
 interface ResourceCardProps {
   title: string;
   description: string;
@@ -21,14 +23,14 @@ export default function ResourceCard({
   onDownload,
   isDownloaded = false
 }: ResourceCardProps) {
-  
+
   const getCategoryIcon = () => {
     switch (category) {
-      case 'template': return '📋';
-      case 'guide': return '📊';
-      case 'whitepaper': return '📄';
-      case 'industry': return '🏭';
-      default: return '📁';
+      case 'template': return <ClipboardList size={24} />;
+      case 'guide': return <BarChart3 size={24} />;
+      case 'whitepaper': return <FileText size={24} />;
+      case 'industry': return <Factory size={24} />;
+      default: return <Folder size={24} />;
     }
   };
 
@@ -61,12 +63,12 @@ export default function ResourceCard({
       </div>
       
       <div className="resource-footer">
-        <button 
+        <button
           className={`resource-download-btn ${isDownloaded ? 'downloaded' : ''}`}
           onClick={onDownload}
         >
           {isDownloaded ? (
-            <>✓ Downloaded</>
+            <><Check size={16} style={{ marginRight: '6px', verticalAlign: 'middle' }} /> Downloaded</>
           ) : (
             <>Download {fileType} →</>
           )}
