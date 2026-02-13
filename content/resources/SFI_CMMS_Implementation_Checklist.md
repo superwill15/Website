@@ -4,6 +4,8 @@ subtitle: "The Complete Checklist for Implementing SFI Coding in Your Maritime C
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # SFI CMMS Implementation Checklist
 ## The Complete Checklist for Implementing SFI Coding in Your Maritime CMMS
 
