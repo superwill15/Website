@@ -4,6 +4,8 @@ subtitle: "Applying Proven Reliability Standards to Manufacturing, Utilities, an
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # ISO 14224 for Non-Oil & Gas Industries
 ## Applying Proven Reliability Standards to Manufacturing, Utilities, and Beyond
 

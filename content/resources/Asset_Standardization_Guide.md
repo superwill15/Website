@@ -4,6 +4,8 @@ subtitle: "Stop Fighting Duplicates, Messy Hierarchies, and Inconsistent Data"
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # Asset Standardization Guide for CMMS
 ## Stop Fighting Duplicates, Messy Hierarchies, and Inconsistent Data
 

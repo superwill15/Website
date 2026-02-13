@@ -4,6 +4,8 @@ subtitle: "Complete Data Preparation Guide for IBM Maximo Application Suite Migr
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # Maximo to MAS 9 Migration Checklist
 ## Complete Data Preparation Guide for IBM Maximo Application Suite Migration
 

@@ -4,6 +4,8 @@ subtitle: "A Practical Reference Guide for Reliability & Maintenance Engineers"
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # ISO 14224 Implementation Cheat Sheet
 ## A Practical Reference Guide for Reliability & Maintenance Engineers
 

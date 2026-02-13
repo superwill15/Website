@@ -4,6 +4,8 @@ subtitle: "Implementing CMMS for Vessels, Fleets, and Maritime Operations"
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # Maritime CMMS Setup Guide
 ## Implementing CMMS for Vessels, Fleets, and Maritime Operations
 

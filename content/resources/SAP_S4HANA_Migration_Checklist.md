@@ -4,6 +4,8 @@ subtitle: "Complete Data Preparation Guide for SAP PM to S/4HANA Asset Managemen
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # SAP S/4HANA Migration Checklist
 ## Complete Data Preparation Guide for SAP PM to S/4HANA Asset Management Migration
 

@@ -4,6 +4,8 @@ subtitle: "RDS-PP, RDS-PS, KKS, ISO 14224, and SFI for CMMS"
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # Engineering Standards Implementation Guide
 ## RDS-PP, RDS-PS, KKS, ISO 14224, and SFI for CMMS
 

@@ -4,6 +4,8 @@ subtitle: "A Practical Guide to Failure Mode and Effects Analysis"
 author: "AssetStage"
 ---
 
+![AssetStage](logo-primary.png)
+
 # FMEA for Maintenance Engineers
 ## A Practical Guide to Failure Mode and Effects Analysis
 
