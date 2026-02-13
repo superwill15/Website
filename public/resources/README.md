@@ -15,6 +15,7 @@ This directory contains downloadable resources for users who complete the lead c
 | `FMEA_for_Maintenance_Engineers.pdf` | `content/resources/FMEA_Guide_Maintenance_Engineers.md` |
 | `FMEA_Workbook_AssetStage.xlsx` | `content/resources/FMEA_Workbook_Template.csv` + `FMEA_Workbook_Example_Pump.csv` |
 | `ISO14224_for_Non_OilGas_Guide.pdf` | `content/resources/ISO14224_Non_OilGas_Guide.md` |
+| `SFI_CMMS_Implementation_Checklist.pdf` | `content/resources/SFI_CMMS_Implementation_Checklist.md` |
 
 ## Generating PDFs
 
@@ -44,6 +45,6 @@ To create the Excel workbook:
 ## Implementation Notes
 
 - ResourcesSection.tsx references these files directly
-- All 9 resources are configured and ready
+- All 10 resources are configured and ready
 - Download counts in ResourcesSection.tsx can be updated as needed
 - Consider adding file size information to resource cards

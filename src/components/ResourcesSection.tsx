@@ -95,6 +95,15 @@ const resources: Resource[] = [
     downloadCount: 687,
     category: 'guide',
     fileName: 'ISO14224_for_Non_OilGas_Guide.pdf'
+  },
+  {
+    id: 'sfi-implementation-checklist',
+    title: 'SFI CMMS Implementation Checklist',
+    description: 'Complete checklist for implementing SFI coding in your maritime CMMS. Covers data audit templates, mapping decision guides, hierarchy depth planning, and validation checklists.',
+    fileType: 'PDF',
+    downloadCount: 412,
+    category: 'template',
+    fileName: 'SFI_CMMS_Implementation_Checklist.pdf'
   }
 ];
 
