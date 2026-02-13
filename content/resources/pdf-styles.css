@@ -12,6 +12,13 @@ body {
   color: #2c3e50;
 }
 
+/* Logo styling */
+img[alt="AssetStage"] {
+  display: block;
+  width: 180px;
+  margin-bottom: 24pt;
+}
+
 /* Headers */
 h1 {
   color: #1e3c72;
@@ -61,7 +68,7 @@ a {
   text-decoration: none;
 }
 
-/* Lists */
+/* Lists - default bullets */
 ul, ol {
   margin-bottom: 12pt;
   padding-left: 20pt;
@@ -71,13 +78,32 @@ li {
   margin-bottom: 4pt;
 }
 
-/* Checklists - style checkbox items */
-li input[type="checkbox"] {
-  margin-right: 8pt;
+ul > li {
+  list-style-type: square;
 }
 
-ul li {
-  list-style-type: square;
+/* Task lists / Checklists - NO bullets, just checkboxes */
+ul.contains-task-list,
+.task-list-item {
+  list-style-type: none !important;
+}
+
+li.task-list-item {
+  list-style-type: none !important;
+  margin-left: -20pt;
+  padding-left: 0;
+}
+
+/* Alternative: target any li that starts with checkbox */
+li:has(> input[type="checkbox"]) {
+  list-style-type: none !important;
+}
+
+input[type="checkbox"] {
+  margin-right: 8pt;
+  width: 12pt;
+  height: 12pt;
+  accent-color: #27ae60;
 }
 
 /* Tables */
