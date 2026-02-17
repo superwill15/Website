@@ -34,8 +34,9 @@ nav{ background:var(--white); box-shadow:0 2px 10px rgba(0,0,0,.05); position:st
   text-decoration: none;
   transition: transform 0.2s ease;
   height: 100%;
-  margin-left: 60px;
+  margin-left: 20px;
   padding-top: 5px;
+  flex-shrink: 0;
 }
 .logo-link:hover{
   transform: translateY(-1px);
@@ -45,15 +46,16 @@ nav{ background:var(--white); box-shadow:0 2px 10px rgba(0,0,0,.05); position:st
 }
 .nav-links{
   display:flex;
-  gap:30px;
+  gap:20px;
   list-style:none;
   align-items: center;
 }
-.nav-links a{ color:var(--text-dark); text-decoration:none; font-weight:500; transition:color .3s; white-space:nowrap; }
+.nav-links a{ color:var(--text-dark); text-decoration:none; font-weight:500; transition:color .3s; white-space:nowrap; font-size: 14px; }
 .nav-links a:hover{ color:var(--accent-blue); }
 .nav-cta{
-  background:var(--accent-green); color:var(--white); padding:10px 24px; border-radius:6px;
+  background:var(--accent-green); color:var(--white); padding:10px 20px; border-radius:6px;
   text-decoration:none; font-weight:600; transition: all 0.15s ease-out; border:none; cursor:pointer;
+  white-space: nowrap; flex-shrink: 0; margin-left: 10px; font-size: 14px;
 }
 .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 8px 16px rgba(39,174,96,.25); }
 
