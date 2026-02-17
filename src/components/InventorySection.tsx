@@ -4,7 +4,7 @@ import { BookOpen, Warehouse, Link2, BarChart3, TrendingUp, Building2 } from 'lu
 
 export default function InventorySection() {
   return (
-    <section className="section section-gray">
+    <section className="section section-gray" id="inventory">
       <div className="container">
         <div className="section-header">
           <h2>Materials & Spare Parts Management</h2>
