@@ -184,6 +184,7 @@ export default function OEMExtractionPage() {
             <li><a href="/#services">Services</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/#resources">Resources</a></li>
+            <li><a href="/#about">About</a></li>
             <li><a href="/#contact">Contact</a></li>
           </ul>
           <button className="nav-cta" onClick={openModal}>Get Demo</button>
@@ -206,6 +207,7 @@ export default function OEMExtractionPage() {
             <li><a href="/#services" onClick={toggleMobileMenu}>Services</a></li>
             <li><a href="/blog" onClick={toggleMobileMenu}>Blog</a></li>
             <li><a href="/#resources" onClick={toggleMobileMenu}>Resources</a></li>
+            <li><a href="/#about" onClick={toggleMobileMenu}>About</a></li>
             <li><a href="/#contact" onClick={toggleMobileMenu}>Contact</a></li>
             <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Get Demo</button></li>
           </ul>
