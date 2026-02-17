@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Logo from '@/components/Logo';
 import ResourcesSection from '@/components/ResourcesSection';
+import InventorySection from '@/components/InventorySection';
 import DemoModal from '@/components/DemoModal';
 import {
   DollarSign,
@@ -304,6 +305,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <InventorySection />
 
       {/* Blog Section */}
       <section className="section section-gray" id="blog">
