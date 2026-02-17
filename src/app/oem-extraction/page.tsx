@@ -27,7 +27,6 @@ import {
   FileJson,
   Database,
   FileSpreadsheet,
-  Play,
   ArrowRight,
   Check,
   X,
@@ -37,7 +36,6 @@ import {
 
 export default function OEMExtractionPage() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
@@ -84,16 +82,6 @@ export default function OEMExtractionPage() {
     setFormError('');
     setEmailError(null);
     setFormSubmitting(false);
-  };
-
-  const openVideoModal = () => {
-    setVideoModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeVideoModal = () => {
-    setVideoModalOpen(false);
-    document.body.style.overflow = 'auto';
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -238,9 +226,8 @@ export default function OEMExtractionPage() {
             Our AI extracts maintenance intervals, procedures, and specifications for Maximo, SAP PM, and other CMMS platforms.
           </p>
           <div className="hero-buttons">
-            <button className="btn-primary oem-btn-primary" onClick={openVideoModal}>
-              <Play size={20} style={{ marginRight: '8px' }} />
-              Watch Demo Video
+            <button className="btn-primary oem-btn-primary" onClick={openModal}>
+              Book a Demo
             </button>
             <button className="btn-secondary" onClick={() => scrollToSection('pricing')}>
               Get Started
@@ -260,30 +247,7 @@ export default function OEMExtractionPage() {
       </section>
 
       {/* ============================================
-          SECTION 2: VIDEO DEMO SECTION
-          Secondary keywords: Maximo job plans from PDF, automatic job plan generation
-          ============================================ */}
-      <section className="section section-gray" id="video-demo" data-animate>
-        <div className={`container oem-fade-in ${visibleSections.has('video-demo') ? 'visible' : ''}`}>
-          <div className="section-header">
-            {/* Secondary keyword: Maximo job plans, automatic job plan generation */}
-            <h2>Automatic PM Generation in Action: 400-Page Manual → Maximo Job Plans in 2 Minutes</h2>
-            <p>See how our AI maintenance platform extracts intervals, procedures, part numbers, and safety requirements automatically</p>
-          </div>
-
-          <div className="video-container" onClick={openVideoModal}>
-            <div className="video-placeholder">
-              <div className="play-button-large">
-                <Play size={48} />
-              </div>
-              <p className="video-cta-text">Click to watch the demo</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          SECTION 3: HOW IT WORKS (3-STEP VISUAL)
+          SECTION 2: HOW IT WORKS (3-STEP VISUAL)
           Secondary keywords: maintenance manual data extraction, automated CMMS data entry
           ============================================ */}
       <section className="section" id="how-it-works" data-animate>
@@ -720,22 +684,6 @@ export default function OEMExtractionPage() {
           </div>
         </div>
       </section>
-
-      {/* Video Modal */}
-      {videoModalOpen && (
-        <div className="modal show" role="dialog" aria-modal="true" onClick={closeVideoModal}>
-          <div className="oem-video-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close" aria-label="Close video" onClick={closeVideoModal}>&times;</button>
-            <div className="oem-video-embed">
-              {/* Placeholder for video - replace src with actual video URL */}
-              <div className="oem-video-placeholder-large">
-                <Play size={64} />
-                <p>Video placeholder - Add your demo video URL here</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Demo Request Modal */}
       {modalOpen && (
