@@ -99,6 +99,7 @@ export default function PMOptimizationPage() {
             <li><a href="/pm-optimization">PM Optimization</a></li>
             <li><a href="/oem-extraction">OEM Extraction</a></li>
             <li><a href="/#services">Services</a></li>
+            <li><a href="/#inventory">Inventory</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/#resources">Resources</a></li>
             <li><a href="/#about">About</a></li>
@@ -122,6 +123,7 @@ export default function PMOptimizationPage() {
             <li><a href="/pm-optimization" onClick={toggleMobileMenu}>PM Optimization</a></li>
             <li><a href="/oem-extraction" onClick={toggleMobileMenu}>OEM Extraction</a></li>
             <li><a href="/#services" onClick={toggleMobileMenu}>Services</a></li>
+            <li><a href="/#inventory" onClick={toggleMobileMenu}>Inventory</a></li>
             <li><a href="/blog" onClick={toggleMobileMenu}>Blog</a></li>
             <li><a href="/#resources" onClick={toggleMobileMenu}>Resources</a></li>
             <li><a href="/#about" onClick={toggleMobileMenu}>About</a></li>
