@@ -1711,6 +1711,12 @@ footer{ background:var(--text-dark); color:#fff; padding:60px 20px 30px; }
   border-top: 3px solid var(--accent-green);
 }
 
+/* Service Card Wrapper (Single centered card) */
+.oem-service-card-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 /* Pricing Grid */
 .oem-pricing-grid {
   display: grid;
@@ -1988,7 +1994,13 @@ footer{ background:var(--text-dark); color:#fff; padding:60px 20px 30px; }
 
 .oem-final-cta h2 {
   max-width: 700px;
-  margin: 0 auto 50px;
+  margin: 0 auto 20px;
+}
+
+.oem-final-cta-subtitle {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 40px;
 }
 
 .oem-final-cta-grid {

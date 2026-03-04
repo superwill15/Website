@@ -11,7 +11,6 @@ import {
   Target,
   CheckCircle,
   FileCode,
-  Rocket,
   Users,
   Ship,
   Wind,
@@ -233,8 +232,8 @@ export default function OEMExtractionPage() {
             <button className="btn-primary oem-btn-primary" onClick={openModal}>
               Book a Demo
             </button>
-            <button className="btn-secondary" onClick={() => scrollToSection('pricing')}>
-              Get Started
+            <button className="btn-secondary" onClick={() => scrollToSection('how-it-works')}>
+              Learn More
             </button>
           </div>
 
@@ -511,48 +510,18 @@ export default function OEMExtractionPage() {
       </section>
 
       {/* ============================================
-          SECTION 7: CHOOSE YOUR APPROACH (TWO-COLUMN)
+          SECTION 7: HOW WE WORK WITH YOU (SINGLE CARD)
           Primary keywords: automated maintenance planning software
           ============================================ */}
       <section className="section" id="pricing" data-animate>
         <div className={`container oem-fade-in ${visibleSections.has('pricing') ? 'visible' : ''}`}>
           <div className="section-header">
-            <h2>Choose Your Approach</h2>
-            <p>Select the right option for your needs — both deliver AI-powered results</p>
+            <h2>How We Work With You</h2>
+            <p>AI-powered extraction with expert oversight for mission-critical accuracy</p>
           </div>
 
-          <div className="oem-pricing-grid">
-            {/* Self-Service Option */}
+          <div className="oem-service-card-wrapper">
             <div className="oem-pricing-card">
-              <div className="oem-pricing-header">
-                <div className="oem-pricing-icon oem-pricing-icon-self">
-                  <Rocket size={32} />
-                </div>
-                <h3>Automated Self-Service</h3>
-                <p className="oem-pricing-subtitle">Perfect for evaluating the AI technology, small batches, or straightforward extractions</p>
-              </div>
-
-              <ul className="oem-pricing-features">
-                <li><Check size={18} /> Upload manuals, AI processes automatically</li>
-                <li><Check size={18} /> Extract PM intervals and maintenance tasks</li>
-                <li><Check size={18} /> Download in CSV or standard formats</li>
-                <li><Check size={18} /> Instant results — see what the AI can do</li>
-                <li><Check size={18} /> Great for proof-of-concept</li>
-              </ul>
-
-              <div className="oem-pricing-use-when">
-                <strong>Use when:</strong> Testing the platform, &lt;20 assets, straightforward OEM documentation
-              </div>
-
-              <button className="oem-pricing-cta oem-cta-blue" onClick={() => console.log('Start Free Trial clicked')}>
-                Start Free Trial
-              </button>
-              <p className="oem-pricing-note">First manual free</p>
-            </div>
-
-            {/* Full-Service Option */}
-            <div className="oem-pricing-card oem-pricing-featured">
-              <div className="oem-pricing-badge">Recommended for Implementations</div>
               <div className="oem-pricing-header">
                 <div className="oem-pricing-icon oem-pricing-icon-full">
                   <Users size={32} />
@@ -562,7 +531,7 @@ export default function OEMExtractionPage() {
               </div>
 
               <ul className="oem-pricing-features">
-                <li><Check size={18} /> Everything in self-service, plus:</li>
+                <li><Check size={18} /> AI extracts PM data from OEM manuals automatically</li>
                 <li><Check size={18} /> Quality assurance by maintenance engineers</li>
                 <li><Check size={18} /> Complex equipment hierarchies handled</li>
                 <li><Check size={18} /> Custom CMMS format mapping and validation</li>
@@ -572,13 +541,13 @@ export default function OEMExtractionPage() {
               </ul>
 
               <div className="oem-pricing-use-when">
-                <strong>Use when:</strong> CMMS implementations, data migrations, 50+ assets, critical production systems
+                <strong>Ideal for:</strong> CMMS implementations, data migrations, fleet standardization, critical production systems
               </div>
 
               <button className="oem-pricing-cta oem-cta-orange" onClick={openModal}>
                 Book a Demo
               </button>
-              <p className="oem-pricing-note">Custom pricing based on scope • Typical ROI in first migration</p>
+              <p className="oem-pricing-note">Custom pricing based on scope</p>
             </div>
           </div>
         </div>
@@ -664,22 +633,11 @@ export default function OEMExtractionPage() {
       <section className="cta-section oem-final-cta">
         <div className="container">
           <h2>Ready to Automate Your Preventive Maintenance Planning?</h2>
+          <p className="oem-final-cta-subtitle">Talk to us about your CMMS implementation or data migration project</p>
 
-          <div className="oem-final-cta-grid">
-            <div className="oem-final-cta-option">
-              <button className="btn-secondary" onClick={() => console.log('Try AI Self-Service Free clicked')}>
-                Try AI Self-Service Free
-              </button>
-              <p>Upload a manual and see automatic PM generation in minutes</p>
-            </div>
-
-            <div className="oem-final-cta-option">
-              <button className="btn-primary oem-btn-primary" onClick={openModal}>
-                Book a Demo
-              </button>
-              <p>Talk to us about your migration or implementation project</p>
-            </div>
-          </div>
+          <button className="btn-primary oem-btn-primary" onClick={openModal}>
+            Book a Demo
+          </button>
 
           <div className="oem-final-trust">
             <span><Check size={16} /> Used by Fortune 500 operators</span>
