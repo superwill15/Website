@@ -346,7 +346,7 @@ export default function OEMExtractionPage() {
               </div>
               {/* Primary keyword: AI preventive maintenance */}
               <h3>AI-Powered Validation</h3>
-              <p>Smart detection of maintenance intervals, frequencies, and task dependencies</p>
+              <p>Detection of maintenance intervals, frequencies, and task dependencies</p>
             </div>
 
             {/* Benefit 4 */}
@@ -370,7 +370,7 @@ export default function OEMExtractionPage() {
           <div className="section-header">
             {/* Primary keyword: AI maintenance software */}
             <h2>Purpose-Built AI for Maintenance Planning</h2>
-            <p>Not generic AI — trained specifically on OEM documentation and maintenance standards</p>
+            <p>Trained on maintenance documentation and industry standards</p>
           </div>
 
           <div className="oem-capabilities-grid">
@@ -547,7 +547,7 @@ export default function OEMExtractionPage() {
               <button className="oem-pricing-cta oem-cta-blue" onClick={() => console.log('Start Free Trial clicked')}>
                 Start Free Trial
               </button>
-              <p className="oem-pricing-note">No credit card required • First manual free</p>
+              <p className="oem-pricing-note">First manual free</p>
             </div>
 
             {/* Full-Service Option */}
@@ -682,7 +682,6 @@ export default function OEMExtractionPage() {
           </div>
 
           <div className="oem-final-trust">
-            <span><Check size={16} /> No credit card required</span>
             <span><Check size={16} /> Used by Fortune 500 operators</span>
             <span><Check size={16} /> Average 85% time savings vs manual</span>
           </div>
