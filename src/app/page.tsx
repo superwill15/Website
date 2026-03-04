@@ -85,6 +85,7 @@ export default function HomePage() {
             <li><a href="#assetstage">AssetStage</a></li>
             <li><a href="/pm-optimization">PM Optimization</a></li>
             <li><a href="/oem-extraction">OEM Extraction</a></li>
+            <li><a href="/nameplate-extraction">Nameplate Extraction</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#inventory">Inventory</a></li>
             <li><a href="/blog">Blog</a></li>
@@ -109,6 +110,7 @@ export default function HomePage() {
             <li><a href="#assetstage" onClick={toggleMobileMenu}>AssetStage</a></li>
             <li><a href="/pm-optimization" onClick={toggleMobileMenu}>PM Optimization</a></li>
             <li><a href="/oem-extraction" onClick={toggleMobileMenu}>OEM Extraction</a></li>
+            <li><a href="/nameplate-extraction" onClick={toggleMobileMenu}>Nameplate Extraction</a></li>
             <li><a href="#services" onClick={toggleMobileMenu}>Services</a></li>
             <li><a href="#inventory" onClick={toggleMobileMenu}>Inventory</a></li>
             <li><a href="/blog" onClick={toggleMobileMenu}>Blog</a></li>

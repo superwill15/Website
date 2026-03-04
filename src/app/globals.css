@@ -2199,3 +2199,83 @@ footer{ background:var(--text-dark); color:#fff; padding:60px 20px 30px; }
     font-size: 18px;
   }
 }
+
+/* ============================================
+   NAMEPLATE EXTRACTION PAGE STYLES
+   ============================================ */
+
+/* Hero Section */
+.nameplate-hero {
+  padding: 120px 20px 100px;
+}
+
+.nameplate-hero h1 {
+  font-size: 44px;
+  line-height: 1.2;
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+.nameplate-hero p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.nameplate-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-orange) !important;
+}
+
+.nameplate-btn-primary:hover {
+  box-shadow: 0 10px 24px rgba(243, 156, 18, 0.35) !important;
+}
+
+/* Problem Cards */
+.nameplate-problem-card {
+  border-top: 4px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-top-color 0.25s ease;
+}
+
+.nameplate-problem-card:hover {
+  border-top-color: var(--accent-orange);
+}
+
+/* Steps Grid */
+.nameplate-steps-grid {
+  /* Inherits from oem-steps-grid */
+}
+
+/* Extraction Grid */
+.nameplate-extraction-grid {
+  /* Inherits from oem-capabilities-grid */
+}
+
+/* Benefit Cards */
+.nameplate-benefit-card {
+  /* Inherits from oem-benefit-card */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nameplate-hero {
+    padding: 80px 20px 60px;
+  }
+
+  .nameplate-hero h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nameplate-hero h1 {
+    font-size: 26px;
+  }
+
+  .nameplate-hero p {
+    font-size: 16px;
+  }
+}

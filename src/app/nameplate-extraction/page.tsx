@@ -4,36 +4,31 @@ import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import Logo from '@/components/Logo';
 import { validateBusinessEmail } from '@/utils/emailValidation';
 import {
-  Upload,
+  Camera,
   Bot,
-  ClipboardList,
+  CheckCircle,
   Zap,
   Target,
-  CheckCircle,
-  FileCode,
-  Users,
+  FileSpreadsheet,
   Ship,
   Wind,
   Factory,
-  Calendar,
-  Wrench,
-  Package,
-  AlertTriangle,
-  Clock,
-  List,
-  Link2,
-  UserCheck,
-  FileJson,
+  Users,
   Database,
-  FileSpreadsheet,
   ArrowRight,
   Check,
   X,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Clipboard,
+  AlertTriangle,
+  Clock,
+  Building2,
+  Anchor,
+  Cpu
 } from 'lucide-react';
 
-export default function OEMExtractionPage() {
+export default function NameplateExtractionPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
@@ -145,25 +140,25 @@ export default function OEMExtractionPage() {
 
   const useCases = [
     {
-      title: 'CMMS Implementations',
-      icon: <Database size={24} />,
-      useCase: 'New Maximo rollout needs 500+ equipment records with PM programs',
-      withoutAI: '6 months of manual data entry at £800/day consultant rates',
-      withAssetStage: 'Upload OEM manuals, AI generates complete PM library in days'
+      title: 'Field Walkdowns',
+      icon: <Clipboard size={24} />,
+      useCase: 'Plant startup needs equipment inventory for 200+ assets',
+      withoutAI: 'Clipboard notes, manual typing, weeks of data entry',
+      withAssetStage: 'Photo-to-record in seconds, validated data in hours'
     },
     {
-      title: 'Data Migrations',
-      icon: <FileCode size={24} />,
-      useCase: 'Moving from legacy system to SAP PM, missing PM documentation',
-      withoutAI: 'Pay consultants to recreate programs from scratch or incomplete data',
-      withAssetStage: 'AI extracts and generates standardized programs directly from manufacturer documentation'
+      title: 'Capital Projects',
+      icon: <Building2 size={24} />,
+      useCase: 'New facility with OEM equipment needs CMMS loading before operations',
+      withoutAI: 'Contractors manually entering specs from vendor docs',
+      withAssetStage: 'Photograph nameplates during commissioning, instant records'
     },
     {
       title: 'Fleet Standardization',
-      icon: <Ship size={24} />,
-      useCase: 'Cruise line with 12 ships needs consistent PM programs',
-      withoutAI: 'Each ship has different procedures in spreadsheets, zero standardization',
-      withAssetStage: 'AI generates standardized job plans from OEM manuals across entire fleet, automatic consistency'
+      icon: <Anchor size={24} />,
+      useCase: 'Maritime fleet needs consistent equipment records across vessels',
+      withoutAI: 'Each ship has different naming, formats, data quality',
+      withAssetStage: 'Standardized extraction ensures fleet-wide consistency'
     }
   ];
 
@@ -219,19 +214,15 @@ export default function OEMExtractionPage() {
 
       {/* ============================================
           SECTION 1: HERO SECTION
-          Primary keywords: AI maintenance planning, automatic PM generation, AI preventive maintenance
           ============================================ */}
-      <section className="hero oem-hero">
+      <section className="hero nameplate-hero">
         <div className="hero-content">
-          {/* Primary keyword: AI-Powered Maintenance Planning */}
-          <h1>AI-Powered Maintenance Planning: Turn OEM Manuals into Complete PM Programs</h1>
-          {/* Secondary keywords: automatic PM generation, generate preventive maintenance from OEM manual */}
+          <h1>AI-Powered Nameplate Extraction: Turn Equipment Photos into CMMS Records</h1>
           <p>
-            Automatically generate preventive maintenance schedules, job plans, and task lists from PDF documentation.
-            Our AI extracts maintenance intervals, procedures, and specifications for Maximo, SAP PM, and other CMMS platforms.
+            Capture equipment specifications directly from nameplate photographs. Our AI extracts manufacturer, model, serial numbers, and specifications — ready to load into Maximo, SAP PM, or any CMMS.
           </p>
           <div className="hero-buttons">
-            <button className="btn-primary oem-btn-primary" onClick={openModal}>
+            <button className="btn-primary nameplate-btn-primary" onClick={openModal}>
               Book a Demo
             </button>
             <button className="btn-secondary" onClick={() => scrollToSection('how-it-works')}>
@@ -252,26 +243,62 @@ export default function OEMExtractionPage() {
       </section>
 
       {/* ============================================
-          SECTION 2: HOW IT WORKS (3-STEP VISUAL)
-          Secondary keywords: maintenance manual data extraction, automated CMMS data entry
+          SECTION 2: THE PROBLEM
+          ============================================ */}
+      <section className="section section-gray" id="problem" data-animate>
+        <div className={`container oem-fade-in ${visibleSections.has('problem') ? 'visible' : ''}`}>
+          <div className="section-header">
+            <h2>The Field Walkdown Bottleneck</h2>
+            <p>Why equipment data capture is still stuck in the 1990s</p>
+          </div>
+
+          <div className="services-grid">
+            <div className="service-card nameplate-problem-card">
+              <div className="service-icon">
+                <Clipboard size={28} />
+              </div>
+              <h3>Manual Transcription</h3>
+              <p>Technicians write on clipboards, someone types later. Double handling, double the effort, double the opportunity for errors.</p>
+            </div>
+
+            <div className="service-card nameplate-problem-card">
+              <div className="service-icon">
+                <AlertTriangle size={28} />
+              </div>
+              <h3>Transcription Errors</h3>
+              <p>Faded nameplates, illegible handwriting, data entry mistakes. Every step introduces potential errors into your CMMS data.</p>
+            </div>
+
+            <div className="service-card nameplate-problem-card">
+              <div className="service-icon">
+                <Clock size={28} />
+              </div>
+              <h3>Time Delays</h3>
+              <p>Weeks between field capture and CMMS-ready data. Projects stall waiting for equipment records to be manually entered.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          SECTION 3: HOW IT WORKS (3-STEP VISUAL)
           ============================================ */}
       <section className="section" id="how-it-works" data-animate>
         <div className={`container oem-fade-in ${visibleSections.has('how-it-works') ? 'visible' : ''}`}>
           <div className="section-header">
             <h2>How It Works</h2>
-            {/* Secondary keyword: maintenance manual data extraction */}
-            <p>Three simple steps from OEM documentation to CMMS-ready job plans</p>
+            <p>Three simple steps from field photo to CMMS-ready record</p>
           </div>
 
-          <div className="oem-steps-grid">
+          <div className="oem-steps-grid nameplate-steps-grid">
             {/* Step 1 */}
             <div className="oem-step-card">
               <div className="oem-step-number">1</div>
               <div className="oem-step-icon">
-                <Upload size={32} />
+                <Camera size={32} />
               </div>
-              <h3>Upload OEM Manual</h3>
-              <p>Drop any equipment maintenance manual, parts catalog, or technical documentation</p>
+              <h3>Photograph Nameplate</h3>
+              <p>Technician snaps photo of equipment nameplate in the field using any smartphone or camera</p>
             </div>
 
             {/* Step Arrow */}
@@ -285,9 +312,8 @@ export default function OEMExtractionPage() {
               <div className="oem-step-icon oem-step-icon-ai">
                 <Bot size={32} />
               </div>
-              {/* Secondary keyword: AI-powered maintenance */}
-              <h3>AI Extraction & Analysis</h3>
-              <p>Our AI reads maintenance intervals, task procedures, parts lists, and safety requirements. Automatically structures data into preventive maintenance programs.</p>
+              <h3>AI Extraction</h3>
+              <p>Our AI reads manufacturer, model, serial, specs, and classifications from the image automatically</p>
             </div>
 
             {/* Step Arrow */}
@@ -299,159 +325,152 @@ export default function OEMExtractionPage() {
             <div className="oem-step-card">
               <div className="oem-step-number">3</div>
               <div className="oem-step-icon oem-step-icon-success">
-                <ClipboardList size={32} />
+                <CheckCircle size={32} />
               </div>
-              <h3>Generate Job Plans</h3>
-              {/* Secondary keyword: automated CMMS data entry */}
-              <p>Get complete PM schedules and job plans ready to import into Maximo, SAP PM, UpKeep, or any CMMS</p>
+              <h3>Validated Records</h3>
+              <p>Structured data reviewed in staging environment, ready for CMMS import with full audit trail</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ============================================
-          SECTION 4: KEY BENEFITS (4 CARDS)
-          Primary keywords: automatic PM generation, AI preventive maintenance
+          SECTION 4: WHAT GETS EXTRACTED (AI CAPABILITIES)
+          ============================================ */}
+      <section className="section oem-ai-section" id="extraction-capabilities" data-animate>
+        <div className={`container oem-fade-in ${visibleSections.has('extraction-capabilities') ? 'visible' : ''}`}>
+          <div className="section-header">
+            <h2>What Gets Extracted</h2>
+            <p>Comprehensive data capture from equipment nameplates</p>
+          </div>
+
+          <div className="oem-capabilities-grid nameplate-extraction-grid">
+            {/* Column 1: Equipment Identity */}
+            <div className="oem-capability-column">
+              <div className="oem-capability-header">
+                <Cpu size={24} />
+                <h3>Equipment Identity</h3>
+              </div>
+              <ul className="oem-capability-list">
+                <li>
+                  <Check size={18} />
+                  <span>Manufacturer name</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Model number</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Serial number</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Manufacturing date</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 2: Specifications */}
+            <div className="oem-capability-column">
+              <div className="oem-capability-header">
+                <FileSpreadsheet size={24} />
+                <h3>Specifications</h3>
+              </div>
+              <ul className="oem-capability-list">
+                <li>
+                  <Check size={18} />
+                  <span>Rated capacity</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Voltage/power ratings</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Operating parameters</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Dimensional data</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: Classification */}
+            <div className="oem-capability-column">
+              <div className="oem-capability-header">
+                <Database size={24} />
+                <h3>Classification</h3>
+              </div>
+              <ul className="oem-capability-list">
+                <li>
+                  <Check size={18} />
+                  <span>Equipment type</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Asset category</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Regulatory markings</span>
+                </li>
+                <li>
+                  <Check size={18} />
+                  <span>Standards compliance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          SECTION 5: KEY BENEFITS (4 CARDS)
           ============================================ */}
       <section className="section section-gray" id="benefits" data-animate>
         <div className={`container oem-fade-in ${visibleSections.has('benefits') ? 'visible' : ''}`}>
           <div className="section-header">
             <h2>Key Benefits</h2>
-            <p>Why organizations choose AI-powered maintenance planning</p>
+            <p>Why organizations choose AI-powered nameplate extraction</p>
           </div>
 
           <div className="services-grid">
             {/* Benefit 1 */}
-            <div className="service-card oem-benefit-card">
+            <div className="service-card oem-benefit-card nameplate-benefit-card">
               <div className="service-icon">
                 <Zap size={28} />
               </div>
-              {/* Primary keyword: Automatic PM Generation */}
-              <h3>Automatic PM Generation</h3>
-              <p>AI creates complete preventive maintenance programs from source documentation in minutes, not weeks</p>
+              <h3>Instant Data Capture</h3>
+              <p>Seconds instead of days from photo to structured record. No more waiting for manual data entry backlogs.</p>
             </div>
 
             {/* Benefit 2 */}
-            <div className="service-card oem-benefit-card">
+            <div className="service-card oem-benefit-card nameplate-benefit-card">
               <div className="service-icon">
                 <Target size={28} />
               </div>
-              <h3>Maintain Accuracy</h3>
-              <p>Extract exact specifications, intervals, and part numbers directly from OEM manuals</p>
+              <h3>Accuracy from Source</h3>
+              <p>Extract exact data directly from OEM nameplate. No interpretation errors, no handwriting issues.</p>
             </div>
 
             {/* Benefit 3 */}
-            <div className="service-card oem-benefit-card">
+            <div className="service-card oem-benefit-card nameplate-benefit-card">
               <div className="service-icon">
-                <CheckCircle size={28} />
+                <X size={28} />
               </div>
-              {/* Primary keyword: AI preventive maintenance */}
-              <h3>AI-Powered Validation</h3>
-              <p>Detection of maintenance intervals, frequencies, and task dependencies</p>
+              <h3>Eliminate Transcription</h3>
+              <p>No more clipboard-to-spreadsheet errors. Remove the manual steps that introduce data quality issues.</p>
             </div>
 
             {/* Benefit 4 */}
-            <div className="service-card oem-benefit-card">
+            <div className="service-card oem-benefit-card nameplate-benefit-card">
               <div className="service-icon">
-                <FileCode size={28} />
+                <CheckCircle size={28} />
               </div>
-              <h3>Built for Integration</h3>
-              <p>Generate job plans in Maximo XML, SAP PM format, or universal CSV. Works with any CMMS.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          SECTION 5: AI CAPABILITIES CALLOUT
-          Primary keywords: AI maintenance software, automated maintenance planning software
-          ============================================ */}
-      <section className="section oem-ai-section" id="ai-capabilities" data-animate>
-        <div className={`container oem-fade-in ${visibleSections.has('ai-capabilities') ? 'visible' : ''}`}>
-          <div className="section-header">
-            {/* Primary keyword: AI maintenance software */}
-            <h2>Purpose-Built AI for Maintenance Planning</h2>
-            <p>Trained on maintenance documentation and industry standards</p>
-          </div>
-
-          <div className="oem-capabilities-grid">
-            {/* Column 1: Intelligent Extraction */}
-            <div className="oem-capability-column">
-              <div className="oem-capability-header">
-                <Bot size={24} />
-                <h3>Intelligent Extraction</h3>
-              </div>
-              <ul className="oem-capability-list">
-                <li>
-                  <Calendar size={18} />
-                  <span>Recognizes maintenance intervals (hours, days, months, cycles)</span>
-                </li>
-                <li>
-                  <Wrench size={18} />
-                  <span>Identifies task types (inspection, lubrication, replacement)</span>
-                </li>
-                <li>
-                  <Package size={18} />
-                  <span>Extracts part numbers and specifications</span>
-                </li>
-                <li>
-                  <AlertTriangle size={18} />
-                  <span>Understands safety procedures and lock-out requirements</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 2: Automatic Structuring */}
-            <div className="oem-capability-column">
-              <div className="oem-capability-header">
-                <List size={24} />
-                {/* Secondary keyword: automate PM program creation */}
-                <h3>Automatic Structuring</h3>
-              </div>
-              <ul className="oem-capability-list">
-                <li>
-                  <Clock size={18} />
-                  <span>Generates PM schedules with correct frequencies</span>
-                </li>
-                <li>
-                  <ClipboardList size={18} />
-                  <span>Creates hierarchical task lists</span>
-                </li>
-                <li>
-                  <Link2 size={18} />
-                  <span>Links procedures to required parts</span>
-                </li>
-                <li>
-                  <UserCheck size={18} />
-                  <span>Assigns craft skills and duration estimates</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 3: CMMS-Ready Output */}
-            <div className="oem-capability-column">
-              <div className="oem-capability-header">
-                <FileJson size={24} />
-                <h3>CMMS-Ready Output</h3>
-              </div>
-              <ul className="oem-capability-list">
-                <li>
-                  <Database size={18} />
-                  <span>Maximo job plans with sequences</span>
-                </li>
-                <li>
-                  <FileCode size={18} />
-                  <span>SAP PM task lists with materials</span>
-                </li>
-                <li>
-                  <FileSpreadsheet size={18} />
-                  <span>Generic formats for any system</span>
-                </li>
-                <li>
-                  <List size={18} />
-                  <span>Maintains equipment hierarchy</span>
-                </li>
-              </ul>
+              <h3>Quality Assured</h3>
+              <p>Staged validation catches OCR errors before production. Human review where it matters most.</p>
             </div>
           </div>
         </div>
@@ -459,14 +478,12 @@ export default function OEMExtractionPage() {
 
       {/* ============================================
           SECTION 6: USE CASES (3 TABS)
-          Secondary keywords: CMMS data migration tools, preventive maintenance automation
           ============================================ */}
-      <section className="section section-gray" id="use-cases" data-animate>
+      <section className="section" id="use-cases" data-animate>
         <div className={`container oem-fade-in ${visibleSections.has('use-cases') ? 'visible' : ''}`}>
           <div className="section-header">
             <h2>Use Cases</h2>
-            {/* Secondary keyword: CMMS data migration tools */}
-            <p>How organizations use AI-powered preventive maintenance automation</p>
+            <p>How organizations use AI-powered nameplate extraction</p>
           </div>
 
           {/* Tab navigation */}
@@ -512,11 +529,10 @@ export default function OEMExtractionPage() {
       </section>
 
       {/* ============================================
-          SECTION 7: HOW WE WORK WITH YOU (SINGLE CARD)
-          Primary keywords: automated maintenance planning software
+          SECTION 7: SERVICE OFFERING (SINGLE CARD)
           ============================================ */}
-      <section className="section" id="pricing" data-animate>
-        <div className={`container oem-fade-in ${visibleSections.has('pricing') ? 'visible' : ''}`}>
+      <section className="section section-gray" id="service" data-animate>
+        <div className={`container oem-fade-in ${visibleSections.has('service') ? 'visible' : ''}`}>
           <div className="section-header">
             <h2>How We Work With You</h2>
             <p>AI-powered extraction with expert oversight for mission-critical accuracy</p>
@@ -528,23 +544,18 @@ export default function OEMExtractionPage() {
                 <div className="oem-pricing-icon oem-pricing-icon-full">
                   <Users size={32} />
                 </div>
-                <h3>AI with Human Oversight</h3>
-                <p className="oem-pricing-subtitle">For migrations, implementations, and complex requirements where accuracy is mission-critical</p>
+                <h3>Full Service Extraction</h3>
+                <p className="oem-pricing-subtitle">AI-powered extraction with expert oversight for mission-critical accuracy</p>
               </div>
 
               <ul className="oem-pricing-features">
-                <li><Check size={18} /> AI extracts PM data from OEM manuals automatically</li>
+                <li><Check size={18} /> AI extracts equipment data from nameplate photos automatically</li>
                 <li><Check size={18} /> Quality assurance by maintenance engineers</li>
-                <li><Check size={18} /> Complex equipment hierarchies handled</li>
-                <li><Check size={18} /> Custom CMMS format mapping and validation</li>
+                <li><Check size={18} /> Handles faded, dirty, or partially obscured nameplates</li>
+                <li><Check size={18} /> Custom field mapping for your CMMS structure</li>
                 <li><Check size={18} /> Integration with full data staging workflow</li>
-                <li><Check size={18} /> Expert consultation on PM strategy and optimization</li>
                 <li><Check size={18} /> Guaranteed data quality for go-live</li>
               </ul>
-
-              <div className="oem-pricing-use-when">
-                <strong>Ideal for:</strong> CMMS implementations, data migrations, fleet standardization, critical production systems
-              </div>
 
               <button className="oem-pricing-cta oem-cta-orange" onClick={openModal}>
                 Book a Demo
@@ -558,21 +569,21 @@ export default function OEMExtractionPage() {
       {/* ============================================
           SECTION 8: TECHNICAL SPECS (EXPANDABLE)
           ============================================ */}
-      <section className="section section-gray" id="tech-specs" data-animate>
+      <section className="section" id="tech-specs" data-animate>
         <div className={`container oem-fade-in ${visibleSections.has('tech-specs') ? 'visible' : ''}`}>
           <button
             className="oem-tech-specs-toggle"
             onClick={() => setTechSpecsExpanded(!techSpecsExpanded)}
           >
-            <h2>What Our AI Maintenance Platform Supports</h2>
+            <h2>What Our AI Supports</h2>
             {techSpecsExpanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
           </button>
 
           {techSpecsExpanded && (
             <div className="oem-tech-specs-grid">
               <div className="oem-tech-spec-card">
-                <h4>Document Types</h4>
-                <p>PDF, scanned images, Word docs, Excel parts lists</p>
+                <h4>Image Formats</h4>
+                <p>JPEG, PNG, HEIC, camera photos</p>
               </div>
               <div className="oem-tech-spec-card">
                 <h4>Languages</h4>
@@ -580,15 +591,15 @@ export default function OEMExtractionPage() {
               </div>
               <div className="oem-tech-spec-card">
                 <h4>Equipment Types</h4>
-                <p>Rotating, static, HVAC, marine, offshore, industrial</p>
+                <p>Rotating, static, electrical, instrumentation</p>
               </div>
               <div className="oem-tech-spec-card">
                 <h4>Output Formats</h4>
-                <p>Maximo XML, SAP PM IDoc, CSV, JSON, Excel</p>
+                <p>Maximo XML, SAP PM, CSV, JSON, Excel</p>
               </div>
               <div className="oem-tech-spec-card">
                 <h4>Standards</h4>
-                <p>ISO 14224, RCM, manufacturer-specific formats</p>
+                <p>ISO 14224 classification support</p>
               </div>
             </div>
           )}
@@ -596,23 +607,27 @@ export default function OEMExtractionPage() {
       </section>
 
       {/* ============================================
-          SECTION 9: INTEGRATION CALLOUT
+          SECTION 9: INTEGRATION PIPELINE
           ============================================ */}
-      <section className="section" id="integration" data-animate>
+      <section className="section section-gray" id="integration" data-animate>
         <div className={`container oem-fade-in ${visibleSections.has('integration') ? 'visible' : ''}`}>
           <div className="oem-integration-callout">
             <div className="oem-integration-content">
               <h2>Part of Your Complete AI-Powered Data Staging Workflow</h2>
-              <p>Automatic PM generation works alongside AssetStage&apos;s data validation, hierarchy management, and CMMS loading automation</p>
+              <p>Nameplate extraction integrates seamlessly with AssetStage&apos;s data validation, hierarchy management, and CMMS loading automation</p>
             </div>
 
             <div className="oem-pipeline">
               <div className="oem-pipeline-step">
-                <span>Data Cleanup</span>
+                <span>Field Photos</span>
               </div>
               <ArrowRight size={20} className="oem-pipeline-arrow" />
               <div className="oem-pipeline-step oem-pipeline-active">
-                <span>AI PM Generation</span>
+                <span>AI Extraction</span>
+              </div>
+              <ArrowRight size={20} className="oem-pipeline-arrow" />
+              <div className="oem-pipeline-step">
+                <span>Data Staging</span>
               </div>
               <ArrowRight size={20} className="oem-pipeline-arrow" />
               <div className="oem-pipeline-step">
@@ -634,10 +649,10 @@ export default function OEMExtractionPage() {
           ============================================ */}
       <section className="cta-section oem-final-cta">
         <div className="container">
-          <h2>Ready to Automate Your Preventive Maintenance Planning?</h2>
-          <p className="oem-final-cta-subtitle">Talk to us about your CMMS implementation or data migration project</p>
+          <h2>Ready to Eliminate Manual Data Entry?</h2>
+          <p className="oem-final-cta-subtitle">Talk to us about your equipment walkdown or CMMS implementation project</p>
 
-          <button className="btn-primary oem-btn-primary" onClick={openModal}>
+          <button className="btn-primary nameplate-btn-primary" onClick={openModal}>
             Book a Demo
           </button>
 
@@ -655,7 +670,7 @@ export default function OEMExtractionPage() {
             <div className="modal-header">
               <button className="close" aria-label="Close dialog" onClick={closeModal}>&times;</button>
               <h2 id="demoTitle">Book a Demo</h2>
-              <p>See how AI-powered PM generation can transform your CMMS implementation</p>
+              <p>See how AI-powered nameplate extraction can transform your equipment data capture</p>
             </div>
             <div className="modal-body">
               {formSuccess && (
@@ -673,8 +688,8 @@ export default function OEMExtractionPage() {
               <form id="demoForm" className="demo-form" onSubmit={handleFormSubmit}>
                 <input type="hidden" name="access_key" value="5737364f-4088-402b-87b3-80dafb3d48cd" />
                 <input type="checkbox" name="botcheck" tabIndex={-1} style={{display:'none'}}/>
-                <input type="hidden" name="subject" value="OEM Extraction Demo Request" />
-                <input type="hidden" name="from_name" value="AssetStage OEM Extraction" />
+                <input type="hidden" name="subject" value="Nameplate Extraction Demo Request" />
+                <input type="hidden" name="from_name" value="AssetStage Nameplate Extraction" />
                 <input type="hidden" name="reply_to" value="team@assetstage.io" />
 
                 <div className="form-row">
@@ -729,8 +744,8 @@ export default function OEMExtractionPage() {
                   <textarea id="message" name="message" placeholder="e.g., Number of assets, type of equipment, timeline..."></textarea>
                 </div>
 
-                <input type="hidden" name="form_type" value="oem_extraction_demo"/>
-                <input type="hidden" name="page" value="oem-extraction"/>
+                <input type="hidden" name="form_type" value="nameplate_extraction_demo"/>
+                <input type="hidden" name="page" value="nameplate-extraction"/>
 
                 <div className="form-actions">
                   <button type="button" className="btn btn-cancel" onClick={closeModal} disabled={formSubmitting}>Cancel</button>
