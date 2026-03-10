@@ -1,12 +1,12 @@
 ---
 title: "Don't Move the Mess: A Data Engineer's Guide to Maximo MAS 9 Migration"
 date: "2026-03-10"
-description: "Your Maximo migration will fail without clean data. Here's exactly what to fix — asset hierarchies, duplicates, field gaps — before you move to MAS 9."
+description: "Your Maximo migration will fail without clean data. Here's exactly what to fix  - asset hierarchies, duplicates, field gaps  - before you move to MAS 9."
 ---
 
 # Don't Move the Mess: A Data Engineer's Guide to Maximo MAS 9 Migration
 
-**Your Maximo migration will fail without clean data. Here's exactly what to fix — asset hierarchies, duplicates, field gaps — before you move to MAS 9.**
+**Your Maximo migration will fail without clean data. Here's exactly what to fix  - asset hierarchies, duplicates, field gaps  - before you move to MAS 9.**
 
 -----
 
@@ -28,13 +28,13 @@ Your old Maximo instance was tolerant of messy data because humans were the prim
 
 MAS 9 doesn't work like that.
 
-The architecture has changed fundamentally. MAS runs containerised on Kubernetes, not on standalone servers. MongoDB now serves as the data dictionary and default user registry. The whole system is built around modular services — Manage, Monitor, Health, Predict, Assist — each consuming your data through APIs that expect clean, consistent, well-structured inputs.
+The architecture has changed fundamentally. MAS runs containerised on Kubernetes, not on standalone servers. MongoDB now serves as the data dictionary and default user registry. The whole system is built around modular services  - Manage, Monitor, Health, Predict, Assist  - each consuming your data through APIs that expect clean, consistent, well-structured inputs.
 
 Here's why that matters: **APIs are brittle when faced with inconsistent values or broken relationships.** A human can look at "PUMP-001" and "PMP-001" and know they're the same thing. An API can't. A human can see that an asset's parent location was deleted and figure out where it should go. An API throws an error and stops.
 
-If you're moving to MAS specifically to use the AI and IoT capabilities — Health scoring, Predict failure forecasting, Monitor sensor integration — those modules amplify data quality problems rather than solving them. Feed Predict a dataset full of duplicate assets and missing manufacturer data, and you'll get predictions that are worse than useless. You'll get predictions that make people distrust the system.
+If you're moving to MAS specifically to use the AI and IoT capabilities  - Health scoring, Predict failure forecasting, Monitor sensor integration  - those modules amplify data quality problems rather than solving them. Feed Predict a dataset full of duplicate assets and missing manufacturer data, and you'll get predictions that are worse than useless. You'll get predictions that make people distrust the system.
 
-The custom workflows your team built over the past decade also need attention. Automation scripts may reference hard-coded values that exist in your legacy data but won't survive a cleanup. Escalation rules may depend on classification structures that you're about to restructure. Configuration and data are intertwined — you can't clean one without reviewing the other.
+The custom workflows your team built over the past decade also need attention. Automation scripts may reference hard-coded values that exist in your legacy data but won't survive a cleanup. Escalation rules may depend on classification structures that you're about to restructure. Configuration and data are intertwined  - you can't clean one without reviewing the other.
 
 **Bottom line: what Maximo 7.6 tolerated, MAS 9 will reject.**
 
@@ -42,22 +42,22 @@ The custom workflows your team built over the past decade also need attention. A
 
 ## The 6 Data Problems That Will Wreck Your Migration
 
-After working with organisations going through CMMS migrations, we see the same problems over and over. Here are the six that cause the most damage — and what to do about each one.
+After working with organisations going through CMMS migrations, we see the same problems over and over. Here are the six that cause the most damage  - and what to do about each one.
 
 ### 1. Broken Asset Hierarchies
 
-**The problem:** Parent-child relationships that reference deleted locations or assets. Hierarchy depth that varies wildly — some sites use 3 levels, others use 7 for equivalent structures. Locations and assets mixed inappropriately (assets sitting under assets when they should be under locations, or vice versa).
+**The problem:** Parent-child relationships that reference deleted locations or assets. Hierarchy depth that varies wildly  - some sites use 3 levels, others use 7 for equivalent structures. Locations and assets mixed inappropriately (assets sitting under assets when they should be under locations, or vice versa).
 
 **Why it happens:** Over 10-15 years, different people manage the data with different standards. Sites get decommissioned but their child records aren't cleaned up. Restructures happen in the physical plant but nobody updates Maximo.
 
-**What breaks in MAS:** The Spatial, Monitor, and Health modules all rely on clean hierarchies. Broken parent references cause cascade failures during migration — you can't import 5,000 child assets if their parent locations are invalid. Even if you force them through, the hierarchy-dependent features in MAS won't function correctly.
+**What breaks in MAS:** The Spatial, Monitor, and Health modules all rely on clean hierarchies. Broken parent references cause cascade failures during migration  - you can't import 5,000 child assets if their parent locations are invalid. Even if you force them through, the hierarchy-dependent features in MAS won't function correctly.
 
 **How to fix it:**
 
 - Export your full hierarchy and validate that every parent reference actually exists
-- Standardise hierarchy depth across all sites — agree on a structure (typically: Site → Facility → System → Equipment → Component) and apply it consistently
-- Identify and resolve all orphaned records — assets whose parent was deleted but still reference the old parent ID
-- Decide whether each record should be a location or an asset — this distinction matters much more in MAS than it did in 7.6
+- Standardise hierarchy depth across all sites  - agree on a structure (typically: Site → Facility → System → Equipment → Component) and apply it consistently
+- Identify and resolve all orphaned records  - assets whose parent was deleted but still reference the old parent ID
+- Decide whether each record should be a location or an asset  - this distinction matters much more in MAS than it did in 7.6
 
 -----
 
@@ -67,12 +67,12 @@ After working with organisations going through CMMS migrations, we see the same 
 
 **Why it happens:** Multiple people entering data over many years. Mergers and acquisitions bringing duplicate data sets. MXLoader imports using Sync-AddChange that created records instead of updating existing ones. Nobody had time to deduplicate because the system still "worked."
 
-**What breaks in MAS:** Duplicates create conflicting IoT sensor mappings — which "PUMP-CW-001" does the vibration sensor belong to? Work order history gets split across duplicate records, making failure analysis unreliable. Predict and Health give inaccurate scores because they're looking at partial histories. Your spare parts inventory looks wrong because BOMs reference different versions of the same asset.
+**What breaks in MAS:** Duplicates create conflicting IoT sensor mappings  - which "PUMP-CW-001" does the vibration sensor belong to? Work order history gets split across duplicate records, making failure analysis unreliable. Predict and Health give inaccurate scores because they're looking at partial histories. Your spare parts inventory looks wrong because BOMs reference different versions of the same asset.
 
 **How to fix it:**
 
 - Export assets, locations, and items. Cross-reference by a combination of serial number, location, classification, and description to identify probable duplicates
-- For each set of duplicates, define a "golden record" — the one that keeps all the history and becomes the single source of truth
+- For each set of duplicates, define a "golden record"  - the one that keeps all the history and becomes the single source of truth
 - Merge work order history and meter readings onto the golden record before deleting the duplicates
 - This is tedious work in Excel. It's exactly the kind of problem that data staging tools are designed to solve at scale
 
@@ -88,11 +88,11 @@ After working with organisations going through CMMS migrations, we see the same 
 
 **How to fix it:**
 
-- Don't try to fill every field on every record — you'll never finish. Instead, identify which fields your target MAS modules actually consume and prioritise those
+- Don't try to fill every field on every record  - you'll never finish. Instead, identify which fields your target MAS modules actually consume and prioritise those
 - For Health and Predict: manufacturer, model, serial number, installation date, criticality
 - For Monitor: classification, location (for spatial placement), operational status
 - For Manage (core): all parent references, status, description, classification
-- Use a phased approach — clean the highest-criticality assets first, then work outward
+- Use a phased approach  - clean the highest-criticality assets first, then work outward
 
 -----
 
@@ -107,7 +107,7 @@ After working with organisations going through CMMS migrations, we see the same 
 **How to fix it:**
 
 - Choose one classification standard and commit to it. ISO 14224 works well for oil & gas and process industries. RDS-PP or RDS-PS suits power generation and electrical systems. SFI suits maritime. Custom systems work if they're well-documented and consistently applied
-- Map every existing classification to the target standard — this is a manual exercise that requires engineering knowledge, not just data skills
+- Map every existing classification to the target standard  - this is a manual exercise that requires engineering knowledge, not just data skills
 - Rebuild the classification hierarchy from scratch in your target structure, then reclassify assets against it
 - Do this in a staging environment, not in your live Maximo instance
 
@@ -119,13 +119,13 @@ After working with organisations going through CMMS migrations, we see the same 
 
 **Why it happens:** Years of direct database interventions, emergency fixes, data loads from external sources, and environment refreshes that didn't properly reset sequences. In MAS 9, the problem is compounded because SQL Server now uses native sequences rather than the Maximo-managed MAXSEQUENCE table.
 
-**What breaks in MAS:** 2601 errors — duplicate key violations. Your migration batch processes 500 records, hits a key conflict at record 347, and the whole batch fails. You fix it, restart, and hit another conflict at record 412. This can turn a weekend migration into a week-long nightmare.
+**What breaks in MAS:** 2601 errors  - duplicate key violations. Your migration batch processes 500 records, hits a key conflict at record 347, and the whole batch fails. You fix it, restart, and hit another conflict at record 412. This can turn a weekend migration into a week-long nightmare.
 
 **How to fix it:**
 
 - Audit every MAXSEQUENCE value against the actual maximum ID in each corresponding table
 - Where MAXSEQUENCE is behind, update it to max(ID) + 100 (buffer for safety)
-- Document every table where you find discrepancies — these are the tables where someone has been doing direct SQL operations
+- Document every table where you find discrepancies  - these are the tables where someone has been doing direct SQL operations
 - After cleanup, enforce a policy: no direct SQL inserts into Maximo tables without updating sequences
 
 -----
@@ -141,7 +141,7 @@ After working with organisations going through CMMS migrations, we see the same 
 **How to fix it:**
 
 - Before migration, decide what transactional history you actually need to bring across. Usually the answer is: open work orders, active PMs, and the last 12-24 months of completed work orders (for Health/Predict to analyse)
-- Archive everything else. IBM provides tools for archiving Maximo transaction data — use them
+- Archive everything else. IBM provides tools for archiving Maximo transaction data  - use them
 - For the records you are migrating, validate every foreign key reference: does the asset exist? Does the location exist? Does the job plan exist?
 - Fix or remove any records with broken references before attempting the migration
 
@@ -153,15 +153,15 @@ Even with clean data, order matters. You can't import an asset that references a
 
 Here's the correct loading sequence for MAS 9 migration:
 
-1. **Sites and organisations** — everything references these, so they go first
-2. **Classification hierarchies** — must exist before assets can reference them
-3. **Locations** — top of hierarchy down. Parents before children. Level 1 locations first, then level 2, then level 3, and so on
-4. **Assets** — each asset maps to a location and references a classification. Both must exist first
-5. **Item master / spare parts** — the catalogue of parts that links to assets via BOMs
-6. **Job plans and safety plans** — define the work that PMs will schedule
-7. **PM programs and routes** — reference assets, locations, and job plans
-8. **Open work orders** — reference everything above
-9. **Meter readings and condition data** — reference assets, needed for Health and Predict
+1. **Sites and organisations**  - everything references these, so they go first
+2. **Classification hierarchies**  - must exist before assets can reference them
+3. **Locations**  - top of hierarchy down. Parents before children. Level 1 locations first, then level 2, then level 3, and so on
+4. **Assets**  - each asset maps to a location and references a classification. Both must exist first
+5. **Item master / spare parts**  - the catalogue of parts that links to assets via BOMs
+6. **Job plans and safety plans**  - define the work that PMs will schedule
+7. **PM programs and routes**  - reference assets, locations, and job plans
+8. **Open work orders**  - reference everything above
+9. **Meter readings and condition data**  - reference assets, needed for Health and Predict
 
 Each layer depends on the one before it. If locations have errors, every asset mapping fails. If classifications are wrong, every attribute assignment fails. This is why the data quality work happens before the technical migration, not during it.
 
@@ -173,11 +173,11 @@ Here's the process that works. It's not glamorous, but it's effective.
 
 **Step 1: Audit.** Export your data and profile it. Count the nulls, the duplicates, the orphaned references. Understand the scale of the problem before you touch anything. You need to know whether you're dealing with 500 issues or 50,000.
 
-**Step 2: Define standards.** Agree on naming conventions, classification system, required fields, and hierarchy depth. Document these standards. Get sign-off from operations, not just IT — the maintenance team needs to own the data standards because they're the ones who'll maintain them after migration.
+**Step 2: Define standards.** Agree on naming conventions, classification system, required fields, and hierarchy depth. Document these standards. Get sign-off from operations, not just IT  - the maintenance team needs to own the data standards because they're the ones who'll maintain them after migration.
 
 **Step 3: Pilot.** Pick one site or one asset category. Apply your standards. Clean the data. Validate the results with the people who actually work on those assets. If your "cleaned" data doesn't make sense to a maintenance planner, it's not clean enough.
 
-**Step 4: Stage.** Load cleaned data into a staging environment. Run validation against MAS schema rules. Fix issues. This is where having a proper staging tool saves enormous time versus doing it in Excel — you can validate thousands of records in minutes instead of days.
+**Step 4: Stage.** Load cleaned data into a staging environment. Run validation against MAS schema rules. Fix issues. This is where having a proper staging tool saves enormous time versus doing it in Excel  - you can validate thousands of records in minutes instead of days.
 
 **Step 5: Scale.** Apply the rules you validated in the pilot across all remaining sites and asset categories. This is the bulk of the work and where most projects get bogged down.
 
@@ -185,7 +185,7 @@ Here's the process that works. It's not glamorous, but it's effective.
 
 **Step 7: Go-live.** Final export from staging, import to production MAS. Post-migration validation.
 
-Steps 1 through 5 are where 80% of the effort goes. The actual technical migration — steps 6 and 7 — is the easy part if the data is clean.
+Steps 1 through 5 are where 80% of the effort goes. The actual technical migration  - steps 6 and 7  - is the easy part if the data is clean.
 
 -----
 
@@ -200,7 +200,7 @@ Let's be blunt about timing:
 
 A realistic data cleanup timeline is 3 to 6 months depending on data volume and quality. The technical migration itself takes weeks. The data preparation takes months.
 
-If you haven't started data cleanup, you're already behind. Not critically — you have time if you start now. But every month you wait compresses the timeline further and increases the risk of a rushed migration that moves the mess rather than fixing it.
+If you haven't started data cleanup, you're already behind. Not critically  - you have time if you start now. But every month you wait compresses the timeline further and increases the risk of a rushed migration that moves the mess rather than fixing it.
 
 -----
 
@@ -208,7 +208,7 @@ If you haven't started data cleanup, you're already behind. Not critically — y
 
 1. **Get your data out and look at it.** Export your asset, location, and classification data. Profile it. How many nulls? How many duplicates? How many broken parent references? You need to know the scale before you can plan.
 
-2. **Download our free Maximo to MAS 9 Migration Checklist** — it's a 100+ point checklist covering data export sequencing, field mapping, validation rules, and common gotchas. It'll save you from learning the hard lessons the hard way.
+2. **Download our free Maximo to MAS 9 Migration Checklist**  - it's a 100+ point checklist covering data export sequencing, field mapping, validation rules, and common gotchas. It'll save you from learning the hard lessons the hard way.
 
 3. **Decide your classification standard now, not later.** This is the decision that takes the longest to get consensus on and affects everything downstream.
 
@@ -222,4 +222,4 @@ The organisations that succeed with MAS 9 migration aren't the ones with the big
 
 -----
 
-*This article comes from the team at AssetStage, where we've helped maintenance teams across manufacturing, utilities, and maritime prepare their CMMS data for migration. If you're staring at years of legacy data and wondering where to start, [get in touch](/#contact) — or start with our [free resources](/resources).*
+*This article comes from the team at AssetStage, where we've helped maintenance teams across manufacturing, utilities, and maritime prepare their CMMS data for migration. If you're staring at years of legacy data and wondering where to start, [get in touch](/#contact)  - or start with our [free resources](/resources).*
