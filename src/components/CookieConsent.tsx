@@ -146,30 +146,74 @@ export default function CookieConsent({ gaId, hubspotId, onConsentChange }: Cook
       {/* Vercel Analytics - only renders after consent */}
       {analyticsEnabled && <Analytics />}
 
-      {/* Minimal Banner */}
+      {/* Cookie Banner - Full Width Bottom */}
       {showBanner && !showPreferences && (
         <div style={{
           position: 'fixed',
-          bottom: 16,
-          right: 16,
-          backgroundColor: colors.surface,
-          border: `1px solid ${colors.border}`,
-          borderRadius: 12,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-          padding: 16,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: colors.primaryNavy,
+          boxShadow: '0 -4px 20px rgba(0,0,0,0.2)',
+          padding: '20px 24px',
           zIndex: 9999,
-          maxWidth: 320,
-          width: 'calc(100% - 32px)',
           fontFamily: 'system-ui, -apple-system, sans-serif',
         }}>
-          <p style={{ margin: '0 0 12px', fontSize: 13, color: colors.textSecondary, lineHeight: 1.4 }}>
-            We use cookies for analytics.{' '}
-            <a href="/privacy" style={{ color: colors.stageBlue, textDecoration: 'none' }}>Learn more</a>
-          </p>
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <button onClick={handleRejectNonEssential} style={buttonStyle('outline')}>Decline</button>
-            <button onClick={handleAcceptAll} style={buttonStyle('primary')}>Accept</button>
-            <button onClick={() => setShowPreferences(true)} style={buttonStyle('link')}>Settings</button>
+          <div style={{
+            maxWidth: 1200,
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 24,
+            flexWrap: 'wrap',
+          }}>
+            <p style={{ margin: 0, fontSize: 15, color: '#ffffff', lineHeight: 1.5, flex: '1 1 300px' }}>
+              We use cookies to improve your experience and analyze site usage.{' '}
+              <a href="/privacy" style={{ color: '#93c5fd', textDecoration: 'underline' }}>Privacy Policy</a>
+            </p>
+            <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+              <button onClick={() => setShowPreferences(true)} style={{
+                padding: '10px 20px',
+                fontSize: 14,
+                fontWeight: 500,
+                cursor: 'pointer',
+                borderRadius: 6,
+                backgroundColor: 'transparent',
+                color: '#ffffff',
+                border: '1px solid rgba(255,255,255,0.4)',
+                transition: 'all 0.2s',
+              }}>
+                Preferences
+              </button>
+              <button onClick={handleRejectNonEssential} style={{
+                padding: '10px 20px',
+                fontSize: 14,
+                fontWeight: 500,
+                cursor: 'pointer',
+                borderRadius: 6,
+                backgroundColor: 'transparent',
+                color: '#ffffff',
+                border: '1px solid rgba(255,255,255,0.4)',
+                transition: 'all 0.2s',
+              }}>
+                Decline
+              </button>
+              <button onClick={handleAcceptAll} style={{
+                padding: '12px 28px',
+                fontSize: 15,
+                fontWeight: 600,
+                cursor: 'pointer',
+                borderRadius: 6,
+                backgroundColor: '#27ae60',
+                color: '#ffffff',
+                border: 'none',
+                boxShadow: '0 2px 8px rgba(39,174,96,0.4)',
+                transition: 'all 0.2s',
+              }}>
+                Accept All
+              </button>
+            </div>
           </div>
         </div>
       )}

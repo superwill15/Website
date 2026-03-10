@@ -176,17 +176,31 @@ export default function OEMExtractionPage() {
             <Logo variant="primary" width={200} height={50} />
           </a>
           <ul className="nav-links">
-            <li><a href="/#home">Home</a></li>
-            <li><a href="/#assetstage">AssetStage</a></li>
-            <li><a href="/pm-optimization">PM Optimization</a></li>
-            <li><a href="/oem-extraction">OEM Extraction</a></li>
-            <li><a href="/nameplate-extraction">Nameplate Extraction</a></li>
-            <li><a href="/#services">Services</a></li>
-            <li><a href="/#inventory">Inventory</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/#resources">Resources</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#assetstage">Platform</a></li>
+            <li className="nav-dropdown">
+              <button className="nav-dropdown-trigger">
+                Products <ChevronDown size={14} />
+              </button>
+              <div className="nav-dropdown-menu">
+                <a href="/pm-optimization">PM Optimization</a>
+                <a href="/oem-extraction">OEM Extraction</a>
+                <a href="/nameplate-extraction">Nameplate Extraction</a>
+                <a href="/inventory">Inventory Management</a>
+              </div>
+            </li>
+            <li><a href="/services">Services</a></li>
+            <li className="nav-dropdown">
+              <button className="nav-dropdown-trigger">
+                Resources <ChevronDown size={14} />
+              </button>
+              <div className="nav-dropdown-menu">
+                <a href="/resources">Free Downloads</a>
+                <a href="/blog">Blog</a>
+              </div>
+            </li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
           <button className="nav-cta" onClick={openModal}>Get Demo</button>
 
@@ -201,17 +215,23 @@ export default function OEMExtractionPage() {
         {/* Mobile Navigation */}
         <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
           <ul className="mobile-nav-links">
-            <li><a href="/#home" onClick={toggleMobileMenu}>Home</a></li>
-            <li><a href="/#assetstage" onClick={toggleMobileMenu}>AssetStage</a></li>
-            <li><a href="/pm-optimization" onClick={toggleMobileMenu}>PM Optimization</a></li>
-            <li><a href="/oem-extraction" onClick={toggleMobileMenu}>OEM Extraction</a></li>
-            <li><a href="/nameplate-extraction" onClick={toggleMobileMenu}>Nameplate Extraction</a></li>
-            <li><a href="/#services" onClick={toggleMobileMenu}>Services</a></li>
-            <li><a href="/#inventory" onClick={toggleMobileMenu}>Inventory</a></li>
-            <li><a href="/blog" onClick={toggleMobileMenu}>Blog</a></li>
-            <li><a href="/#resources" onClick={toggleMobileMenu}>Resources</a></li>
-            <li><a href="/#about" onClick={toggleMobileMenu}>About</a></li>
-            <li><a href="/#contact" onClick={toggleMobileMenu}>Contact</a></li>
+            <li><a href="/" onClick={toggleMobileMenu}>Home</a></li>
+            <li><a href="/#assetstage" onClick={toggleMobileMenu}>Platform</a></li>
+            <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
+              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Products</span>
+            </li>
+            <li><a href="/pm-optimization" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>PM Optimization</a></li>
+            <li><a href="/oem-extraction" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>OEM Extraction</a></li>
+            <li><a href="/nameplate-extraction" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Nameplate Extraction</a></li>
+            <li><a href="/inventory" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Inventory Management</a></li>
+            <li><a href="/services" onClick={toggleMobileMenu}>Services</a></li>
+            <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
+              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Resources</span>
+            </li>
+            <li><a href="/resources" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Free Downloads</a></li>
+            <li><a href="/blog" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Blog</a></li>
+            <li><a href="/pricing" onClick={toggleMobileMenu}>Pricing</a></li>
+            <li><a href="/contact" onClick={toggleMobileMenu}>Contact</a></li>
             <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Get Demo</button></li>
           </ul>
         </div>

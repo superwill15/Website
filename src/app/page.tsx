@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import Logo from '@/components/Logo';
-import ResourcesSection from '@/components/ResourcesSection';
-import InventorySection from '@/components/InventorySection';
 import DemoModal from '@/components/DemoModal';
 import {
   DollarSign,
@@ -12,18 +10,14 @@ import {
   Building2,
   GraduationCap,
   ClipboardList,
-  RefreshCw,
-  Factory,
-  BarChart3,
-  Rocket,
-  Globe,
-  AlertTriangle,
-  Microscope,
-  Clock,
   Lock,
   FileText,
   Building,
-  Mail
+  ArrowRight,
+  BookOpen,
+  Warehouse,
+  Link2,
+  ChevronDown
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -81,20 +75,34 @@ export default function HomePage() {
             <Logo variant="primary" width={200} height={50} />
           </a>
           <ul className="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#assetstage">AssetStage</a></li>
-            <li><a href="/pm-optimization">PM Optimization</a></li>
-            <li><a href="/oem-extraction">OEM Extraction</a></li>
-            <li><a href="/nameplate-extraction">Nameplate Extraction</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#inventory">Inventory</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="#assetstage">Platform</a></li>
+            <li className="nav-dropdown">
+              <button className="nav-dropdown-trigger">
+                Products <ChevronDown size={14} />
+              </button>
+              <div className="nav-dropdown-menu">
+                <a href="/pm-optimization">PM Optimization</a>
+                <a href="/oem-extraction">OEM Extraction</a>
+                <a href="/nameplate-extraction">Nameplate Extraction</a>
+                <a href="/inventory">Inventory Management</a>
+              </div>
+            </li>
+            <li><a href="/services">Services</a></li>
+            <li className="nav-dropdown">
+              <button className="nav-dropdown-trigger">
+                Resources <ChevronDown size={14} />
+              </button>
+              <div className="nav-dropdown-menu">
+                <a href="/resources">Free Downloads</a>
+                <a href="/blog">Blog</a>
+              </div>
+            </li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
           <button className="nav-cta" onClick={openModal}>Book a Demo</button>
-          
+
           {/* Mobile Menu Button */}
           <button className={`mobile-menu-btn ${mobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu} aria-label="Toggle menu">
             <span></span>
@@ -106,17 +114,23 @@ export default function HomePage() {
         {/* Mobile Navigation */}
         <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
           <ul className="mobile-nav-links">
-            <li><a href="#home" onClick={toggleMobileMenu}>Home</a></li>
-            <li><a href="#assetstage" onClick={toggleMobileMenu}>AssetStage</a></li>
-            <li><a href="/pm-optimization" onClick={toggleMobileMenu}>PM Optimization</a></li>
-            <li><a href="/oem-extraction" onClick={toggleMobileMenu}>OEM Extraction</a></li>
-            <li><a href="/nameplate-extraction" onClick={toggleMobileMenu}>Nameplate Extraction</a></li>
-            <li><a href="#services" onClick={toggleMobileMenu}>Services</a></li>
-            <li><a href="#inventory" onClick={toggleMobileMenu}>Inventory</a></li>
-            <li><a href="/blog" onClick={toggleMobileMenu}>Blog</a></li>
-            <li><a href="#resources" onClick={toggleMobileMenu}>Resources</a></li>
-            <li><a href="#about" onClick={toggleMobileMenu}>About</a></li>
-            <li><a href="#contact" onClick={toggleMobileMenu}>Contact</a></li>
+            <li><a href="/" onClick={toggleMobileMenu}>Home</a></li>
+            <li><a href="#assetstage" onClick={toggleMobileMenu}>Platform</a></li>
+            <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
+              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Products</span>
+            </li>
+            <li><a href="/pm-optimization" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>PM Optimization</a></li>
+            <li><a href="/oem-extraction" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>OEM Extraction</a></li>
+            <li><a href="/nameplate-extraction" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Nameplate Extraction</a></li>
+            <li><a href="/inventory" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Inventory Management</a></li>
+            <li><a href="/services" onClick={toggleMobileMenu}>Services</a></li>
+            <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
+              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Resources</span>
+            </li>
+            <li><a href="/resources" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Free Downloads</a></li>
+            <li><a href="/blog" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Blog</a></li>
+            <li><a href="/pricing" onClick={toggleMobileMenu}>Pricing</a></li>
+            <li><a href="/contact" onClick={toggleMobileMenu}>Contact</a></li>
             <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Book a Demo</button></li>
           </ul>
         </div>
@@ -212,7 +226,7 @@ export default function HomePage() {
               </button>
             </div>
           </div>
-          
+
           {/* Key Benefits */}
           <div className="services-grid" style={{marginTop: '60px'}}>
             <div className="service-card">
@@ -234,94 +248,86 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Condensed */}
       <section className="section" id="services">
         <div className="container">
           <div className="section-header">
             <h2>AssetStage Professional Services</h2>
             <p>Expert guidance in engineering standards, data management, and CMMS implementation</p>
           </div>
-          
-          <div className="services-grid">
+
+          <div className="services-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
             <div className="service-card">
               <div className="service-icon"><Building2 size={28} /></div>
-              <h3>Engineering Standards Consultancy</h3>
-              <p>Expert implementation of international engineering standards including RDS-PP, RDS-PS (power systems), ISO 14224 (reliability data), KKS (power plant classification), and SFI (marine classification). We ensure your assets are classified and structured according to industry best practices.</p>
+              <h3>Engineering Standards</h3>
+              <p>Implementation of ISO 14224, RDS-PP, RDS-PS, KKS, and SFI standards. We ensure your assets are classified according to industry best practices.</p>
             </div>
 
             <div className="service-card">
               <div className="service-icon"><GraduationCap size={28} /></div>
-              <h3>Standards Training & Certification</h3>
-              <p>Comprehensive training programs on engineering classification systems. Learn how to implement RDS-PP, RDS-PS for power generation, ISO 14224 for reliability, KKS for industrial plants, and SFI for marine systems. Build internal expertise in global standards.</p>
+              <h3>Training & Certification</h3>
+              <p>Comprehensive training programs on engineering classification systems. Build internal expertise in global standards.</p>
             </div>
 
             <div className="service-card">
               <div className="service-icon"><ClipboardList size={28} /></div>
-              <h3>CMMS Selection Advisory</h3>
-              <p>Independent, vendor-neutral guidance to help you choose the right CMMS for your organization. We evaluate your needs, not vendor commissions.</p>
+              <h3>CMMS Advisory & Migration</h3>
+              <p>Vendor-neutral CMMS selection guidance and expert data migration services. We evaluate your needs, not vendor commissions.</p>
             </div>
+          </div>
 
-            <div className="service-card">
-              <div className="service-icon"><RefreshCw size={28} /></div>
-              <h3>Data Migration Services</h3>
-              <p>Expert assistance with complex data migrations. We handle the heavy lifting while your team learns the process for future autonomy.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><Factory size={28} /></div>
-              <h3>Industry Templates & Standards</h3>
-              <p>Pre-built configurations aligned with international standards. Templates for RDS-PP, RDS-PS (power), ISO 14224 (reliability), KKS (plant classification), and SFI (marine). Start with proven industry frameworks.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><BarChart3 size={28} /></div>
-              <h3>Master Data Governance</h3>
-              <p>Ongoing data quality management services aligned with engineering standards. Keep your CMMS data clean with automated workflows and regular health checks.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><Rocket size={28} /></div>
-              <h3>Standards Implementation</h3>
-              <p>End-to-end support for implementing engineering classification systems. From gap analysis to full deployment of RDS-PP, RDS-PS, ISO 14224, KKS, or SFI standards in your organization.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><Globe size={28} /></div>
-              <h3>Cross-Industry Standards Mapping</h3>
-              <p>Bridge different classification systems during mergers, acquisitions, or multi-site operations. Map between RDS-PP, RDS-PS, ISO 14224, KKS, SFI and other standards for seamless integration.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><AlertTriangle size={28} /></div>
-              <h3>Criticality Analysis Workshops</h3>
-              <p>Facilitated criticality assessment sessions to identify and rank your most important assets. Establish risk-based maintenance priorities using industry-standard methodologies aligned with ISO 55000 and ISO 14224 frameworks.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><Microscope size={28} /></div>
-              <h3>FMEA Workshop Facilitation</h3>
-              <p>Expert-led Failure Mode and Effects Analysis (FMEA) workshops for your critical assets. Identify potential failure modes, assess risks, and develop targeted maintenance strategies to prevent costly downtime.</p>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon"><Clock size={28} /></div>
-              <h3>Obsolescence Studies</h3>
-              <p>Proactive obsolescence management for aging assets and equipment. Identify at-risk components, assess spare parts availability, and develop mitigation strategies before obsolescence becomes a critical issue affecting operations.</p>
-            </div>
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <a href="/services" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              View All Services <ArrowRight size={18} />
+            </a>
           </div>
         </div>
       </section>
 
-      <InventorySection />
+      {/* Inventory Section - Condensed */}
+      <section className="section section-gray" id="inventory">
+        <div className="container">
+          <div className="section-header">
+            <h2>Materials & Spare Parts Management</h2>
+            <p>Centralise your item master, track inventory across storerooms, and link parts to assets</p>
+          </div>
+
+          <div className="services-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+            <div className="service-card">
+              <div className="service-icon"><BookOpen size={28} /></div>
+              <h3>Item Master Catalogue</h3>
+              <p>Centralised parts catalogue with vendor tracking and preferred supplier management.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon"><Warehouse size={28} /></div>
+              <h3>Storeroom Management</h3>
+              <p>Track stock balances, min/max levels, and costs per storeroom. Compare inventory across sites.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon"><Link2 size={28} /></div>
+              <h3>Spare Part BOMs</h3>
+              <p>Link parts to assets with quantities. Copy &quot;gold standard&quot; BOMs across identical equipment.</p>
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <a href="/inventory" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              Learn More <ArrowRight size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Blog Section */}
-      <section className="section section-gray" id="blog">
+      <section className="section" id="blog">
         <div className="container">
           <div className="section-header">
             <h2>Insights & Resources</h2>
             <p>Industry insights, best practices, and lessons learned from the field</p>
           </div>
-          
+
           <div className="blog-grid">
             <article className="blog-card">
               <div className="blog-image">Featured Article</div>
@@ -332,10 +338,10 @@ export default function HomePage() {
                 </div>
                 <h3>SFI Coding and ISO 14224: A Complete Guide for Maritime CMMS</h3>
                 <p>How combining SFI equipment identification with ISO 14224 reliability standards creates a comprehensive framework for maritime maintenance management.</p>
-                <a href="/blog/SFI-ISO14224" className="read-more">Read More →</a>
+                <a href="/blog/SFI-ISO14224" className="read-more">Read More &rarr;</a>
               </div>
             </article>
-            
+
             <article className="blog-card">
               <div className="blog-image">Industry Guide</div>
               <div className="blog-content">
@@ -343,12 +349,12 @@ export default function HomePage() {
                   <span>September 1, 2025</span>
                   <span>Maritime</span>
                 </div>
-                <h3>Maritime CMMS: Why Shipping's $30B Maintenance Bill Keeps Growing</h3>
+                <h3>Maritime CMMS: Why Shipping&apos;s $30B Maintenance Bill Keeps Growing</h3>
                 <p>With 109,000+ vessels and maintenance consuming 30% of operating costs, most fleets still run on paper and spreadsheets.</p>
-                <a href="/blog/maritime-cmms-guide" className="read-more">Read More →</a>
+                <a href="/blog/maritime-cmms-guide" className="read-more">Read More &rarr;</a>
               </div>
             </article>
-            
+
             <article className="blog-card">
               <div className="blog-image">Technical Deep Dive</div>
               <div className="blog-content">
@@ -358,24 +364,11 @@ export default function HomePage() {
                 </div>
                 <h3>RDS-PP to RDS-PS: Evolution in Power System Classification</h3>
                 <p>A detailed comparison of RDS-PP and RDS-PS reference designation systems for power generation and electrical systems.</p>
-                <a href="/blog/rds-pp-vs-rds-ps-improvements" className="read-more">Read More →</a>
-              </div>
-            </article>
-            
-            <article className="blog-card">
-              <div className="blog-image">Best Practices</div>
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <span>August 18, 2025</span>
-                  <span>Implementation</span>
-                </div>
-                <h3>Building Your Asset Hierarchy: A Step-by-Step Guide</h3>
-                <p>Learn how to structure your asset hierarchy for maximum efficiency. Includes real-world examples from manufacturing, utilities, and facilities.</p>
-                <a href="/blog/building-asset-hierarchy-guide" className="read-more">Read More →</a>
+                <a href="/blog/rds-pp-vs-rds-ps-improvements" className="read-more">Read More &rarr;</a>
               </div>
             </article>
           </div>
-          
+
           <div style={{textAlign: 'center', marginTop: '40px'}}>
             <a href="/blog" className="btn-primary">View All Blog Posts</a>
           </div>
@@ -394,94 +387,81 @@ export default function HomePage() {
             <div className="service-card">
               <div className="service-icon"><Lock size={28} /></div>
               <h3>Data Isolation & Access Control</h3>
-              <p>Complete tenant isolation at the database level ensures your data never mixes with other customers. Role-based access control gives you granular permissions. Control exactly who can view, edit, or delete data.</p>
+              <p>Complete tenant isolation at the database level ensures your data never mixes with other customers. Role-based access control gives you granular permissions.</p>
             </div>
 
             <div className="service-card">
               <div className="service-icon"><FileText size={28} /></div>
               <h3>Complete Audit Trail</h3>
-              <p>Every action is logged with user identity, timestamp, and affected records. Full visibility into platform activity helps you meet compliance requirements and investigate issues with confidence.</p>
+              <p>Every action is logged with user identity, timestamp, and affected records. Full visibility into platform activity for compliance requirements.</p>
             </div>
 
             <div className="service-card">
               <div className="service-icon"><Building size={28} /></div>
               <h3>Enterprise Infrastructure</h3>
-              <p>Built on Supabase and Vercel (both SOC 2 Type II certified platforms). Your data is protected with AES-256 encryption at rest and TLS 1.3 in transit. Enterprise-grade security without enterprise complexity.</p>
+              <p>Built on Supabase and Vercel (both SOC 2 Type II certified). AES-256 encryption at rest and TLS 1.3 in transit.</p>
             </div>
           </div>
-
-          <p style={{
-            textAlign: 'center',
-            marginTop: '40px',
-            fontSize: '16px',
-            color: 'var(--text-light)',
-            maxWidth: '800px',
-            margin: '40px auto 0'
-          }}>
-            Significantly more secure than Excel spreadsheets, email attachments, and shared drives. Professional data security without the consultant price tag.
-          </p>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - Condensed */}
       <section className="section" id="about">
         <div className="container">
           <div className="section-header">
             <h2>About AssetStage</h2>
             <p>On a mission to democratize CMMS data quality</p>
           </div>
-          
+
           <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
             <p style={{fontSize: '18px', lineHeight: '1.8', color: 'var(--text-light)', marginBottom: '30px'}}>
-              AssetStage was founded by maintenance and reliability engineers who experienced firsthand the pain of CMMS implementations destroyed by bad data. We watched companies spend millions on software that never delivered value because the data was wrong.
+              AssetStage was founded by maintenance and reliability engineers who experienced firsthand the pain of CMMS implementations destroyed by bad data. We built AssetStage to solve this problem once and for all.
             </p>
-            <p style={{fontSize: '18px', lineHeight: '1.8', color: 'var(--text-light)', marginBottom: '30px'}}>
-              We built AssetStage to solve this problem once and for all. Our platform makes enterprise-quality data staging accessible to every organization, with skilled consultants available for those who prefer expert-delivered implementations.
-            </p>
-            <p style={{fontSize: '18px', lineHeight: '1.8', color: 'var(--text-light)'}}>
-              Today, we help maintenance teams across manufacturing, utilities, and facilities management achieve what was once impossible: clean, standardized CMMS data in weeks, not months, at a fraction of traditional costs.
-            </p>
+            <a href="/about" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'var(--white)', border: '2px solid var(--primary-navy)' }}>
+              Learn More About Us <ArrowRight size={18} />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Resources Section */}
-      <ResourcesSection />
+      {/* Resources Section - Condensed */}
+      <section className="section section-gray" id="resources">
+        <div className="container">
+          <div className="section-header">
+            <h2>Free Resources & Templates</h2>
+            <p>Industry-proven tools, templates, and guides to accelerate your CMMS success</p>
+          </div>
 
-      {/* Contact Section */}
-      <section className="section section-gray" id="contact">
+          <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
+            <p style={{fontSize: '18px', lineHeight: '1.8', color: 'var(--text-light)', marginBottom: '30px'}}>
+              Download free checklists, templates, and guides including our popular ISO 14224 Implementation Cheat Sheet, Maximo Migration Checklist, FMEA Workbook, and more.
+            </p>
+            <a href="/resources" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              Browse Free Resources <ArrowRight size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Condensed */}
+      <section className="section" id="contact">
         <div className="container">
           <div className="section-header">
             <h2>Get In Touch</h2>
             <p>Ready to clean up your CMMS data?</p>
           </div>
-          
+
           <div style={{maxWidth: '600px', margin: '0 auto', textAlign: 'center'}}>
-            <div className="service-card" style={{padding: '40px'}}>
-              <div className="service-icon" style={{width: '80px', height: '80px', marginBottom: '20px'}}><Mail size={40} /></div>
-              <h3 style={{marginBottom: '20px'}}>Contact Our Sales Team</h3>
-              <p style={{fontSize: '18px', marginBottom: '30px', color: 'var(--text-light)'}}>
-                Have questions about AssetStage? Want to discuss your specific requirements? 
-                Need expert help with engineering standards implementation (RDS-PP, RDS-PS, ISO 14224, KKS, SFI)?
-                Our team is ready to help you achieve CMMS data excellence.
-              </p>
-              <p style={{fontSize: '16px', marginBottom: '25px', color: 'var(--text-light)'}}>
-                <strong>Ask us about our Professional Services:</strong><br/>
-                • Engineering Standards Consultancy & Training<br/>
-                • CMMS Data Migration & Implementation<br/>
-                • Standards Mapping & Integration<br/>
-                • Custom Solutions for Your Industry
-              </p>
-              <a 
-                href="mailto:sales@assetstage.io" 
-                className="btn-primary" 
-                style={{display: 'inline-block', fontSize: '18px', padding: '15px 40px'}}
-              >
-                Email sales@assetstage.io
+            <p style={{fontSize: '18px', lineHeight: '1.8', color: 'var(--text-light)', marginBottom: '30px'}}>
+              Have questions about AssetStage? Need help with engineering standards implementation? Our team is ready to help you achieve CMMS data excellence.
+            </p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a href="/contact" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                Contact Us <ArrowRight size={18} />
               </a>
-              <p style={{marginTop: '20px', fontSize: '16px', color: 'var(--text-light)'}}>
-                We typically respond within 24 hours
-              </p>
+              <a href="mailto:sales@assetstage.io" className="btn-secondary" style={{ background: 'var(--white)', border: '2px solid var(--primary-navy)' }}>
+                sales@assetstage.io
+              </a>
             </div>
           </div>
         </div>
@@ -504,7 +484,7 @@ export default function HomePage() {
       <footer>
         <div className="footer-logo-section">
           <p style={{ marginTop: '20px', color: '#7f8c8d', fontSize: '14px' }}>
-            Transform your CMMS data with enterprise-quality staging and validation. 
+            Transform your CMMS data with enterprise-quality staging and validation.
             Expert consultancy in RDS-PS, RDS-PP, ISO 14224, KKS & SFI standards.
           </p>
         </div>
@@ -513,41 +493,40 @@ export default function HomePage() {
             <h4>Product</h4>
             <ul>
               <li><a href="#assetstage">AssetStage Platform</a></li>
-              <li><a href="#assetstage">Features</a></li>
+              <li><a href="/pm-optimization">PM Optimization</a></li>
+              <li><a href="/inventory">Inventory Management</a></li>
+              <li><a href="/pricing">Pricing</a></li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Services</h4>
             <ul>
-              <li><a href="#services">Implementation</a></li>
-              <li><a href="#services">Training</a></li>
-              <li><a href="#services">Data Migration</a></li>
-              <li><a href="#services">Consulting</a></li>
-              <li><a href="#services">Support</a></li>
+              <li><a href="/services">All Services</a></li>
+              <li><a href="/services#standards-implementation">Standards Implementation</a></li>
+              <li><a href="/services#training">Training</a></li>
+              <li><a href="/services#data-migration">Data Migration</a></li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Resources</h4>
             <ul>
-              <li><a href="#resources">Free Downloads</a></li>
-              <li><a href="#blog">Blog</a></li>
-              <li><a href="#blog">Case Studies</a></li>
-              <li><a href="#blog">White Papers</a></li>
+              <li><a href="/resources">Free Downloads</a></li>
+              <li><a href="/blog">Blog</a></li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Company</h4>
             <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#demo" onClick={openModal}>Contact</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/contact">Contact</a></li>
               <li><a href="mailto:team@assetstage.io?subject=Speculative%20CV%20submission">Careers</a></li>
             </ul>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} AssetStage. All rights reserved.</p>
           <div className="footer-social">
