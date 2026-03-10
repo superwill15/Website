@@ -146,19 +146,28 @@ export default function CookieConsent({ gaId, hubspotId, onConsentChange }: Cook
       {/* Vercel Analytics - only renders after consent */}
       {analyticsEnabled && <Analytics />}
 
-      {/* Cookie Banner - Full Width Bottom */}
+      {/* Cookie Banner - Full Width Bottom with Overlay */}
       {showBanner && !showPreferences && (
-        <div style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: colors.primaryNavy,
-          boxShadow: '0 -4px 20px rgba(0,0,0,0.2)',
-          padding: '20px 24px',
-          zIndex: 9999,
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-        }}>
+        <>
+          {/* Subtle page overlay */}
+          <div style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0,0,0,0.3)',
+            zIndex: 9998,
+            pointerEvents: 'none',
+          }} />
+          <div style={{
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            backgroundColor: colors.primaryNavy,
+            boxShadow: '0 -4px 20px rgba(0,0,0,0.2)',
+            padding: '20px 24px',
+            zIndex: 9999,
+            fontFamily: 'system-ui, -apple-system, sans-serif',
+          }}>
           <div style={{
             maxWidth: 1200,
             margin: '0 auto',
@@ -216,6 +225,7 @@ export default function CookieConsent({ gaId, hubspotId, onConsentChange }: Cook
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* Floating Cookie Settings Button - appears after consent given */}
