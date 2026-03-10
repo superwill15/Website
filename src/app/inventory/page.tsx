@@ -6,8 +6,32 @@ import CTASection from '@/components/CTASection';
 import { BookOpen, Warehouse, Link2, BarChart3, TrendingUp, Building2, Check } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Materials & Spare Parts Management | AssetStage',
+  title: 'Spare Parts & Inventory Management | AssetStage',
   description: 'Centralize your item master, track inventory across storerooms, link parts to assets, and get complete spare parts visibility with AssetStage.',
+  openGraph: {
+    title: 'Spare Parts & Inventory Management | AssetStage',
+    description: 'Centralize your item master, track inventory across storerooms, and link parts to assets.',
+    url: 'https://assetstage.io/inventory',
+    siteName: 'AssetStage',
+    type: 'website',
+    images: [
+      {
+        url: 'https://assetstage.io/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AssetStage Inventory Management',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Spare Parts & Inventory Management | AssetStage',
+    description: 'Centralize your item master and track inventory across storerooms.',
+    images: ['https://assetstage.io/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://assetstage.io/inventory',
+  },
 };
 
 export default function InventoryPage() {
@@ -15,6 +39,7 @@ export default function InventoryPage() {
     <>
       <Navigation />
 
+      <main>
       {/* Hero Section */}
       <section className="hero" style={{ padding: '80px 20px 60px' }}>
         <div className="hero-content">
@@ -202,6 +227,7 @@ export default function InventoryPage() {
         secondaryButtonText="View Pricing"
         secondaryButtonHref="/pricing"
       />
+      </main>
 
       <Footer />
     </>

@@ -18,8 +18,32 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'CMMS Consulting & Engineering Standards Services | AssetStage',
+  title: 'Professional CMMS Services | Data Migration & Standards Consultancy',
   description: 'Expert CMMS consulting, ISO 14224, RDS-PP, KKS, SFI implementation, FMEA workshops, criticality analysis, and data migration services for maintenance teams.',
+  openGraph: {
+    title: 'Professional CMMS Services | AssetStage',
+    description: 'Expert CMMS consulting, standards implementation, and data migration services for maintenance teams.',
+    url: 'https://assetstage.io/services',
+    siteName: 'AssetStage',
+    type: 'website',
+    images: [
+      {
+        url: 'https://assetstage.io/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AssetStage Professional Services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Professional CMMS Services | AssetStage',
+    description: 'Expert CMMS consulting, standards implementation, and data migration services.',
+    images: ['https://assetstage.io/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://assetstage.io/services',
+  },
 };
 
 export default function ServicesPage() {
@@ -27,6 +51,7 @@ export default function ServicesPage() {
     <>
       <Navigation />
 
+      <main>
       {/* Hero Section */}
       <section className="hero" style={{ padding: '80px 20px 60px' }}>
         <div className="hero-content">
@@ -179,6 +204,7 @@ export default function ServicesPage() {
         secondaryButtonText="Email Us"
         secondaryButtonHref="mailto:sales@assetstage.io"
       />
+      </main>
 
       <Footer />
     </>

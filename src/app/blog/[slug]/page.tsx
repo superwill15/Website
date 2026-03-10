@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPost } from "@/lib/posts";
 import StickyCTA from "@/components/StickyCTA";
+import JsonLd, { generateArticleSchema } from "@/components/seo/JsonLd";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,6 +18,32 @@ export async function generateMetadata({ params }: Props) {
     return {
       title: `${post.title} - AssetStage Blog`,
       description: post.description || undefined,
+      openGraph: {
+        title: `${post.title} - AssetStage Blog`,
+        description: post.description || post.title,
+        url: `https://assetstage.io/blog/${slug}`,
+        siteName: "AssetStage",
+        type: "article",
+        publishedTime: post.date,
+        authors: ["AssetStage"],
+        images: [
+          {
+            url: "https://assetstage.io/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: post.title,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${post.title} - AssetStage Blog`,
+        description: post.description || post.title,
+        images: ["https://assetstage.io/og-image.png"],
+      },
+      alternates: {
+        canonical: `https://assetstage.io/blog/${slug}`,
+      },
     };
   } catch {
     return { title: "Post - AssetStage Blog" };
@@ -32,9 +59,17 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const articleSchema = generateArticleSchema({
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    url: `https://assetstage.io/blog/${slug}`,
+  });
+
   return (
     <>
-      <div className="blog-post-container">
+      <JsonLd data={articleSchema} />
+      <main className="blog-post-container">
         <article className="blog-post">
           <header className="blog-post-header">
             <nav className="blog-navigation">
@@ -79,7 +114,7 @@ export default async function BlogPostPage({ params }: Props) {
             </nav>
           </footer>
         </article>
-      </div>
+      </main>
       <StickyCTA />
     </>
   );

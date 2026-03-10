@@ -3,7 +3,16 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/private/', '/admin/'],
+      disallow: [
+        '/dashboard/',
+        '/admin/',
+        '/assets/',
+        '/locations/',
+        '/sites/',
+        '/login/',
+        '/api/',
+        '/private/',
+      ],
     },
     sitemap: 'https://assetstage.io/sitemap.xml',
   };

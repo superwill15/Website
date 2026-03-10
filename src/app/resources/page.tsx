@@ -6,8 +6,32 @@ import ResourcesSection from '@/components/ResourcesSection';
 import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Free CMMS Resources & Templates | AssetStage',
+  title: 'Free CMMS Templates & Guides | AssetStage',
   description: 'Download free CMMS templates, checklists, and guides. ISO 14224 cheat sheet, Maximo migration checklist, FMEA workbook, SFI implementation guide, and more.',
+  openGraph: {
+    title: 'Free CMMS Templates & Guides | AssetStage',
+    description: 'Download free CMMS templates, checklists, and guides for maintenance teams.',
+    url: 'https://assetstage.io/resources',
+    siteName: 'AssetStage',
+    type: 'website',
+    images: [
+      {
+        url: 'https://assetstage.io/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AssetStage Free Resources',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Free CMMS Templates & Guides | AssetStage',
+    description: 'Download free CMMS templates, checklists, and guides.',
+    images: ['https://assetstage.io/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://assetstage.io/resources',
+  },
 };
 
 export default function ResourcesPage() {
@@ -15,6 +39,7 @@ export default function ResourcesPage() {
     <>
       <Navigation />
 
+      <main>
       {/* Hero Section */}
       <section className="hero" style={{ padding: '80px 20px 60px' }}>
         <div className="hero-content">
@@ -104,6 +129,7 @@ export default function ResourcesPage() {
         secondaryButtonText="View Services"
         secondaryButtonHref="/services"
       />
+      </main>
 
       <Footer />
     </>

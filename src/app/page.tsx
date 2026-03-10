@@ -24,27 +24,78 @@ export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const organizationSchema = {
+  const websiteSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "WebSite",
     "name": "AssetStage",
     "url": "https://assetstage.io",
-    "logo": "https://assetstage.io/logo.png",
-    "description": "The CMMS Data Workspace. AssetStage transforms messy Excel files into validated CMMS hierarchies in weeks, not months, without expensive consultants.",
-    "founder": {
+    "description": "The CMMS Data Workspace for maintenance teams",
+    "publisher": {
       "@type": "Organization",
       "name": "AssetStage"
-    },
-    "foundingDate": "2024",
-    "industry": "Industrial Software",
-    "serviceArea": "Global",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "sales",
-      "email": "sales@assetstage.io"
-    },
-    "sameAs": [
-      "https://assetstage.io"
+    }
+  };
+
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AssetStage",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "CMMS Data Workspace for maintenance teams to clean, validate, and prepare asset data",
+    "offers": {
+      "@type": "Offer",
+      "price": "1000",
+      "priceCurrency": "GBP",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is CMMS data staging?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CMMS data staging is the process of preparing, cleaning, and validating asset data before loading it into a CMMS like Maximo or SAP PM. It ensures data quality and prevents costly errors during implementation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do 70% of CMMS implementations fail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most CMMS implementations fail due to poor data quality. Organizations often underestimate the effort required to clean and standardize asset hierarchies, PM schedules, and spare parts data before loading into their new system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does AssetStage help with CMMS data migration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AssetStage provides a visual workspace where maintenance teams can clean, validate, and prepare their CMMS data. The platform includes drag-and-drop hierarchy building, real-time validation, bulk operations, and exports to Maximo, SAP PM, and other CMMS formats."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What engineering standards does AssetStage support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AssetStage supports major engineering classification standards including ISO 14224 (reliability data), RDS-PP and RDS-PS (power systems), KKS (power plant classification), and SFI (marine classification systems)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AssetStage work with my existing CMMS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, AssetStage works with any CMMS including IBM Maximo, SAP PM, Oracle eAM, Infor EAM, UpKeep, Fiix, and others. We export data in your CMMS's required format for seamless loading."
+        }
+      }
     ]
   };
 
@@ -66,7 +117,15 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Navigation */}
       <nav>
@@ -136,6 +195,7 @@ export default function HomePage() {
         </div>
       </nav>
 
+      <main>
       {/* Hero */}
       <section className="hero" id="home">
         <div className="hero-content">
@@ -205,6 +265,7 @@ export default function HomePage() {
                   style={{ border: 'none', position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }}
                   allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                   allowFullScreen={true}
+                  title="AssetStage CMMS Data Workspace Demo Video"
                 ></iframe>
               </div>
             </div>
@@ -479,6 +540,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer>

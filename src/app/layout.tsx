@@ -1,5 +1,6 @@
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
+import JsonLd, { generateOrganizationSchema } from "@/components/seo/JsonLd";
 
 export const metadata = {
   title: "AssetStage - The CMMS Data Workspace | Professional Data Quality Tools",
@@ -55,6 +56,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
+        <JsonLd data={generateOrganizationSchema()} />
         {children}
         <CookieConsent gaId="G-Q027KXVY63" hubspotId="147136026" />
       </body>

@@ -2,9 +2,33 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import BlogCTA from "@/components/BlogCTA";
 
-export const metadata = { 
-  title: "CMMS & Engineering Standards Blog - AssetStage", 
-  description: "Expert insights on CMMS implementation, data quality, RDS-PS, RDS-PP, ISO 14224, KKS, SFI standards, and industrial asset management best practices."
+export const metadata = {
+  title: "CMMS Data Quality Blog | AssetStage Insights",
+  description: "Expert insights on CMMS implementation, data quality, RDS-PS, RDS-PP, ISO 14224, KKS, SFI standards, and industrial asset management best practices.",
+  openGraph: {
+    title: "CMMS Data Quality Blog | AssetStage Insights",
+    description: "Expert insights on CMMS implementation, data quality, and engineering standards.",
+    url: "https://assetstage.io/blog",
+    siteName: "AssetStage",
+    type: "website",
+    images: [
+      {
+        url: "https://assetstage.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AssetStage Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CMMS Data Quality Blog | AssetStage Insights",
+    description: "Expert insights on CMMS implementation and data quality.",
+    images: ["https://assetstage.io/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://assetstage.io/blog",
+  },
 };
 
 export default async function BlogIndex() {
@@ -12,7 +36,7 @@ export default async function BlogIndex() {
   const [featured, ...rest] = posts;
 
   return (
-    <div className="blog-page">
+    <main className="blog-page">
       <div className="blog-header">
         <Link href="/" className="blog-home-link">← Back to Home</Link>
         <h1 className="blog-title">AssetStage Blog</h1>
@@ -102,7 +126,7 @@ export default async function BlogIndex() {
       <div style={{ maxWidth: '800px', margin: '50px auto', padding: '0 20px' }}>
         <BlogCTA variant="inline" />
       </div>
-    </div>
+    </main>
   );
 }
 

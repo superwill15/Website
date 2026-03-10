@@ -156,6 +156,7 @@ export default function PMOptimizationPage() {
         </div>
       </nav>
 
+      <main>
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
@@ -427,6 +428,7 @@ export default function PMOptimizationPage() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Demo Request Modal */}
       {modalOpen && (

@@ -24,6 +24,7 @@ export default function ContactPage() {
     <>
       <Navigation />
 
+      <main>
       {/* Hero Section */}
       <section className="hero" style={{ padding: '80px 20px 60px' }}>
         <div className="hero-content">
@@ -209,6 +210,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
 

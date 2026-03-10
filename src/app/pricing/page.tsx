@@ -24,6 +24,7 @@ export default function PricingPage() {
     <>
       <Navigation />
 
+      <main>
       {/* Hero Section */}
       <section className="hero" style={{ padding: '100px 20px 80px' }}>
         <div className="hero-content">
@@ -237,6 +238,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
 

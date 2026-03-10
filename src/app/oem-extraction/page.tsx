@@ -237,6 +237,7 @@ export default function OEMExtractionPage() {
         </div>
       </nav>
 
+      <main>
       {/* ============================================
           SECTION 1: HERO SECTION
           Primary keywords: AI maintenance planning, automatic PM generation, AI preventive maintenance
@@ -667,6 +668,7 @@ export default function OEMExtractionPage() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Demo Request Modal */}
       {modalOpen && (

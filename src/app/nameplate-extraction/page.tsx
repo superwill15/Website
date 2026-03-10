@@ -232,6 +232,7 @@ export default function NameplateExtractionPage() {
         </div>
       </nav>
 
+      <main>
       {/* ============================================
           SECTION 1: HERO SECTION
           ============================================ */}
@@ -682,6 +683,7 @@ export default function NameplateExtractionPage() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Demo Request Modal */}
       {modalOpen && (

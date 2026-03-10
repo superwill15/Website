@@ -6,8 +6,32 @@ import CTASection from '@/components/CTASection';
 import { Target, Users, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About AssetStage | CMMS Data Workspace',
+  title: 'About AssetStage | Built by Maintenance Engineers',
   description: 'AssetStage was founded by maintenance engineers to solve CMMS data quality problems. We make enterprise-quality data staging accessible to every organization.',
+  openGraph: {
+    title: 'About AssetStage | Built by Maintenance Engineers',
+    description: 'Founded by maintenance engineers to solve CMMS data quality problems.',
+    url: 'https://assetstage.io/about',
+    siteName: 'AssetStage',
+    type: 'website',
+    images: [
+      {
+        url: 'https://assetstage.io/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'About AssetStage',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About AssetStage | Built by Maintenance Engineers',
+    description: 'Founded by maintenance engineers to solve CMMS data quality problems.',
+    images: ['https://assetstage.io/og-image.png'],
+  },
+  alternates: {
+    canonical: 'https://assetstage.io/about',
+  },
 };
 
 export default function AboutPage() {
@@ -15,6 +39,7 @@ export default function AboutPage() {
     <>
       <Navigation />
 
+      <main>
       {/* Hero Section */}
       <section className="hero" style={{ padding: '80px 20px 60px' }}>
         <div className="hero-content">
@@ -182,6 +207,7 @@ export default function AboutPage() {
         secondaryButtonText="Contact Us"
         secondaryButtonHref="/contact"
       />
+      </main>
 
       <Footer />
     </>
