@@ -134,17 +134,24 @@ export default function HomePage() {
             <Logo variant="primary" width={200} height={50} />
           </a>
           <ul className="nav-links">
-            <li><a href="/">Home</a></li>
             <li><a href="#assetstage">Platform</a></li>
             <li className="nav-dropdown">
               <button className="nav-dropdown-trigger">
-                Products <ChevronDown size={14} />
+                Solutions <ChevronDown size={14} />
               </button>
               <div className="nav-dropdown-menu">
-                <a href="/pm-optimization">PM Optimization</a>
-                <a href="/oem-extraction">OEM Extraction</a>
-                <a href="/nameplate-extraction">Nameplate Extraction</a>
+                <a href="/asset-data-staging">Asset Hierarchy Staging</a>
+                <a href="/pm-optimization">PM Optimisation</a>
                 <a href="/inventory">Inventory Management</a>
+              </div>
+            </li>
+            <li className="nav-dropdown">
+              <button className="nav-dropdown-trigger">
+                Integrations <ChevronDown size={14} />
+              </button>
+              <div className="nav-dropdown-menu">
+                <a href="/maximo-data-staging">Maximo</a>
+                <a href="/sap-pm-data-staging">SAP PM</a>
               </div>
             </li>
             <li><a href="/services">Services</a></li>
@@ -153,12 +160,11 @@ export default function HomePage() {
                 Resources <ChevronDown size={14} />
               </button>
               <div className="nav-dropdown-menu">
-                <a href="/resources">Free Downloads</a>
                 <a href="/blog">Blog</a>
+                <a href="/resources">Free Downloads</a>
               </div>
             </li>
             <li><a href="/pricing">Pricing</a></li>
-            <li><a href="/contact">Contact</a></li>
           </ul>
           <button className="nav-cta" onClick={openModal}>Book a Demo</button>
 
@@ -173,23 +179,25 @@ export default function HomePage() {
         {/* Mobile Navigation */}
         <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
           <ul className="mobile-nav-links">
-            <li><a href="/" onClick={toggleMobileMenu}>Home</a></li>
             <li><a href="#assetstage" onClick={toggleMobileMenu}>Platform</a></li>
             <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
-              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Products</span>
+              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Solutions</span>
             </li>
-            <li><a href="/pm-optimization" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>PM Optimization</a></li>
-            <li><a href="/oem-extraction" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>OEM Extraction</a></li>
-            <li><a href="/nameplate-extraction" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Nameplate Extraction</a></li>
+            <li><a href="/asset-data-staging" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Asset Hierarchy Staging</a></li>
+            <li><a href="/pm-optimization" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>PM Optimisation</a></li>
             <li><a href="/inventory" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Inventory Management</a></li>
+            <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
+              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Integrations</span>
+            </li>
+            <li><a href="/maximo-data-staging" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Maximo</a></li>
+            <li><a href="/sap-pm-data-staging" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>SAP PM</a></li>
             <li><a href="/services" onClick={toggleMobileMenu}>Services</a></li>
             <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
               <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Resources</span>
             </li>
-            <li><a href="/resources" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Free Downloads</a></li>
             <li><a href="/blog" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Blog</a></li>
+            <li><a href="/resources" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Free Downloads</a></li>
             <li><a href="/pricing" onClick={toggleMobileMenu}>Pricing</a></li>
-            <li><a href="/contact" onClick={toggleMobileMenu}>Contact</a></li>
             <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Book a Demo</button></li>
           </ul>
         </div>
@@ -207,10 +215,10 @@ export default function HomePage() {
             letterSpacing: '2px',
             textTransform: 'uppercase'
           }}>
-            The CMMS Data Workspace
+            The Asset Data Staging Platform for CMMS Teams
           </div>
-          <h1>Stop Fighting Spreadsheets.<br />Start Shipping Clean Data.</h1>
-          <p>AssetStage helps maintenance teams transform messy CMMS data into production-ready hierarchies. Faster than traditional consulting, without the six-figure price tag.</p>
+          <h1>The Asset Data Staging Platform<br />for CMMS Teams</h1>
+          <p>AssetStage is the purpose-built workspace for CMMS data management — structure, validate, and stage asset data before it ever touches production.</p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={openModal}>See Your Data Transformed</button>
             <a href="#assetstage" className="btn-secondary">Learn How It Works</a>
@@ -247,7 +255,7 @@ export default function HomePage() {
         <div className="container">
           <div className="section-header">
             <h2>The CMMS Data Workspace Built for Maintenance Teams</h2>
-            <p>Not staging. Not MDM. Not consulting. A purpose-built workspace where CMMS data problems get solved.</p>
+            <p>A purpose-built staging workspace where asset data is structured, validated, and made CMMS-ready — before it ever touches production.</p>
           </div>
 
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -394,38 +402,38 @@ export default function HomePage() {
               <div className="blog-image">Featured Article</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>September 8, 2025</span>
-                  <span>Maritime Standards</span>
+                  <span>March 10, 2026</span>
+                  <span>Maximo Migration</span>
                 </div>
-                <h3>SFI Coding and ISO 14224: A Complete Guide for Maritime CMMS</h3>
-                <p>How combining SFI equipment identification with ISO 14224 reliability standards creates a comprehensive framework for maritime maintenance management.</p>
-                <a href="/blog/SFI-ISO14224" className="read-more">Read More &rarr;</a>
+                <h3>Don&apos;t Move the Mess: A Data Engineer&apos;s Guide to Maximo MAS 9 Migration</h3>
+                <p>Your Maximo migration will fail without clean data. Here&apos;s exactly what to fix — asset hierarchies, duplicates, field gaps — before you move to MAS 9.</p>
+                <a href="/blog/maximo-mas-9-migration-data-guide" className="read-more">Read More &rarr;</a>
               </div>
             </article>
 
             <article className="blog-card">
-              <div className="blog-image">Industry Guide</div>
+              <div className="blog-image">Complete Guide</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>September 1, 2025</span>
-                  <span>Maritime</span>
+                  <span>February 6, 2026</span>
+                  <span>Data Staging</span>
                 </div>
-                <h3>Maritime CMMS: Why Shipping&apos;s $30B Maintenance Bill Keeps Growing</h3>
-                <p>With 109,000+ vessels and maintenance consuming 30% of operating costs, most fleets still run on paper and spreadsheets.</p>
-                <a href="/blog/maritime-cmms-guide" className="read-more">Read More &rarr;</a>
+                <h3>What is CMMS Data Staging? The Complete Guide for Maintenance Teams</h3>
+                <p>Why the best CMMS implementations never load data straight into production. Learn what data staging is, when you need it, and how it prevents costly rework.</p>
+                <a href="/blog/what-is-cmms-data-staging" className="read-more">Read More &rarr;</a>
               </div>
             </article>
 
             <article className="blog-card">
-              <div className="blog-image">Technical Deep Dive</div>
+              <div className="blog-image">Risk &amp; Liability</div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <span>August 25, 2025</span>
-                  <span>Standards</span>
+                  <span>February 2, 2026</span>
+                  <span>Maximo</span>
                 </div>
-                <h3>RDS-PP to RDS-PS: Evolution in Power System Classification</h3>
-                <p>A detailed comparison of RDS-PP and RDS-PS reference designation systems for power generation and electrical systems.</p>
-                <a href="/blog/rds-pp-vs-rds-ps-improvements" className="read-more">Read More &rarr;</a>
+                <h3>The Hidden Liability Risk of Loading Data Directly into Maximo with MXLoader</h3>
+                <p>MXLoader is unsupported by IBM and disclaims all liability. When it damages production data, who pays? Why smart consultants are adding a staging layer.</p>
+                <a href="/blog/mxloader-liability-risk-staging-layer" className="read-more">Read More &rarr;</a>
               </div>
             </article>
           </div>

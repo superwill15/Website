@@ -31,17 +31,24 @@ export default function Navigation() {
             <Logo variant="primary" width={200} height={50} />
           </a>
           <ul className="nav-links">
-            <li><a href="/">Home</a></li>
             <li><a href="/#assetstage">Platform</a></li>
             <li className="nav-dropdown">
               <button className="nav-dropdown-trigger">
-                Products <ChevronDown size={14} />
+                Solutions <ChevronDown size={14} />
               </button>
               <div className="nav-dropdown-menu">
-                <a href="/pm-optimization">PM Optimization</a>
-                <a href="/oem-extraction">OEM Extraction</a>
-                <a href="/nameplate-extraction">Nameplate Extraction</a>
+                <a href="/asset-data-staging">Asset Hierarchy Staging</a>
+                <a href="/pm-optimization">PM Optimisation</a>
                 <a href="/inventory">Inventory Management</a>
+              </div>
+            </li>
+            <li className="nav-dropdown">
+              <button className="nav-dropdown-trigger">
+                Integrations <ChevronDown size={14} />
+              </button>
+              <div className="nav-dropdown-menu">
+                <a href="/maximo-data-staging">Maximo</a>
+                <a href="/sap-pm-data-staging">SAP PM</a>
               </div>
             </li>
             <li><a href="/services">Services</a></li>
@@ -50,12 +57,11 @@ export default function Navigation() {
                 Resources <ChevronDown size={14} />
               </button>
               <div className="nav-dropdown-menu">
-                <a href="/resources">Free Downloads</a>
                 <a href="/blog">Blog</a>
+                <a href="/resources">Free Downloads</a>
               </div>
             </li>
             <li><a href="/pricing">Pricing</a></li>
-            <li><a href="/contact">Contact</a></li>
           </ul>
           <button className="nav-cta" onClick={openModal}>Book a Demo</button>
 
@@ -70,23 +76,25 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
           <ul className="mobile-nav-links">
-            <li><a href="/" onClick={toggleMobileMenu}>Home</a></li>
             <li><a href="/#assetstage" onClick={toggleMobileMenu}>Platform</a></li>
             <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
-              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Products</span>
+              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Solutions</span>
             </li>
-            <li><a href="/pm-optimization" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>PM Optimization</a></li>
-            <li><a href="/oem-extraction" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>OEM Extraction</a></li>
-            <li><a href="/nameplate-extraction" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Nameplate Extraction</a></li>
+            <li><a href="/asset-data-staging" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Asset Hierarchy Staging</a></li>
+            <li><a href="/pm-optimization" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>PM Optimisation</a></li>
             <li><a href="/inventory" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Inventory Management</a></li>
+            <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
+              <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Integrations</span>
+            </li>
+            <li><a href="/maximo-data-staging" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Maximo</a></li>
+            <li><a href="/sap-pm-data-staging" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>SAP PM</a></li>
             <li><a href="/services" onClick={toggleMobileMenu}>Services</a></li>
             <li style={{ borderBottom: 'none', paddingBottom: 0 }}>
               <span style={{ padding: '16px 20px', display: 'block', fontWeight: 600, color: 'var(--text-light)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>Resources</span>
             </li>
-            <li><a href="/resources" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Free Downloads</a></li>
             <li><a href="/blog" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Blog</a></li>
+            <li><a href="/resources" onClick={toggleMobileMenu} style={{ paddingLeft: '32px' }}>Free Downloads</a></li>
             <li><a href="/pricing" onClick={toggleMobileMenu}>Pricing</a></li>
-            <li><a href="/contact" onClick={toggleMobileMenu}>Contact</a></li>
             <li><button className="mobile-nav-cta" onClick={() => { toggleMobileMenu(); openModal(); }}>Book a Demo</button></li>
           </ul>
         </div>
